@@ -1,0 +1,24 @@
+<div class="card">
+    <p-table 
+        [value]="listaUsers" 
+        
+        styleClass="p-datatable-striped" 
+        [tableStyle]="{'min-width': '50rem'}">
+            <ng-template pTemplate="header">
+                <tr>
+                    
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-Users>
+                <tr>
+                    
+                    <td>{{Users.fullName}}</td>
+                    <td>{{Users.email}}</td>
+                    <td>{{Users.rol}}</td>
+                </tr>
+            </ng-template>
+    </p-table>
+</div>
