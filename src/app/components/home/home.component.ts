@@ -41,6 +41,10 @@ export class HomeComponent implements OnInit {
                     {
                         label: 'Listar Usuarios',
                         icon: 'pi pi-search',
+                        command: () => {
+                            this.router.navigate(['../tableusers']);
+                          
+                        } 
                         
                     }
                 ]
