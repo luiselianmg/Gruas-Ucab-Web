@@ -1,36 +1,14 @@
 import { Routes } from '@angular/router';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { authGuard } from './guards/auth.guard';
+import { CreateuserComponent } from './components/createuser/createuse.component';
 
 export const routes: Routes = [
-    {
-        path: '',
-        loadComponent: () => import('./shared/components/layout/layout.component'),
-        children: [
-            {
-                path: 'dashboard',
-                loadComponent: () => import('./business/dashboard/dashboard.component')
-            },
-            {
-                path: 'profile',
-                loadComponent: () => import('./business/profile/profile.component')
-            },
-            {
-                path: 'tables',
-                loadComponent: () => import('./business/tables/tables.component')
-            },
-            {
-                path: 'singin',
-                loadComponent: () => import('./business/authentication/login/login.component')
-            }
-
-        ]
-    },
-    {
-        path: 'login',
-        loadComponent: () => import('./business/authentication/login/login.component')
-       
-    },
-    {
-        path: '**',
-        redirectTo: 'dashboard'
-    }
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'createuser', component: CreateuserComponent },
+  { path: 'home', component: HomeComponent, canActivate: [authGuard]},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
