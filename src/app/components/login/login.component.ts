@@ -37,7 +37,7 @@ export class LoginComponent {
       next: (response) => {
         if (response.length >= 1) {
           sessionStorage.setItem('email', email);
-          this.router.navigate(['home']);
+          this.router.navigate(['']);
         } else {
           this.messageService.add({
             severity: 'error',

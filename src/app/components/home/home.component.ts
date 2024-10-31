@@ -6,13 +6,13 @@ import { MenuModule } from 'primeng/menu';
 import { BadgeModule } from 'primeng/badge';
 import { RippleModule } from 'primeng/ripple';
 import { AvatarModule } from 'primeng/avatar';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     standalone: true,
-    imports: [MenuModule, BadgeModule, RippleModule, AvatarModule]
+    imports: [MenuModule, BadgeModule, RippleModule, AvatarModule,RouterLink]
 })
 export class HomeComponent implements OnInit {
     items: MenuItem[] | undefined;
@@ -34,15 +34,13 @@ export class HomeComponent implements OnInit {
                     {
                         label: 'Nuevo Usuario',
                         icon: 'pi pi-plus',
-                        command: () => {
-                          this.router.navigate(['../createuser']);
-                      } 
+                        routerLink: '/createuser'
                     },
                     {
                         label: 'Listar Usuarios',
                         icon: 'pi pi-search',
                         command: () => {
-                            this.router.navigate(['../tableusers']);
+                            this.router.navigate(['../tableuser']);
                           
                         } 
                         
@@ -62,6 +60,14 @@ export class HomeComponent implements OnInit {
                         icon: 'pi pi-inbox',
                         
                     },
+                ]
+            },
+            {
+                separator: true
+            },
+            {
+                label: 'Cuenta',
+                items: [
                     {
                         label: 'Logout',
                         icon: 'pi pi-sign-out',
@@ -72,9 +78,6 @@ export class HomeComponent implements OnInit {
                     }
                 ]
             },
-            {
-                separator: true
-            }
         ];
     }
 }
