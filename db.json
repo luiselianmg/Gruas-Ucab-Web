@@ -37,10 +37,40 @@
       "password": "455874"
     },
     {
-      "id": "ebe2",
-      "fullName": "ggyjjii",
-      "email": "bsbbss4@gmai.com",
-      "password": "741"
+      "id": "a173",
+      "fullName": "asdd",
+      "email": "bsbbsd44@gmai.com",
+      "rol": [
+        "operador"
+      ],
+      "password": "789"
+    },
+    {
+      "id": "2796",
+      "fullName": "admin",
+      "email": "admin@gmail.com",
+      "password": "1"
+    },
+    {
+      "id": "a0c0",
+      "fullName": "rere",
+      "email": "ka0@gmail.com",
+      "password": "78799"
+    },
+    {
+      "id": "0ff6",
+      "fullName": "rere2",
+      "email": "ka022@gmail.com",
+      "rol": [
+        "admin"
+      ],
+      "password": "4546"
+    },
+    {
+      "id": "7550",
+      "fullName": "erty",
+      "email": "ka033@gmail.com",
+      "password": "789"
     }
   ]
 }
