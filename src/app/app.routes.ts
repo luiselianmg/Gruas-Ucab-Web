@@ -1,30 +1,37 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { UserComponent } from './pages/user/user.component';
+import { ServiceOrderComponent } from './pages/service-order/service-order.component';
+import { LoginFormComponent } from './pages/login-form/login-form.component';
 import { authGuard } from './guards/auth.guard';
-import { CreateuserComponent } from './components/createuser/createuse.component';
-import { TableuserComponent } from './components/tableuser/tableuser.component';
-import LayoutComponent from './layout/layout.component';
+import { LayoutComponent } from './main/layout/layout.component';
+
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginFormComponent },
+  
 
   { path: '', 
     component: LayoutComponent, canActivate: [authGuard],
     children: [
       {
-        path: 'createuser', component: CreateuserComponent
+        path: 'dashboard',
+        component: DashboardComponent,
       },
       {
-        path: 'tableuser', component: TableuserComponent 
+        path: 'user',
+        component: UserComponent, 
       },
+      {
+        path: 'serviceOrder',
+        component: ServiceOrderComponent
+      }
     ]
   },
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  
   
   
   
 ];
+
