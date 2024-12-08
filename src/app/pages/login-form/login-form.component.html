@@ -1,0 +1,77 @@
+<div class="content" >
+  <mat-card class="card "  appearance="raised">
+
+    <mat-card-header  >
+      <mat-card-title > <h2>Login</h2></mat-card-title>
+      <mat-card-subtitle> <H3>GRUAS-UCAB</H3></mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content   >
+
+
+
+          <mat-form-field class="form-full-width"  appearance="outline" >
+            <mat-label for="email">Enter your email</mat-label>
+            <input
+             matInput
+             placeholder="pat@example.com"
+             [formControl]="email"
+             type="email"
+             id = "typemail"
+             pInputText
+             [(ngModel)]="login.email"
+             id="email"
+             name="email"
+
+             (blur)="updateErrorMessageEmail()"
+             required
+             />
+             @if (email.invalid) {
+              <mat-error>{{errorMessage()}}</mat-error>
+            }
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="form-full-width" appearance="outline"  >
+            <mat-label for="password">Enter your password</mat-label>
+            <input
+            matInput
+            [type]="hide() ? 'password' : 'text'"
+            [formControl]="password"
+            type="password"
+            id = "typepassword"
+            [(ngModel)]="login.password"
+            inputId="password"
+            name="password"
+
+             (blur)="updateErrorMessagePassword()"
+             required
+             />
+             @if (password.invalid) {
+              <mat-error>{{errorMessage()}}</mat-error>
+            }
+            <button
+             mat-icon-button
+             matSuffix
+
+             (click)="clickEvent($event)"
+             [attr.aria-label]="'Hide password'"
+             [attr.aria-pressed]="hide()"
+             >
+             <mat-icon class="icon-pass" >{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+             </button>
+          </mat-form-field>
+
+          <button
+          class="button-login"
+          mat-raised-button
+          type="submit"
+          (click)="onLogin()" [disabled]="email.invalid || password.invalid">
+          Login
+        </button>
+
+
+    </mat-card-content>
+
+  </mat-card>
+</div>

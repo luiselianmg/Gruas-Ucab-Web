@@ -1,0 +1,57 @@
+<div class="sidenav-header">
+  <img  
+  [width]="logoPicSize()" 
+  [height]="logoPicSize()" 
+  src="../../../assets/img/GRUAS-UCAB-AVATAR.jpg" />
+  <div class="sidenav-header-text" [class.hide-header-text]="sideNavCollapsed()">
+    <h2> GRUAS-UCAB</h2>
+    <P>web site</P>
+  </div>
+  <mat-divider></mat-divider>
+</div>
+<mat-nav-list> 
+  <a 
+  mat-list-item 
+  class="menu-item" 
+  *ngFor="let item of menuItems()" 
+  [routerLink]="item.route"
+  routerLinkActive = "selected-menu-item"
+  #rla= "routerLinkActive"
+  [activated]="rla.isActive"
+  >
+    <mat-icon 
+    [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" 
+    matListItemIcon>
+    
+    {{ item.icon }}</mat-icon>
+    
+    <span matListItemTitle *ngIf="!sideNavCollapsed()">
+      
+      {{ item.label }}</span>
+      
+    </a>
+    
+  
+
+    <a
+    mat-list-item 
+    class="menu-item" 
+    
+    routerLink="login"
+    routerLinkActive = "sessionStorage.clear()"
+    #rla= "routerLinkActive"
+    [activated]="rla.isActive"
+    >
+    <mat-icon 
+    [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" 
+    matListItemIcon>
+    
+    logout</mat-icon>
+    
+    
+    <span matListItemTitle  >
+      
+      Cerrar sesión</span>
+    </a>
+ 
+</mat-nav-list>

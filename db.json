@@ -1,76 +1,42 @@
 {
   "users": [
     {
-      "fullName": "dfsdf",
-      "email": "fsdf@sfdfg.fgdf",
-      "password": "123",
-      "id": "1"
-    },
-    {
-      "fullName": "Test User",
-      "email": "haseenakhader.uk@gmail.com",
-      "password": "123",
-      "id": "2"
-    },
-    {
-      "fullName": "Test User",
-      "email": "haseenakhader.uk@gmail.com",
-      "password": "123456",
-      "id": "3"
-    },
-    {
-      "fullName": "Test User",
-      "email": "haseenakhader.uk@gmail.com",
-      "password": "123",
-      "id": "4"
-    },
-    {
-      "id": "942d",
-      "fullName": "ANTONIO RAFAEL BLANCO BORRERO",
-      "email": "arblanco.11@est.ucab.edu.ve",
-      "password": "123456"
-    },
-    {
-      "id": "3022",
-      "fullName": "pepeppe",
-      "email": "bsbbss@gmai.com",
-      "password": "455874"
-    },
-    {
-      "id": "a173",
-      "fullName": "asdd",
-      "email": "bsbbsd44@gmai.com",
-      "rol": [
-        "operador"
-      ],
-      "password": "789"
-    },
-    {
-      "id": "2796",
-      "fullName": "admin",
+      "id": "01",
+      "name": "Jose Admin",
+      "phone": "123456789",
       "email": "admin@gmail.com",
-      "password": "1"
-    },
-    {
-      "id": "a0c0",
-      "fullName": "rere",
-      "email": "ka0@gmail.com",
-      "password": "78799"
-    },
-    {
-      "id": "0ff6",
-      "fullName": "rere2",
-      "email": "ka022@gmail.com",
+      "password": "1",
+      "department": "Servicio",
+      "isActive": true,
       "rol": [
-        "admin"
-      ],
-      "password": "4546"
+        "Admin"
+      ]
     },
+
     {
-      "id": "7550",
-      "fullName": "erty",
-      "email": "ka033@gmail.com",
-      "password": "789"
+      "id": "02",
+      "name": "Pedro Operador",
+      "phone": "13256789",
+      "email": "oper@gmail.com",
+      "password": "2",
+      "department": "Servicio",
+      "isActive": true,
+      "rol": [
+        "Operador"
+      ]
+    },
+
+    {
+      "id": "03",
+      "name": "Luis Conductor",
+      "phone": "13200000",
+      "email": "cond@gmail.com",
+      "password": "3",
+      "department": "Servicio",
+      "isActive": true,
+      "rol": [
+        "Conductor"
+      ]
     }
   ]
 }
