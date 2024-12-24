@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import { Router } from '@angular/router';
@@ -13,6 +13,7 @@ import {merge} from 'rxjs';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import { LocalserviceuserService } from '../../service/localserviceuser.service';
 import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -26,6 +27,7 @@ export class LoginFormComponent {
   readonly email = new FormControl('', [Validators.required, Validators.email]);
   readonly password = new FormControl('', [Validators.required]);
   errorMessage = signal('');
+  private snackBar = inject(MatSnackBar);
 
   constructor() {
     merge(this.email.statusChanges, this.email.valueChanges)
@@ -56,6 +58,7 @@ export class LoginFormComponent {
   updateErrorMessagePassword() {
     if (this.email.hasError('required')) {
       this.errorMessage.set('You must enter a value');
+
     }  else this.errorMessage.set('');
     
   }
@@ -81,7 +84,10 @@ export class LoginFormComponent {
         if (response.length >= 1) {
           sessionStorage.setItem('email', email);
           this.router.navigate(['dashboard']);
-        } 
+          this.snackBar.open('Login Successful!', 'Close', {
+            duration: 3000
+          });
+        }
       },
 
     });

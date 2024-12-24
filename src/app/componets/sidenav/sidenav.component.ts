@@ -4,23 +4,26 @@ import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { MenuItemComponent } from "../menu-item/menu-item.component";
 
 //types del menu lateral
 export type MenuItem = {
   icon : string,
   label : string,
-  route? : string
+  route? : string,
+  subItems? : MenuItem[]
 }
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
     MatIconModule,
     MatListModule,
-    RouterModule
-  ],
+    RouterModule,
+    MenuItemComponent
+],
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
@@ -47,6 +50,12 @@ export class SidenavComponent  {
       icon: "person",
       label: "Usuarios",
       route: "user",
+      subItems: [{
+        icon: "person",
+        label: "Proveedor",
+        route: "proveedor",
+
+      }]
     },
     {
       icon: "support_agent",

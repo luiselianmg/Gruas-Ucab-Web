@@ -1,3 +1,4 @@
+/* @import "./tailwind.scss";*/
 @use '@angular/material' as mat;
 @include mat.core();
 
@@ -33,13 +34,12 @@ $theme: mat.define-theme((
   color: (
     theme-type: light,
     primary: mat.$azure-palette,
+    
   ),
   density: (
     scale: 0
-  )
+  ),
 ));
-
-
 
 
 
