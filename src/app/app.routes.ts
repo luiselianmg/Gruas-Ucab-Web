@@ -8,11 +8,11 @@ import { LayoutComponent } from './main/layout/layout.component';
 
 
 export const routes: Routes = [
-  { path: 'login', component: LoginFormComponent },
+  /*{ path: 'login', component: LoginFormComponent },*/
   
 
   { path: '', 
-    component: LayoutComponent, canActivate: [authGuard],
+    component: LayoutComponent, /*canActivate: [authGuard],*/
     children: [
       {
         path: 'dashboard',
