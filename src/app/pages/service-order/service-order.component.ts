@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { GoogleMapsModule } from "@angular/google-maps";
+import { FormsModule } from '@angular/forms'; // Importa FormsModule
 
 @Component({
   selector: 'app-service-order',
   standalone: true,
-  imports: [GoogleMapsModule],
+  imports: [
+    GoogleMapsModule,
+    FormsModule
+  ],
   templateUrl: './service-order.component.html',
   styleUrl: './service-order.component.css'
 })
@@ -12,6 +16,8 @@ export class ServiceOrderComponent {
 
   map!: google.maps.Map;
   distancia!: string;
+  origin: string = '';
+  destination: string = '';
 
   // Google maps general configuration
   options: google.maps.MapOptions = {
@@ -23,15 +29,15 @@ export class ServiceOrderComponent {
 
 
   // Distance Calculation
-  mapRuta() {
+  mapRoute() {
     const directionService = new google.maps.DirectionsService();
     const directionRender = new google.maps.DirectionsRenderer();
     
     directionRender.setMap(this.map);
 
     directionService.route({
-      origin: 'Sambil La Candelaria',
-      destination: 'Residencias Jaardin Bello Monte',
+      origin: this.origin,
+      destination: this.destination,
       travelMode: google.maps.TravelMode.DRIVING
     }, (result, status) => {
       if (status === google.maps.DirectionsStatus.OK && result && result.routes.length > 0 && result.routes[0].legs.length > 0 && result.routes[0].legs[0].distance) {
