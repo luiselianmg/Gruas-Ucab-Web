@@ -1,20 +1,24 @@
 <h2>Servicios</h2>
 
-<h2>Servicios</h2>
-
 <form (ngSubmit)="mapRoute()">
-    <label for="origin">Origen:</label>
-    <input type="text" id="origin" [(ngModel)]="origin" name="origin" required>
+  <label for="origin">Origen:</label>
+  <input type="text" id="origin" [(ngModel)]="origin" name="origin" required>
 
-    <label for="destination">Destino:</label>
-    <input type="text" id="destination" [(ngModel)]="destination" name="destination" required>
+  <label for="destination">Destino:</label>
+  <input type="text" id="destination" [(ngModel)]="destination" name="destination" required>
 
-    <button type="submit">Calcular Ruta</button>
+  <button type="submit">Calcular Ruta</button>
 </form>
 
-<h3>La distancia es {{distancia}}</h3>
+<h3>La distancia es: {{ distancia }}</h3>
 
 <div class="map-container">
-    <google-map [options]="options" height="600px" width="800px">
+  <!-- Recuerda enlazar (mapReady) para capturar la instancia del mapa -->
+    <google-map 
+        [options]="options" 
+        height="600px" 
+        width="800px" 
+        (mapInitialized)="onMapReady($event)">
     </google-map>
+
 </div>
