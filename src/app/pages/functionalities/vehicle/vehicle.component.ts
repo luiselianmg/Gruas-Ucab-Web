@@ -1,9 +1,4 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { TablerIconsModule } from 'angular-tabler-icons';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MaterialModule } from 'src/app/material.module';
@@ -19,6 +14,10 @@ export interface vehiclesData {
   model: string;
   year: number;
   type: string;
+}
+
+interface Type {
+  value: string;
 }
 
 const VEHICLE_DATA: vehiclesData[] = [
@@ -103,7 +102,18 @@ const VEHICLE_DATA: vehiclesData[] = [
   templateUrl: './vehicle.component.html',
 })
 export class AppVehicleComponent {
-
+  // Table
   displayedColumns1: string[] = ['class', 'brand', 'model', 'year', 'type'];
   dataSource1 = VEHICLE_DATA;
+  // End Table
+
+  // Select
+  type: Type[] = [
+    { value: 'Ligero' },
+    { value: 'Mediano' },
+    { value: 'Pesado' },
+  ];
+  selectedType = this.type[0].value;
+  // End Select
+
 }
