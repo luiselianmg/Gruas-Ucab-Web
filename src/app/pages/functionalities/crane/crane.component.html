@@ -1,4 +1,231 @@
+<mat-card class="cardWithShadow">
+  <mat-card-content>
+    
+    <mat-card-title>Gruas</mat-card-title>
+    <mat-card-subtitle class="mat-body-1">Lista de Gruas</mat-card-subtitle>
 
-<mat-card class="cardWithShadow theme-card">
-  <h1>Crear y Mostrar Gruas</h1>
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource1" class="w-100">
+        <ng-container matColumnDef="imagePath">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14 p-l-0"
+          >
+            
+          </th>
+          <td mat-cell *matCellDef="let element" class="p-l-0">
+            <div class="d-flex align-items-center">
+              <img
+                [src]="element.imagePath"
+                alt="users"
+                width="60"
+                class="rounded"
+              />
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="brand">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Marca
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <h6 class="mat-body-1 f-s-16 m-b-4">
+              <span class="text-dark f-w-600">{{ element.brand }} </span>
+            </h6>          
+          </td>
+        </ng-container>
+
+        
+        <ng-container matColumnDef="model">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Modelo
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <h6 class="mat-body-1 f-s-16 m-b-4">
+              <span class="text-dark f-w-600">{{ element.model }} </span>
+            </h6>          
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="plate">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Placa
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <h6 class="mat-body-1 f-s-16 m-b-4">
+              <span class="text-dark f-w-600">{{ element.plate }} </span>
+            </h6>          
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="year">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Año
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <h6 class="mat-body-1 f-s-16 m-b-4">
+              <span class="text-dark f-w-600">{{ element.year }} </span>
+            </h6>          
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Tipo
+          </th>
+          <td mat-cell *matCellDef="let element">
+            @if(element.type == 'Mediana') {
+            <span
+              class="bg-light-warning text-warning rounded f-w-600 p-6 p-y-4 f-s-12"
+            >
+              {{ element.type | titlecase }}
+            </span>
+            } @if(element.type == 'Pesada') {
+            <span
+              class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12"
+            >
+              {{ element.type | titlecase }}
+            </span>
+            } @if(element.type == 'Ligera') {
+            <span
+              class="bg-light-success text-success rounded f-w-600 p-6 p-y-4 f-s-12"
+            >
+              {{ element.type | titlecase }}
+            </span>
+            }
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="isActive">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Estatus
+          </th>
+          <td mat-cell *matCellDef="let element">
+            @if(element.isActive) {
+              <span class="bg-light-success text-success rounded f-w-600 p-6 p-y-4 f-s-12">Activa</span>
+            } 
+            @else {
+              <span class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12">Inactiva</span>
+            }
+          </td>
+          
+        </ng-container>
+
+        <ng-container matColumnDef="budget">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          ></th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+      </table>
+    </div>
+  </mat-card-content>
 </mat-card>
+
+<!-- <mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">Crear Grua</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <form>
+      <div class="row">
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Marca</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput placeholder="marca" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Modelo</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput placeholder="modelo" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Año</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput type="number" placeholder="2025" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-12">
+          <mat-label class="f-w-600 m-b-8 d-block">Tipo</mat-label>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-select [(value)]="selectedType">
+              @for(option of type; track option.value) {
+              <mat-option [value]="option.value">{{
+                option.value
+              }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-6">
+              <mat-label class="f-w-600 m-b-8 d-block">Estado</mat-label>
+              <mat-selection-list #shoes2 [multiple]="false">
+                @for(status of craneStatus; track status) {
+                <mat-list-option [value]="status">
+                  {{ status }}
+                </mat-list-option>
+                }
+              </mat-selection-list>
+        </div>
+      </div>
+      
+
+      <div class="m-t-15">
+        <button mat-flat-button color="primary" class="m-r-8">Crear</button>
+        <button mat-stroked-button color="warn">Cancelar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card> -->

@@ -14,6 +14,7 @@ export interface vehiclesData {
   model: string;
   year: number;
   type: string;
+  plate: string;
 }
 
 interface Type {
@@ -28,6 +29,7 @@ const VEHICLE_DATA: vehiclesData[] = [
     model: 'Corolla',
     year: 2018,
     type: 'Ligero',
+    plate: 'ABC-123',
   },
   {
     id: 2,
@@ -36,6 +38,7 @@ const VEHICLE_DATA: vehiclesData[] = [
     model: 'Sentra',
     year: 2008,
     type: 'Pesado',
+    plate: 'DEF-456',
   },
   {
     id: 3,
@@ -44,6 +47,7 @@ const VEHICLE_DATA: vehiclesData[] = [
     model: 'F-150',
     year: 2015,
     type: 'Mediano',
+    plate: 'GHI-789',
   },
   {
     id: 4,
@@ -52,6 +56,7 @@ const VEHICLE_DATA: vehiclesData[] = [
     model: 'Aveo',
     year: 2019,
     type: 'Ligero',
+    plate: 'JKL-101',
   },
   {
     id: 5,
@@ -60,6 +65,7 @@ const VEHICLE_DATA: vehiclesData[] = [
     model: 'F-250',
     year: 2020,
     type: 'Mediano',
+    plate: 'MNO-112',
   },
   {
     id: 6,
@@ -68,6 +74,7 @@ const VEHICLE_DATA: vehiclesData[] = [
     model: 'Hilux',
     year: 2024,
     type: 'Mediano',
+    plate: 'PQR-113',
   },
   {
     id: 7,
@@ -76,6 +83,7 @@ const VEHICLE_DATA: vehiclesData[] = [
     model: 'X-Trail',
     year: 2017,
     type: 'Ligero',
+    plate: 'STU-114',
   },
   {
     id: 8,
@@ -84,6 +92,7 @@ const VEHICLE_DATA: vehiclesData[] = [
     model: 'Spark',
     year: 2012,
     type: 'Pesado',
+    plate: 'VWX-115',
   },
 ];
 
@@ -103,7 +112,7 @@ const VEHICLE_DATA: vehiclesData[] = [
 })
 export class AppVehicleComponent {
   // Table
-  displayedColumns1: string[] = ['class', 'brand', 'model', 'year', 'type'];
+  displayedColumns1: string[] = ['class', 'brand', 'model', 'plate', 'year', 'type', 'budget'];
   dataSource1 = VEHICLE_DATA;
   // End Table
 
