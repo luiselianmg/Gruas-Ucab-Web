@@ -1,16 +1,53 @@
-//angular
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {
+  ApplicationConfig,
+  provideZoneChangeDetection,
+  importProvidersFrom,
+} from '@angular/core';
+import {
+  HttpClient,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { routes } from './app.routes';
-//material
+import {
+  provideRouter,
+  withComponentInputBinding,
+  withInMemoryScrolling,
+} from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient } from '@angular/common/http';
+import { provideClientHydration } from '@angular/platform-browser';
 
+// icons
+import { TablerIconsModule } from 'angular-tabler-icons';
+import * as TablerIcons from 'angular-tabler-icons/icons';
+
+// perfect scrollbar
+import { NgScrollbarModule } from 'ngx-scrollbar';
+
+//Import all material modules
+import { MaterialModule } from './material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes), 
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(
+      routes,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'enabled',
+        anchorScrolling: 'enabled',
+      }),
+      withComponentInputBinding()
+    ),
+    provideHttpClient(withInterceptorsFromDi()),
+    provideClientHydration(),
     provideAnimationsAsync(),
-    provideHttpClient(), provideAnimationsAsync(),
-  ]
+    importProvidersFrom(
+      FormsModule,
+      ReactiveFormsModule,
+      MaterialModule,
+      TablerIconsModule.pick(TablerIcons),
+      NgScrollbarModule,
+    ),
+  ],
 };

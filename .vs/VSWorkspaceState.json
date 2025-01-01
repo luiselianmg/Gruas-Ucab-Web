@@ -1,8 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src"
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\layouts",
+    "\\src\\app\\layouts\\full",
+    "\\src\\app\\layouts\\full\\header",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\functionalities",
+    "\\src\\app\\pages\\functionalities\\vehicle"
   ],
-  "SelectedNode": "\\src\\index.html",
+  "SelectedNode": "\\src\\app\\pages\\functionalities\\vehicle\\vehicle.component.html",
   "PreviewInSolutionExplorer": false
 }

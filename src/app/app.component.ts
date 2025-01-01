@@ -1,19 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { GoogleMapsModule } from "@angular/google-maps";
-import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet, 
-    GoogleMapsModule,
-    ReactiveFormsModule
-  ],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'UCAB-GRUAS';
+  title = 'Modernize Angular Admin Template';
 }

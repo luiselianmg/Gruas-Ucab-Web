@@ -1,0 +1,145 @@
+<mat-card class="cardWithShadow">
+  <mat-card-content>
+    <mat-card-title>Lista de Vehiculos Asegurados</mat-card-title>
+
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource1" class="w-100">
+        <ng-container matColumnDef="class">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14 p-l-0"
+          >
+            
+          </th>
+          <td mat-cell *matCellDef="let element" class="p-l-0">
+            <div class="d-flex align-items-center">
+              <img
+                [src]="element.imagePath"
+                alt="users"
+                width="60"
+                class="rounded"
+              />
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="brand">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Marca
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <h6 class="mat-body-1 f-s-16 m-b-4">
+              <span class="text-dark f-w-600">{{ element.brand }} </span>
+            </h6>          
+          </td>
+        </ng-container>
+
+        
+        <ng-container matColumnDef="model">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Modelo
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <h6 class="mat-body-1 f-s-16 m-b-4">
+              <span class="text-dark f-w-600">{{ element.model }} </span>
+            </h6>          
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="year">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Año
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <h6 class="mat-body-1 f-s-16 m-b-4">
+              <span class="text-dark f-w-600">{{ element.year }} </span>
+            </h6>          
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Tipo
+          </th>
+          <td mat-cell *matCellDef="let element">
+            @if(element.type == 'Mediano') {
+            <span
+              class="bg-light-warning text-warning rounded f-w-600 p-6 p-y-4 f-s-12"
+            >
+              {{ element.type | titlecase }}
+            </span>
+            } @if(element.type == 'Pesado') {
+            <span
+              class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12"
+            >
+              {{ element.type | titlecase }}
+            </span>
+            } @if(element.type == 'Ligero') {
+            <span
+              class="bg-light-success text-success rounded f-w-600 p-6 p-y-4 f-s-12"
+            >
+              {{ element.type | titlecase }}
+            </span>
+            }
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="budget">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          ></th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">Crear Vehiculo</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+
+  </mat-card-content>
+</mat-card>

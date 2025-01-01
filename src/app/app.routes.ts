@@ -1,37 +1,36 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { UserComponent } from './pages/user/user.component';
-import { ServiceOrderComponent } from './pages/service-order/service-order.component';
-import { LoginFormComponent } from './pages/login-form/login-form.component';
-import { authGuard } from './guards/auth.guard';
-import { LayoutComponent } from './main/layout/layout.component';
-
+import { BlankComponent } from './layouts/blank/blank.component';
+import { FullComponent } from './layouts/full/full.component';
 
 export const routes: Routes = [
-  /*{ path: 'login', component: LoginFormComponent },*/
-  
-
-  { path: '', 
-    component: LayoutComponent, /*canActivate: [authGuard],*/
+  {
+    path: '',
+    component: FullComponent,
     children: [
       {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full',
+      },
+      {
         path: 'dashboard',
-        component: DashboardComponent,
+        loadChildren: () =>
+          import('./pages/pages.routes').then((m) => m.PagesRoutes),
       },
       {
-        path: 'user',
-        component: UserComponent, 
+        path: 'functionalities',
+        loadChildren: () =>
+          import('./pages/functionalities/functionalities.routes').then(
+            (m) => m.FunctionalitiesRoutes
+          ),
       },
       {
-        path: 'serviceOrder',
-        component: ServiceOrderComponent
-      }
-    ]
+        path: 'administration',
+        loadChildren: () =>
+          import('./pages/administration/administration.routes').then(
+            (m) => m.AdministrationRoutes
+          ),
+      },
+    ],
   },
-
-  
-  
-  
-  
 ];
-
