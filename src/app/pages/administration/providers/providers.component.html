@@ -1,3 +1,57 @@
 <mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+      <mat-card-title class="m-b-0">Crear Proveedor</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+      <form>
+        <div class="row">
+          <!-- Nombre -->
+          <div class="col-lg-6">
+            <mat-label class="f-w-600 m-b-8 d-block">Nombre</mat-label>
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <input matInput placeholder="nombre del usuario" />
+            </mat-form-field>
+          </div>
   
-</mat-card>
+          <!-- Rif -->
+          <div class="col-lg-6">
+            <mat-label class="f-w-600 m-b-8 d-block">Rif</mat-label>
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <input matInput type="number" placeholder="303702148" />
+            </mat-form-field>
+          </div>
+        </div>
+  
+        <!-- Estatus -->
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Estatus</mat-label>
+          <mat-selection-list #shoes2 [multiple]="false">
+            @for(status of providerStatus; track status) {
+            <mat-list-option [value]="status">
+              {{ status }}
+            </mat-list-option>
+            }
+          </mat-selection-list>
+        </div>
+  
+        <!-- Adjuntar Imagen -->
+        <div class="col-lg-6 m-t-12">
+          <mat-label class="f-w-600 m-b-8 d-block">Adjuntar Imagen</mat-label>
+          <div class="custom-file-input">
+            <input
+              type="file"
+              accept="image/*"
+              class="m-b-12"
+              (change)="onFileSelected($event)"
+            />
+          </div>
+        </div>
+  
+        <!-- Botones de Acción -->
+        <div class="m-t-12">
+          <button mat-flat-button color="primary" class="m-r-8">Crear</button>
+          <button mat-stroked-button color="warn">Cancelar</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>  
