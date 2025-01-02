@@ -1,12 +1,16 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { GoogleMapsModule } from '@angular/google-maps';
-import { FormsModule } from '@angular/forms';
+import { ExtraCostDialogComponent } from './extra-cost.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { TablerIconsModule } from 'angular-tabler-icons';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
+import { MatListModule } from '@angular/material/list';
 
 interface Conductor {
   value: number;
@@ -41,6 +45,9 @@ interface Operator {
     MatCardModule,
     MatInputModule,
     TablerIconsModule,
+    MatDialogModule,
+    CommonModule,
+    MatListModule,
   ],
   templateUrl: './orders.component.html',
 })
@@ -52,6 +59,30 @@ export class AppOrdersComponent implements OnInit {
   distancia!: string;
   origin: string = '';
   destination: string = '';
+
+  extraCosts: number = 0;
+  extraCostDetails: { cost: number; description: string }[] = [];
+
+  constructor(public dialog: MatDialog) {}
+
+
+  openExtraCostDialog(): void {
+    const dialogRef = this.dialog.open(ExtraCostDialogComponent, {
+      width: '400px',
+    });
+
+    dialogRef.beforeClosed().subscribe((result) => {
+      if (result) {
+        const confirmation = window.confirm(
+          `¿Seguro que quiere realizar esta operación? No es reversible.`
+        );
+        if (confirmation) {
+          this.extraCosts += result.cost;
+          this.extraCostDetails.push(result);
+        }
+      }
+    });
+  }
 
   originMarker!: google.maps.Marker;
   destinationMarker!: google.maps.Marker;
@@ -110,6 +141,7 @@ export class AppOrdersComponent implements OnInit {
     });
   }
 
+  // Route Calculation
   mapRoute() {
     const directionService = new google.maps.DirectionsService();
     
@@ -141,7 +173,9 @@ export class AppOrdersComponent implements OnInit {
       }
     );
   }
+  // End Route Calculation
 
+  // Markers at the map
   private addMarkers(originLatLng: google.maps.LatLng, destinationLatLng: google.maps.LatLng) {
     if (this.originMarker) {
       this.originMarker.setMap(null);
@@ -161,8 +195,11 @@ export class AppOrdersComponent implements OnInit {
       map: this.map,
       title: 'Destino'
     });
+
+    console.log('Coordenadas de Origen:', originLatLng.toString());
+    console.log('Coordenadas de Destino:', destinationLatLng.toString());
   }
-  // End Google Maps
+  // End Maker at the map
 
   // Conductor
   conductor: Conductor[] = [
