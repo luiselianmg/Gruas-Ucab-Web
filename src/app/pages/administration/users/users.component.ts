@@ -23,7 +23,7 @@ const USER_DATA: userData[] = [
   { imagePath: 'assets/images/profile/user-1.jpg', name: 'Juan Perez', phone: 1234567890, department: 1},
   { imagePath: 'assets/images/profile/user-2.jpg', name: 'Maria Lopez', phone: 1234567890, department: 2},
   { imagePath: 'assets/images/profile/user-3.jpg', name: 'Pedro Ramirez', phone: 1234567890, department: 3},
-  { imagePath: 'assets/images/profile/user-4.jpg', name: 'Ana Rodriguez', phone: 1234567890, department: 4},
+  { imagePath: 'assets/images/profile/user-4.jpg', name: 'Javier Rodriguez', phone: 1234567890, department: 4},
 ];
 
 @Component({
@@ -42,7 +42,7 @@ const USER_DATA: userData[] = [
 })
 export class AppUsersComponent {
     // Table
-    displayedColumns1: string[] = ['class', 'name', 'kmcoverage', 'moneycoverage', 'budget'];
+    displayedColumns1: string[] = ['class', 'name', 'phone', 'department', 'budget'];
     dataSource1 = USER_DATA;
     // End Table
 
