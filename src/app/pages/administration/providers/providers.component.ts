@@ -20,10 +20,10 @@ interface isActive {
 }
 
 const PROVIDER_DATA: providerData[] = [
-  { imagePath: 'assets/images/profile/user-1.jpg', name: 'Juan Perez', rif: 1234567890, isActive: true},
-  { imagePath: 'assets/images/profile/user-2.jpg', name: 'Maria Lopez', rif: 1234567890, isActive: false},
-  { imagePath: 'assets/images/profile/user-3.jpg', name: 'Pedro Ramirez', rif: 1234567890, isActive: false},
-  { imagePath: 'assets/images/profile/user-4.jpg', name: 'Javier Rodriguez', rif: 1234567890, isActive: true},
+  { imagePath: 'assets/images/profile/user-1.jpg', name: 'Buenas Gruas', rif: 1234567890, isActive: true},
+  { imagePath: 'assets/images/profile/user-2.jpg', name: 'Gruas USB', rif: 1234567890, isActive: false},
+  { imagePath: 'assets/images/profile/user-3.jpg', name: 'Paco el Gruero', rif: 1234567890, isActive: false},
+  { imagePath: 'assets/images/profile/user-4.jpg', name: 'Gruas Don Juan', rif: 1234567890, isActive: true},
 ];
 
 @Component({
@@ -42,7 +42,7 @@ const PROVIDER_DATA: providerData[] = [
 })
 export class AppProvidersComponent {
     // Table
-    displayedColumns1: string[] = ['class', 'name', 'phone', 'department', 'budget'];
+    displayedColumns1: string[] = ['imagePath', 'rif', 'name', 'isActive', 'budget'];
     dataSource1 = PROVIDER_DATA;
     // End Table
     providerStatus: string[] = ['Activo', 'Inactivo'];
@@ -55,5 +55,4 @@ export class AppProvidersComponent {
         console.log('Archivo seleccionado:', file);    
       }
     }
-    
 }
