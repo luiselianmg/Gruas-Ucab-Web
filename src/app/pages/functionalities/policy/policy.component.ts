@@ -21,7 +21,8 @@ interface Type {
 const POLICY_DATA: policyData[] = [
   { imagePath: 'assets/images/policy/bronce.png', name: 'Bronce', kmcoverage: '100,000 km', moneycoverage: '$100,000'},
   { imagePath: 'assets/images/policy/silver.png', name: 'Plata', kmcoverage: '300,000 km', moneycoverage: '$300,000'},
-  { imagePath: 'assets/images/policy/oro.png', name: 'Gold', kmcoverage: '500,000 km', moneycoverage: '$500,000'},];
+  { imagePath: 'assets/images/policy/oro.png', name: 'Oro', kmcoverage: '500,000 km', moneycoverage: '$500,000'},
+];
 
 
 @Component({

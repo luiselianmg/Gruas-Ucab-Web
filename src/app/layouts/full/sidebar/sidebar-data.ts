@@ -46,6 +46,11 @@ export const navItems: NavItem[] = [
     route: '/administration/users',
   },
   {
+    displayName: 'Proveedores',
+    iconName: 'address-book',
+    route: '/administration/providers',
+  },
+  {
     displayName: 'Roles',
     iconName: 'ghost',
     route: '/administration/roles',
