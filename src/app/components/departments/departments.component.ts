@@ -1,37 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { TablerIconsModule } from 'angular-tabler-icons';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from 'src/app/material.module';
-
-export interface departmentsData {
-  id: number;
-  imagePath: string;
-  name: string;
-}
-
-const ELEMENT_DATA: departmentsData[] = [
-  {
-    id: 1,
-    imagePath: 'assets/images/department/image.png',
-    name: 'Finanzas',
-  },
-  {
-    id: 2,
-    imagePath: 'assets/images/department/image.png',
-    name: 'Marketing',
-  },
-  {
-    id: 3,
-    imagePath: 'assets/images/department/image.png',
-    name: 'Recursos Humanos',
-  },
-  {
-    id: 4,
-    imagePath: 'assets/images/department/image.png',
-    name: 'Tecnologia',
-  },
-];
+import { ApiDepartmentService } from 'src/app/services/departamento.service';
+import { departmentData } from '../../domain/department.domain';
 
 @Component({
   selector: 'app-departments',
@@ -44,7 +17,21 @@ const ELEMENT_DATA: departmentsData[] = [
   ],
   templateUrl: './departments.component.html',
 })
-export class AppDepartmentsComponent {
+export class AppDepartmentsComponent implements OnInit {
   displayedColumns: string[] = ['name'];
-  dataSource = ELEMENT_DATA;
+  
+  dataSource: departmentData[] = [];
+
+  constructor(private apiDepartmentService: ApiDepartmentService) {}
+
+  ngOnInit(): void {
+    this.apiDepartmentService.getDepartments().subscribe(
+      (data: departmentData[]) => {
+        this.dataSource = data;
+      },
+      (error) => {
+        console.error('Error al obtener los departamentos:', error);
+      }
+    );
+  }
 }

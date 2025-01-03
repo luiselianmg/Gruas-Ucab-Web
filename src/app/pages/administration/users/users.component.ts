@@ -12,6 +12,7 @@ export interface userData {
   name: string;
   phone: number;
   department: number;
+  role: string;
 }
 
 interface Dept {
@@ -19,11 +20,16 @@ interface Dept {
   viewValue: string;
 }
 
+interface Role {
+  value: number;
+  viewValue: string;
+}
+
 const USER_DATA: userData[] = [
-  { imagePath: 'assets/images/profile/user-1.jpg', name: 'Juan Perez', phone: 1234567890, department: 1},
-  { imagePath: 'assets/images/profile/user-2.jpg', name: 'Maria Lopez', phone: 1234567890, department: 2},
-  { imagePath: 'assets/images/profile/user-3.jpg', name: 'Pedro Ramirez', phone: 1234567890, department: 3},
-  { imagePath: 'assets/images/profile/user-4.jpg', name: 'Javier Rodriguez', phone: 1234567890, department: 4},
+  { imagePath: 'assets/images/profile/user-1.jpg', name: 'Juan Perez', phone: 1234567890, department: 1, role: 'Administrador'},
+  { imagePath: 'assets/images/profile/user-2.jpg', name: 'Maria Lopez', phone: 1234567890, department: 2, role: 'Operador de Cabina'},
+  { imagePath: 'assets/images/profile/user-3.jpg', name: 'Pedro Ramirez', phone: 1234567890, department: 3, role: 'Conductor'},
+  { imagePath: 'assets/images/profile/user-4.jpg', name: 'Javier Rodriguez', phone: 1234567890, department: 4, role: 'Administrador'},
 ];
 
 @Component({
@@ -42,7 +48,7 @@ const USER_DATA: userData[] = [
 })
 export class AppUsersComponent {
     // Table
-    displayedColumns1: string[] = ['class', 'name', 'phone', 'department', 'budget'];
+    displayedColumns1: string[] = ['class', 'name', 'phone', 'department', 'role', 'budget'];
     dataSource1 = USER_DATA;
     // End Table
 
@@ -53,6 +59,15 @@ export class AppUsersComponent {
       {value: 3, viewValue: 'Desarrollo'},
       {value: 4, viewValue: 'Recursos Humanos'}
     ];
-    selectedDept = this.dept[0].value;
+    selectedDept = this.dept[1].value;
+    // End Select
+
+    // Select
+    role: Role[] = [
+      {value: 1, viewValue: 'Administrador'},
+      {value: 2, viewValue: 'Operador de Cabina'},
+      {value: 3, viewValue: 'Conductor'},
+    ];
+    selectedRole = this.role[0].value;
     // End Select
 }

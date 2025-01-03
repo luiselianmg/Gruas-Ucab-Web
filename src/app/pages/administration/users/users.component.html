@@ -71,6 +71,21 @@
           </td>
         </ng-container>
 
+        <ng-container matColumnDef="role">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Rol
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <h6 class="mat-body-1 f-s-16 m-b-4">
+              <span class="text-dark f-w-600">{{ element.role }} </span>
+            </h6>          
+          </td>
+        </ng-container>
+
         <ng-container matColumnDef="budget">
           <th
             mat-header-cell
@@ -124,19 +139,31 @@
               <input matInput type="number" placeholder="04142318019" />
             </mat-form-field>
           </div>
+          <div class="col-lg-6">
+            <mat-label class="f-w-600 m-b-8 d-block">Departamento</mat-label>
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-select [(value)]="selectedDept">
+                @for(option of dept; track option.value) {
+                  <mat-option [value]="option.value">{{
+                    option.viewValue
+              }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
         </div>
-        <div class="col-lg-12">
-          <mat-label class="f-w-600 m-b-8 d-block">Departamento</mat-label>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Rol</mat-label>
           <mat-form-field appearance="outline" class="w-100">
-            <mat-select [(value)]="selectedDept">
-              @for(option of dept; track option.value) {
-              <mat-option [value]="option.value">{{
+            <mat-select [(value)]="selectedRole">
+              @for(option of role; track option.value) {
+                <mat-option [value]="option.value">{{
                 option.viewValue
               }}</mat-option>
               }
             </mat-select>
           </mat-form-field>
         </div>
+      </div>
         <div class="m-t-12">
           <button mat-flat-button color="primary" class="m-r-8">Crear</button>
           <button mat-stroked-button color="warn">Cancelar</button>

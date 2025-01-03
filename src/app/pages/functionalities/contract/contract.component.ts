@@ -25,6 +25,10 @@ interface Policy {
   value: string;
 }
 
+interface Type {
+  value: string;
+}
+
 const CONTRACT_DATA: contractData[] = [
   {
     id: 1,
@@ -77,15 +81,6 @@ export class AppContractComponent {
   // End Table
 
   // Select
-  vehicle: Vehicle[] = [
-    { value: 'Mercedes Amg GT 63s' },
-    { value: 'Ford F-150' },
-    { value: 'Chevrolet Silverado' },
-  ];
-  selectedVehicle = this.vehicle[0].value;  
-  // End Select
-
-  // Select
   policy: Policy[] = [
     { value: 'Oro' },
     { value: 'Plata' },
@@ -95,5 +90,14 @@ export class AppContractComponent {
   // End Select  
 
   craneStatus: string[] = ['Activa', 'Inactiva'];
+
+    // Select
+    type: Type[] = [
+      { value: 'Ligero' },
+      { value: 'Mediano' },
+      { value: 'Pesado' },
+    ];
+    selectedType = this.type[0].value;
+    // End Select
 
 }

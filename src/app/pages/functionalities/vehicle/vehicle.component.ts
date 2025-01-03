@@ -17,10 +17,6 @@ export interface vehiclesData {
   plate: string;
 }
 
-interface Type {
-  value: string;
-}
-
 const VEHICLE_DATA: vehiclesData[] = [
   {
     id: 1,
@@ -115,14 +111,5 @@ export class AppVehicleComponent {
   displayedColumns1: string[] = ['class', 'brand', 'model', 'plate', 'year', 'type', 'budget'];
   dataSource1 = VEHICLE_DATA;
   // End Table
-
-  // Select
-  type: Type[] = [
-    { value: 'Ligero' },
-    { value: 'Mediano' },
-    { value: 'Pesado' },
-  ];
-  selectedType = this.type[0].value;
-  // End Select
 
 }
