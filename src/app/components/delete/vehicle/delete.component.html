@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Eliminar Vehiculo</h2>
+<mat-dialog-content>
+  <p>Seguro que quiere eliminar el vehiculo <strong>{{ data.name }}</strong>?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button (click)="onCancel()" color="warn" class="m-r-4">Cancelar</button>
+  <button mat-flat-button (click)="onDelete()" class="bg-light-warning text-warning">Eliminar</button>
+</mat-dialog-actions>

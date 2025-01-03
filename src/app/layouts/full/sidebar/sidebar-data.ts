@@ -33,8 +33,9 @@ export const navItems: NavItem[] = [
     route: '/functionalities/policy',
   },
   {
+    // TODO: Change this to 'Contratos'
     displayName: 'Contratos',
-    iconName: 'contract',
+    iconName: 'file',
     route: '/functionalities/contract',
   },
   {

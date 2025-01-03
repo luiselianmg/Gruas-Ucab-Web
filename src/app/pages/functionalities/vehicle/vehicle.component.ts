@@ -6,6 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+
+import { AppDeleteComponent } from 'src/app/components/delete/vehicle/delete.component';
 
 export interface vehiclesData {
   id: number;
@@ -103,13 +107,33 @@ const VEHICLE_DATA: vehiclesData[] = [
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
+    MatDialogModule,
   ],
   templateUrl: './vehicle.component.html',
 })
 export class AppVehicleComponent {
+
+  constructor(private dialog: MatDialog) {}
+
   // Table
   displayedColumns1: string[] = ['class', 'brand', 'model', 'plate', 'year', 'type', 'budget'];
   dataSource1 = VEHICLE_DATA;
   // End Table
+  
+  // Delete
+  onDelete(element: any): void {
+    const dialogRef = this.dialog.open(AppDeleteComponent, {
+      width: '400px',
+      data: { name: element.brand },
+    });
 
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        console.log('Elemento eliminado:', element);
+      } else {
+        console.log('Eliminación cancelada');
+      }
+    });
+  }
+  // End Delete
 }

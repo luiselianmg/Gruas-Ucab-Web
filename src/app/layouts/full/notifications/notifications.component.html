@@ -1,0 +1,19 @@
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+        <mat-card-title class="m-b-0">Notificaciones</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+        <div align="end" class="m-b-8">
+            <button mat-flat-button color="primary" class="m-r-8">Crear</button>    
+        </div>
+        
+        <div class="notification-item" *ngFor="let notification of notifications">
+        <div class="notification-header">
+          <strong>{{ notification.sender }}</strong>
+        </div>
+        <p class="notification-content">{{ notification.message }}</p>
+        <span class="notification-date">{{ notification.date }}</span>
+        <div>---</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
