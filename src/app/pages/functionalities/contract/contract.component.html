@@ -26,96 +26,65 @@
           </td>
         </ng-container>
 
-        <ng-container matColumnDef="brand">
+        <ng-container matColumnDef="number">
           <th
             mat-header-cell
             *matHeaderCellDef
             class="f-w-600 mat-subtitle-1 f-s-14"
           >
-            Marca
+            Numero
           </th>
           <td mat-cell *matCellDef="let element" class="mat-body-1">
             <h6 class="mat-body-1 f-s-16 m-b-4">
-              <span class="text-dark f-w-600">{{ element.brand }} </span>
+              <span class="text-dark f-w-600">{{ element.number }} </span>
             </h6>          
           </td>
         </ng-container>
 
-        <ng-container matColumnDef="model">
+        <ng-container matColumnDef="vehicle">
           <th
             mat-header-cell
             *matHeaderCellDef
             class="f-w-600 mat-subtitle-1 f-s-14"
           >
-            Modelo
+            Vehiculo
           </th>
           <td mat-cell *matCellDef="let element" class="mat-body-1">
             <h6 class="mat-body-1 f-s-16 m-b-4">
-              <span class="text-dark f-w-600">{{ element.model }} </span>
+              <span class="text-dark f-w-600">{{ element.vehicle }} </span>
             </h6>          
           </td>
         </ng-container>
 
-        <ng-container matColumnDef="plate">
+        <ng-container matColumnDef="policy">
           <th
             mat-header-cell
             *matHeaderCellDef
             class="f-w-600 mat-subtitle-1 f-s-14"
           >
-            Placa
+            Poliza
           </th>
           <td mat-cell *matCellDef="let element" class="mat-body-1">
             <h6 class="mat-body-1 f-s-16 m-b-4">
-              <span class="text-dark f-w-600">{{ element.plate }} </span>
+              <span class="text-dark f-w-600">{{ element.policy }} </span>
             </h6>          
           </td>
         </ng-container>
 
-          <ng-container matColumnDef="year">
-            <th
-              mat-header-cell
-              *matHeaderCellDef
-              class="f-w-600 mat-subtitle-1 f-s-14"
-            >
-              Año
-            </th>
-            <td mat-cell *matCellDef="let element" class="mat-body-1">
-              <h6 class="mat-body-1 f-s-16 m-b-4">
-                <span class="text-dark f-w-600">{{ element.year }} </span>
-              </h6>          
-            </td>
-          </ng-container>
-
-          <ng-container matColumnDef="type">
-            <th
-              mat-header-cell
-              *matHeaderCellDef
-              class="f-w-600 mat-subtitle-1 f-s-14"
-            >
-              Tipo
-            </th>
-            <td mat-cell *matCellDef="let element">
-              @if(element.type == 'Mediana') {
-              <span
-                class="bg-light-warning text-warning rounded f-w-600 p-6 p-y-4 f-s-12"
-              >
-                {{ element.type | titlecase }}
-              </span>
-              } @if(element.type == 'Pesada') {
-              <span
-                class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12"
-              >
-                {{ element.type | titlecase }}
-              </span>
-              } @if(element.type == 'Ligera') {
-              <span
-                class="bg-light-success text-success rounded f-w-600 p-6 p-y-4 f-s-12"
-              >
-                {{ element.type | titlecase }}
-              </span>
-              }
-            </td>
-          </ng-container>
+        <ng-container matColumnDef="endDate">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Fecha de Vencimiento
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <h6 class="mat-body-1 f-s-16 m-b-4">
+              <span class="text-dark f-w-600">{{ element.endDate }} </span>
+            </h6>          
+          </td>
+        </ng-container>
 
         <ng-container matColumnDef="isActive">
           <th
