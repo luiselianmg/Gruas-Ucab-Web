@@ -3,7 +3,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { TablerIconsModule } from 'angular-tabler-icons';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from 'src/app/material.module';
-import { ApiDepartmentService } from 'src/app/services/departamento.service';
+
+import { ApiDepartmentService } from 'src/app/services/departament.service';
 import { departmentData } from '../../domain/department.domain';
 
 @Component({

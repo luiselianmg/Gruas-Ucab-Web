@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MaterialModule } from 'src/app/material.module';
@@ -7,13 +7,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 
-export interface userData {
-  imagePath: string;
-  name: string;
-  phone: number;
-  department: number;
-  role: string;
-}
+import { ApiUserService } from 'src/app/services/user.service';
+import { userData } from '../../../domain/user.domain';
+
+import { ApiDepartmentService } from 'src/app/services/departament.service';
+import { departmentData } from '../../../domain/department.domain';
 
 interface Dept {
   value: number;
@@ -24,13 +22,6 @@ interface Role {
   value: number;
   viewValue: string;
 }
-
-const USER_DATA: userData[] = [
-  { imagePath: 'assets/images/profile/user-1.jpg', name: 'Juan Perez', phone: 1234567890, department: 1, role: 'Administrador'},
-  { imagePath: 'assets/images/profile/user-2.jpg', name: 'Maria Lopez', phone: 1234567890, department: 2, role: 'Operador de Cabina'},
-  { imagePath: 'assets/images/profile/user-3.jpg', name: 'Pedro Ramirez', phone: 1234567890, department: 3, role: 'Conductor'},
-  { imagePath: 'assets/images/profile/user-4.jpg', name: 'Javier Rodriguez', phone: 1234567890, department: 4, role: 'Administrador'},
-];
 
 @Component({
   selector: 'app-users',
@@ -46,12 +37,23 @@ const USER_DATA: userData[] = [
   ],
   templateUrl: './users.component.html',
 })
-export class AppUsersComponent {
-    // Table
-    displayedColumns1: string[] = ['class', 'name', 'phone', 'department', 'role', 'budget'];
-    dataSource1 = USER_DATA;
-    // End Table
+export class AppUsersComponent implements OnInit {
+  
+  // Imagenes
+  imagePaths: string[] = [
+    'assets/images/profile/user-1.jpg',
+    'assets/images/profile/user-2.jpg',
+    'assets/images/profile/user-3.jpg',
+    'assets/images/profile/user-4.jpg'
+  ];
+  // End Imagenes
 
+  // Table
+  displayedColumns: string[] = ['name', 'phone', 'department', 'role', 'isActive', 'budget'];
+  dataSource: userData[] = [];
+  // End Table
+
+  constructor(private apiUserService: ApiUserService) {}
     // Select
     dept: Dept[] = [
       {value: 1, viewValue: 'Administración'},
@@ -70,4 +72,21 @@ export class AppUsersComponent {
     ];
     selectedRole = this.role[0].value;
     // End Select
+
+  ngOnInit(): void {
+    this.apiUserService.getUser().subscribe(
+      (data: userData[]) => {
+        this.dataSource = data;
+      },
+      (error) => {
+        console.error('Error al obtener los departamentos:', error);
+      }
+    );
+  }
+
+  getImagePath(index: number): string {
+    return this.imagePaths[index % this.imagePaths.length];
+  }
+
+  craneStatus: string[] = ['Activo', 'Inactivo'];
 }
