@@ -33,6 +33,11 @@ export const navItems: NavItem[] = [
     route: '/functionalities/policy',
   },
   {
+    displayName: 'Contratos',
+    iconName: 'contract',
+    route: '/functionalities/contract',
+  },
+  {
     displayName: 'Vehiculos',
     iconName: 'car-suv',
     route: '/functionalities/vehicle',
@@ -49,15 +54,5 @@ export const navItems: NavItem[] = [
     displayName: 'Proveedores',
     iconName: 'address-book',
     route: '/administration/providers',
-  },
-  {
-    displayName: 'Roles',
-    iconName: 'ghost',
-    route: '/administration/roles',
-  },
-  {
-    displayName: 'Permisos',
-    iconName: 'key',
-    route: '/administration/permits',
   },
 ];

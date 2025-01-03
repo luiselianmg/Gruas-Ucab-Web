@@ -1,8 +1,8 @@
 <mat-card class="cardWithShadow">
   <mat-card-content>
     
-    <mat-card-title>Gruas</mat-card-title>
-    <mat-card-subtitle class="mat-body-1">Lista de Gruas</mat-card-subtitle>
+    <mat-card-title>Contratos</mat-card-title>
+    <mat-card-subtitle class="mat-body-1">Lista de Contratos</mat-card-subtitle>
 
     <div class="table-responsive">
       <table mat-table [dataSource]="dataSource1" class="w-100">
@@ -172,34 +172,40 @@
 
 <mat-card class="cardWithShadow theme-card">
   <mat-card-header>
-    <mat-card-title class="m-b-0">Crear Grua</mat-card-title>
+    <mat-card-title class="m-b-0">Crear Contrato</mat-card-title>
   </mat-card-header>
   <mat-card-content class="b-t-1">
     <form>
       <div class="row">
         <div class="col-lg-6">
-          <mat-label class="f-w-600 m-b-8 d-block">Marca</mat-label>
+          <mat-label class="f-w-600 m-b-8 d-block">Numero</mat-label>
           <mat-form-field appearance="outline" class="w-100" color="primary">
             <input matInput placeholder="marca" />
           </mat-form-field>
         </div>
         <div class="col-lg-6">
-          <mat-label class="f-w-600 m-b-8 d-block">Modelo</mat-label>
-          <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput placeholder="modelo" />
-          </mat-form-field>
-        </div>
-        <div class="col-lg-6">
-          <mat-label class="f-w-600 m-b-8 d-block">Año</mat-label>
-          <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput type="number" placeholder="2025" />
-          </mat-form-field>
-        </div>
-        <div class="col-lg-6">
-          <mat-label class="f-w-600 m-b-8 d-block">Tipo</mat-label>
+          <mat-label class="f-w-600 m-b-8 d-block">Vehiculo</mat-label>
           <mat-form-field appearance="outline" class="w-100">
-            <mat-select [(value)]="selectedType">
-              @for(option of type; track option.value) {
+            <mat-select [(value)]="selectedVehicle">
+              @for(veh of vehicle; track veh.value) {
+              <mat-option [value]="veh.value">{{
+                veh.value
+              }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Fecha de Vencimiento</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput type="date" placeholder="2025" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Poliza</mat-label>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-select [(value)]="selectedPolicy">
+              @for(option of policy; track option.value) {
               <mat-option [value]="option.value">{{
                 option.value
               }}</mat-option>
