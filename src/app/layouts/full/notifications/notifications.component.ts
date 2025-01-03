@@ -7,7 +7,8 @@ import { MaterialModule } from 'src/app/material.module';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgScrollbarModule } from 'ngx-scrollbar';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { AppCreateNotificationComponent } from 'src/app/components/notifications/notifications.component';
 
 @Component({
   selector: 'app-header',
@@ -35,5 +36,25 @@ export class AppNotificationsComponent {
           date: '15-Jan',
         },
     ];
-}
 
+    constructor(private dialog: MatDialog) {}
+
+    openCreateNotification(): void {
+      const dialogRef = this.dialog.open(AppCreateNotificationComponent, {
+        width: '500px',
+      });
+  
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result) {
+          this.notifications.push({
+            sender: result.sender,
+            message: result.message,
+            date: new Date().toLocaleDateString(),
+          });
+          console.log('Nueva notificación creada:', result);
+        } else {
+          console.log('Creación de notificación cancelada');
+        }
+      });
+    }
+}

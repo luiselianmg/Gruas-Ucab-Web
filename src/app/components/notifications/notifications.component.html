@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Crear Notificación</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()" #notificationForm="ngForm">
+      <!-- Campo del remitente -->
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Remitente</mat-label>
+        <input matInput type="text" [(ngModel)]="notification.sender" name="sender" required />
+      </mat-form-field>
+
+      <!-- Campo de etiqueta -->
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Etiqueta</mat-label>
+        <mat-select [(ngModel)]="notification.tag" name="tag" required>
+          <mat-option *ngFor="let tag of tags" [value]="tag">{{ tag }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Mensaje -->
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Mensaje</mat-label>
+        <textarea matInput [(ngModel)]="notification.message" name="message" rows="3" required></textarea>
+      </mat-form-field>
+
+      <!-- Botones -->
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!notificationForm.form.valid">Enviar</button>
+        <button mat-stroked-button color="warn" type="button" (click)="onCancel()">Cancelar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

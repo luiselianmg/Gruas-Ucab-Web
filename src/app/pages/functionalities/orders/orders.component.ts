@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { ExtraCostDialogComponent } from './extra-cost.component';
+import { ExtraCostDialogComponent } from '../../../components/extra-cost/extra-cost.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
