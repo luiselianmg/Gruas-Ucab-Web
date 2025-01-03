@@ -15,4 +15,8 @@ export class ApiUserService {
       return this.http.get<userData[]>(`${this.apiUrl}/user`
     );
   }
+
+  addUser(user: userData): Observable<userData> {
+    return this.http.post<userData>(`${this.apiUrl}/user`, user);
+  }
 }

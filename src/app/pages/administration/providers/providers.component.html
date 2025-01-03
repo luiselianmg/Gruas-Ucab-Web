@@ -135,7 +135,7 @@
         <div class="row">
         <div class="col-lg-6">
           <mat-label class="f-w-600 m-b-8 d-block">Estatus</mat-label>
-          <mat-selection-list #shoes2 [multiple]="false">
+          <mat-selection-list [multiple]="false">
             @for(status of providerStatus; track status) {
             <mat-list-option [value]="status">
               {{ status }}
