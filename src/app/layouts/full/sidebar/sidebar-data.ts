@@ -34,7 +34,7 @@ export const navItems: NavItem[] = [
   },
   {
     displayName: 'Contratos',
-    iconName: 'contract',
+    iconName: 'building-carousel',
     route: '/functionalities/contract',
   },
   {

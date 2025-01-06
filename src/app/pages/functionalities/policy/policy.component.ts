@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MaterialModule } from 'src/app/material.module';
@@ -7,23 +7,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 
-export interface policyData {
-  imagePath: string;
-  name: string;
-  kmcoverage: string;
-  moneycoverage: string;
-}
+import { ApiPolicyService } from 'src/app/services/policy.service';
+import { policyData } from 'src/app/domain/policy';
 
 interface Type {
   value: string;
 }
-
-const POLICY_DATA: policyData[] = [
-  { imagePath: 'assets/images/policy/bronce.png', name: 'Bronce', kmcoverage: '100,000 km', moneycoverage: '$100,000'},
-  { imagePath: 'assets/images/policy/silver.png', name: 'Plata', kmcoverage: '300,000 km', moneycoverage: '$300,000'},
-  { imagePath: 'assets/images/policy/oro.png', name: 'Oro', kmcoverage: '500,000 km', moneycoverage: '$500,000'},
-];
-
 
 @Component({
   selector: 'app-policy',
@@ -39,10 +28,10 @@ const POLICY_DATA: policyData[] = [
   ],
   templateUrl: './policy.component.html',
 })
-export class AppPolicyComponent {
+export class AppPolicyComponent implements OnInit {
     // Table
-    displayedColumns1: string[] = ['class', 'name', 'kmcoverage', 'moneycoverage', 'budget'];
-    dataSource1 = POLICY_DATA;
+    displayedColumns: string[] = ['name', 'monetaryCoverage', 'kmCoverage', 'baseKmPrice' ,'budget'];
+    dataSource: policyData[] = [];
     // End Table
 
     // Select
@@ -54,4 +43,21 @@ export class AppPolicyComponent {
     selectedType = this.type[0].value;
     // End Select
 
+    constructor(private apiPolicyService: ApiPolicyService) { }
+     
+    ngOnInit(): void {
+      this.loadPolicy();
+    }
+
+    loadPolicy(): void {
+      this.apiPolicyService.getPolicy().subscribe(
+        (data: policyData[]) => {
+          this.dataSource = data;
+          console.log('Polizas:', this.dataSource);
+        },
+        (error) => {
+          console.error('Error al obtener las polizas:', error);
+        }
+      );
+  }    
 }
