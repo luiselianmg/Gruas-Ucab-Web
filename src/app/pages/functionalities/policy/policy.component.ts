@@ -43,12 +43,14 @@ export class AppPolicyComponent implements OnInit {
     selectedType = this.type[0].value;
     // End Select
 
+    policy: policyData[] = [];
+
     constructor(private apiPolicyService: ApiPolicyService) { }
-     
+
     ngOnInit(): void {
       this.loadPolicy();
     }
-
+    
     loadPolicy(): void {
       this.apiPolicyService.getPolicy().subscribe(
         (data: policyData[]) => {

@@ -16,4 +16,7 @@ export class ApiPolicyService {
     );
   }
 
+  addPolicy(policy: policyData): Observable<policyData> {
+    return this.http.post<policyData>(`${this.apiUrl}/policy`, policy);
+  }
 }

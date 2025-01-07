@@ -55,4 +55,9 @@ export const navItems: NavItem[] = [
     iconName: 'address-book',
     route: '/administration/providers',
   },
+  {
+    displayName: 'Password',
+    iconName: 'password',
+    route: '/authentication/forgot-pwd',
+  },
 ];
