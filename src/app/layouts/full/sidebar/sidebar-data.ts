@@ -56,8 +56,13 @@ export const navItems: NavItem[] = [
     route: '/administration/providers',
   },
   {
-    displayName: 'Password',
+    displayName: 'Olvido Contraseña',
     iconName: 'password',
     route: '/authentication/forgot-pwd',
+  },
+  {
+    displayName: 'Cambiar Contraseña',
+    iconName: 'password',
+    route: '/authentication/password',
   },
 ];
