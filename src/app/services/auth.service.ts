@@ -15,8 +15,11 @@ export class AuthService {
   login(email: string, password: string): Observable<boolean> {
     return this.http.post<any>(`${this.apiUrl}/login`, { email, password }).pipe(
       map(response => {
-        if (response.token) {
+        console.log(response);
+        if (response.token && response.user.name && response.user.role) {
           localStorage.setItem('token', response.token);
+          localStorage.setItem('name', response.user.name);
+          localStorage.setItem('role', response.user.role);
           return true;
         }
         return false;
@@ -27,10 +30,17 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+    localStorage.removeItem('name');
+    localStorage.removeItem('role');
+    console.log('Log out successfully');
+    this.router.navigate(['/authentication/login']);
   }
 
   isAuthenticated(): boolean {
     return !!localStorage.getItem('token');
+  }
+
+  getUsername(): string | null {
+    return localStorage.getItem('name');
   }
 }

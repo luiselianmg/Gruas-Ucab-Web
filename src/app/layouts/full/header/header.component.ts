@@ -14,6 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 
 import { AppNotificationsComponent } from '../notifications/notifications.component';
+import { AuthService } from '../../../services/auth.service';
 
 
 @Component({
@@ -36,13 +37,17 @@ export class HeaderComponent {
   @Output() toggleMobileFilterNav = new EventEmitter<void>();
   @Output() toggleCollapsed = new EventEmitter<void>();
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private authService: AuthService) {}
   
   openNotificationsDialog(): void {
     this.dialog.open(AppNotificationsComponent, {
       width: '400px',
       maxHeight: '500px',
     });
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }
 

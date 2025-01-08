@@ -3,11 +3,12 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\pages",
-    "\\src\\app\\pages\\authentication",
-    "\\src\\app\\pages\\authentication\\login",
+    "\\src\\app\\layouts",
+    "\\src\\app\\layouts\\full",
+    "\\src\\app\\layouts\\full\\header",
+    "\\src\\app\\pages\\starter",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\proxy.conf.json",
+  "SelectedNode": "\\src\\app\\services\\auth.service.ts",
   "PreviewInSolutionExplorer": false
 }

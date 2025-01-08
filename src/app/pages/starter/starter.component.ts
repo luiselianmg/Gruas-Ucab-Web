@@ -1,7 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { MaterialModule } from '../../material.module';
 import { AppRecentOrdersComponent } from 'src/app/components/recent-orders/recent-orders.component';
 import { AppDepartmentsComponent } from 'src/app/components/departments/departments.component';
+import { AuthService } from '../../services/auth.service'; 
 
 @Component({
   selector: 'app-starter',
@@ -14,4 +15,12 @@ import { AppDepartmentsComponent } from 'src/app/components/departments/departme
   templateUrl: './starter.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class StarterComponent { }
+export class StarterComponent implements OnInit {
+  name: string | null = '';
+
+  constructor(private authService: AuthService) { }
+
+  ngOnInit(): void {
+    this.name = this.authService.getUsername();
+  }
+}
