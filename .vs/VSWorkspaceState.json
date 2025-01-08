@@ -3,12 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\layouts",
-    "\\src\\app\\layouts\\full",
-    "\\src\\app\\layouts\\full\\header",
     "\\src\\app\\pages",
-    "\\src\\app\\pages\\functionalities",
-    "\\src\\app\\pages\\functionalities\\vehicle"
+    "\\src\\app\\pages\\authentication",
+    "\\src\\app\\pages\\authentication\\login",
+    "\\src\\app\\services"
   ],
+  "SelectedNode": "\\proxy.conf.json",
   "PreviewInSolutionExplorer": false
 }
