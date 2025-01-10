@@ -11,15 +11,15 @@
           <span class="d-block f-w-600 text-center m-t-24">
             Gruas UCAB
           </span>
-          <form class="m-t-30">
+          <form [formGroup]="form" (ngSubmit)="submit()" class="m-t-30">
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Correo</mat-label>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput />
+              <input matInput formControlName="email" />
             </mat-form-field>
-          
+
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Contraseña</mat-label>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput type="password" />
+              <input matInput type="password" formControlName="password" />
             </mat-form-field>
 
             <div class="d-flex align-items-center m-b-12">
@@ -27,10 +27,9 @@
                 Olvidaste tu Contraseña?
               </a>
             </div>
-            <a [routerLink]="['/']" mat-flat-button color="primary" class="w-100">
+            <button mat-flat-button color="primary" class="w-100" type="submit">
               Sign In
-            </a>
-          
+            </button>
           </form>
           <span class="d-block f-w-500 text-center m-t-24">
             No tienes una cuenta?

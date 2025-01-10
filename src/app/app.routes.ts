@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { BlankComponent } from './layouts/blank/blank.component';
 import { FullComponent } from './layouts/full/full.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,7 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: () =>
           import('./pages/pages.routes').then((m) => m.PagesRoutes),
+        canActivate: [AuthGuard], // Protege la ruta del dashboard
       },
       {
         path: 'functionalities',
@@ -23,6 +25,7 @@ export const routes: Routes = [
           import('./pages/functionalities/functionalities.routes').then(
             (m) => m.FunctionalitiesRoutes
           ),
+        canActivate: [AuthGuard], // Protege la ruta de funcionalidades
       },
       {
         path: 'administration',
@@ -30,6 +33,7 @@ export const routes: Routes = [
           import('./pages/administration/administration.routes').then(
             (m) => m.AdministrationRoutes
           ),
+        canActivate: [AuthGuard], // Protege la ruta de administración
       },
     ],
   },
