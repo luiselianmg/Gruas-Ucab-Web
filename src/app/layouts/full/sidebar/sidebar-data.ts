@@ -34,7 +34,7 @@ export const navItems: NavItem[] = [
   },
   {
     displayName: 'Contratos',
-    iconName: 'building-carousel',
+    iconName: 'air-balloon',
     route: '/functionalities/contract',
   },
   {
@@ -54,15 +54,5 @@ export const navItems: NavItem[] = [
     displayName: 'Proveedores',
     iconName: 'address-book',
     route: '/administration/providers',
-  },
-  {
-    displayName: 'Olvido Contraseña',
-    iconName: 'password',
-    route: '/authentication/forgot-pwd',
-  },
-  {
-    displayName: 'Cambiar Contraseña',
-    iconName: 'password',
-    route: '/authentication/password',
   },
 ];

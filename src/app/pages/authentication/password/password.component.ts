@@ -8,6 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms'; 
+import { RouterModule } from '@angular/router';
 
 interface Dept {
   value: string;
@@ -36,7 +37,8 @@ interface Status {
     MatMenuModule,
     MatButtonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
     ],
   templateUrl: './password.component.html',
 })

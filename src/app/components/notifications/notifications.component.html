@@ -1,20 +1,14 @@
-<mat-card>
   <mat-card-header>
-    <mat-card-title>Crear Notificación</mat-card-title>
+    <mat-card-title>Crear Notificacion</mat-card-title>
   </mat-card-header>
+
   <mat-card-content>
     <form (ngSubmit)="onSubmit()" #notificationForm="ngForm">
-      <!-- Campo del remitente -->
-      <mat-form-field appearance="outline" class="w-100">
-        <mat-label>Remitente</mat-label>
-        <input matInput type="text" [(ngModel)]="notification.sender" name="sender" required />
-      </mat-form-field>
-
       <!-- Campo de etiqueta -->
-      <mat-form-field appearance="outline" class="w-100">
-        <mat-label>Etiqueta</mat-label>
-        <mat-select [(ngModel)]="notification.tag" name="tag" required>
-          <mat-option *ngFor="let tag of tags" [value]="tag">{{ tag }}</mat-option>
+      <mat-form-field appearance="outline" class="w-100 m-t-20">
+        <mat-label>Remitente</mat-label>
+        <mat-select [(ngModel)]="notification.recipient" name="recipient" appareance="none" required>
+          <mat-option *ngFor="let recpt of recipients" [value]="recpt.value">{{ recpt.viewValue }}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -24,11 +18,38 @@
         <textarea matInput [(ngModel)]="notification.message" name="message" rows="3" required></textarea>
       </mat-form-field>
 
+      <!-- Tipo de Envío -->
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Tipo de Envío</mat-label>
+        <mat-select [(ngModel)]="notification.type" name="type" required>
+          <mat-option *ngFor="let type of types" [value]="type.value">{{ type.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Opciones Adicionales -->
+      <div *ngIf="notification.type === 'recurrente'">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Frecuencia</mat-label>
+          <mat-select [(ngModel)]="notification.frequency" name="frequency" required>
+            <mat-option value="daily">Diaria</mat-option>
+            <mat-option value="weekly">Semanal</mat-option>
+            <mat-option value="monthly">Mensual</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div *ngIf="notification.type === 'programada'">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Fecha y Hora</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="notification.scheduledDate" name="scheduledDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>      
+
       <!-- Botones -->
       <div class="actions">
-        <button mat-raised-button color="primary" type="submit" [disabled]="!notificationForm.form.valid">Enviar</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!notificationForm.form.valid" class="m-r-20">Enviar</button>
         <button mat-stroked-button color="warn" type="button" (click)="onCancel()">Cancelar</button>
       </div>
     </form>
   </mat-card-content>
-</mat-card>

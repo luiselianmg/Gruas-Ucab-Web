@@ -3,6 +3,7 @@ import { MaterialModule } from '../../material.module';
 import { AppRecentOrdersComponent } from 'src/app/components/recent-orders/recent-orders.component';
 import { AppDepartmentsComponent } from 'src/app/components/departments/departments.component';
 import { AuthService } from '../../services/auth.service'; 
+import { HasRoleDirective } from '../../directives/has-role.directive'; // Importa la directiva
 
 @Component({
   selector: 'app-starter',
@@ -10,7 +11,8 @@ import { AuthService } from '../../services/auth.service';
   imports: [
     MaterialModule,
     AppRecentOrdersComponent,
-    AppDepartmentsComponent
+    AppDepartmentsComponent,
+    HasRoleDirective
   ],
   templateUrl: './starter.component.html',
   encapsulation: ViewEncapsulation.None,

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HasRoleDirective } from './directives/has-role.directive';
 
 @Component({
   selector: 'app-root',

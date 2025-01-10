@@ -1,16 +1,17 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { ExtraCostDialogComponent } from '../../../components/extra-cost/extra-cost.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
 import { TablerIconsModule } from 'angular-tabler-icons';
-import { GoogleMapsModule } from '@angular/google-maps';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
-import { MatListModule } from '@angular/material/list';
+
+import { ExtraCostDialogComponent } from '../../../components/extra-cost/extra-cost.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 interface Conductor {
   value: number;
@@ -56,7 +57,7 @@ export class AppOrdersComponent implements OnInit {
   @ViewChild('destinationInput') destinationInput!: ElementRef<HTMLInputElement>;
 
   map!: google.maps.Map;
-  distancia!: string;
+  distanciaAccidente!: string;
   origin: string = '';
   destination: string = '';
 
@@ -164,7 +165,7 @@ export class AppOrdersComponent implements OnInit {
           this.directionsRenderer.setDirections(result);
 
           const leg = result.routes[0].legs[0];
-          this.distancia = leg.distance?.text || '';
+          this.distanciaAccidente = leg.distance?.text || '';
 
           this.addMarkers(leg.start_location, leg.end_location);
         } else {

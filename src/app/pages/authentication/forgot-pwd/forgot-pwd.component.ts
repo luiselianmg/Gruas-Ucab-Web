@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 interface Type {
   value: string;
@@ -22,6 +23,7 @@ interface Type {
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
+    RouterModule
   ],
   templateUrl: './forgot-pwd.component.html',
   styleUrls: ['./forgot-pwd.component.scss'],

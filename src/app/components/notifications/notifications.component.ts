@@ -1,7 +1,4 @@
-import {
-  Component,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { TablerIconsModule } from 'angular-tabler-icons';
 import { MaterialModule } from 'src/app/material.module';
 import { RouterModule } from '@angular/router';
@@ -10,41 +7,66 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+
+interface Recipient {
+  value: string;
+  viewValue: string;
+}
+
+interface NotificationType {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, 
-    CommonModule, 
-    NgScrollbarModule, 
-    TablerIconsModule, 
-    MaterialModule, 
+  imports: [
+    RouterModule,
+    CommonModule,
+    NgScrollbarModule,
+    TablerIconsModule,
+    MaterialModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule
   ],
   templateUrl: './notifications.component.html',
   encapsulation: ViewEncapsulation.None,
 })
 export class AppCreateNotificationComponent {
   notification = {
-    sender: '',
-    tag: '',
+    recipient: '',
     message: '',
+    type: '',
+    frequency: '',
+    scheduledDate: null,
   };
 
-  tags = ['Personal', 'Work', 'Urgent'];
+  recipients: Recipient[] = [
+    { value: 'provider', viewValue: 'Proveedor' },
+    { value: 'conductor', viewValue: 'Conductor' },
+    { value: 'operator', viewValue: 'Operador de Cabina' },
+    { value: 'all', viewValue: 'Todos' },
+  ];
+
+  types: NotificationType[] = [
+    { value: 'inmediato', viewValue: 'Inmediato' },
+    { value: 'recurrente', viewValue: 'Recurrente' },
+    { value: 'programado', viewValue: 'Programado' },
+  ];
 
   constructor(public dialogRef: MatDialogRef<AppCreateNotificationComponent>) {}
 
   onSubmit() {
     console.log('Notificación creada:', this.notification);
-    // Cierra el componente y devuelve los datos de la notificación
     this.dialogRef.close(this.notification);
   }
 
   onCancel() {
     console.log('Creación de notificación cancelada');
-    // Cierra el componente sin devolver datos
     this.dialogRef.close();
   }
 }

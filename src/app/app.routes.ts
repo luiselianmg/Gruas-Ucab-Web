@@ -17,7 +17,8 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: () =>
           import('./pages/pages.routes').then((m) => m.PagesRoutes),
-        canActivate: [AuthGuard], // Protege la ruta del dashboard
+        canActivate: [AuthGuard],
+        data: { expectedRole: 'admin' },
       },
       {
         path: 'functionalities',
@@ -25,7 +26,9 @@ export const routes: Routes = [
           import('./pages/functionalities/functionalities.routes').then(
             (m) => m.FunctionalitiesRoutes
           ),
-        canActivate: [AuthGuard], // Protege la ruta de funcionalidades
+        canActivate: [AuthGuard],
+        data: { expectedRole: ['admin', 'operator'] },
+
       },
       {
         path: 'administration',
@@ -33,7 +36,8 @@ export const routes: Routes = [
           import('./pages/administration/administration.routes').then(
             (m) => m.AdministrationRoutes
           ),
-        canActivate: [AuthGuard], // Protege la ruta de administración
+        canActivate: [AuthGuard],
+        data: { expectedRole: 'admin' },
       },
     ],
   },

@@ -3,12 +3,12 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\directives",
     "\\src\\app\\layouts",
     "\\src\\app\\layouts\\full",
-    "\\src\\app\\layouts\\full\\header",
-    "\\src\\app\\pages\\starter",
+    "\\src\\app\\layouts\\full\\sidebar",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\services\\auth.service.ts",
+  "SelectedNode": "\\src\\app\\layouts\\full\\sidebar\\sidebar.component.ts",
   "PreviewInSolutionExplorer": false
 }

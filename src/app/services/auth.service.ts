@@ -16,6 +16,7 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/login`, { email, password }).pipe(
       map(response => {
         console.log(response);
+        console.log(response.user.role);
         if (response.token && response.user.name && response.user.role) {
           localStorage.setItem('token', response.token);
           localStorage.setItem('name', response.user.name);
@@ -42,5 +43,9 @@ export class AuthService {
 
   getUsername(): string | null {
     return localStorage.getItem('name');
+  }
+
+  getRole(): string | null {
+    return localStorage.getItem('role');
   }
 }

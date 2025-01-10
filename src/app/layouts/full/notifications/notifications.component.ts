@@ -26,14 +26,10 @@ import { AppCreateNotificationComponent } from 'src/app/components/notifications
 export class AppNotificationsComponent {
     notifications = [
         {
-          sender: 'James Smith',
+          recipient: 'Conductor',
           message: 'Kindly check this latest update.',
           date: '15-Jan',
-        },
-        {
-          sender: 'David Smith',
-          message: 'Literature from 45 BC, make sure to review it.',
-          date: '15-Jan',
+          type: 'Inmediato',
         },
     ];
 
@@ -41,15 +37,16 @@ export class AppNotificationsComponent {
 
     openCreateNotification(): void {
       const dialogRef = this.dialog.open(AppCreateNotificationComponent, {
-        width: '500px',
+        width: '600px',
       });
   
       dialogRef.afterClosed().subscribe((result) => {
         if (result) {
           this.notifications.push({
-            sender: result.sender,
+            recipient: result.recipient,
             message: result.message,
             date: new Date().toLocaleDateString(),
+            type: result.type,
           });
           console.log('Nueva notificación creada:', result);
         } else {
