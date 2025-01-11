@@ -9,9 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
-import { AngularFirestore } from '@angular/fire/compat/firestore'; // Si usas Firebase Firestore
+import { AngularFirestore } from '@angular/fire/compat/firestore'; 
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { timestamp } from 'rxjs';
 
 interface Recipient {
   value: string;
@@ -44,22 +43,19 @@ export class AppCreateNotificationComponent implements OnInit {
     frequency: '',
     message: '',
     recipient: '',
-    scheduledDate: '',
     timestamp: new Date().toLocaleString(),
     type: '',
   };
 
   recipients: Recipient[] = [
-    { value: 'provider', viewValue: 'Proveedor' },
-    { value: 'conductor', viewValue: 'Conductor' },
-    { value: 'operator', viewValue: 'Operador de Cabina' },
+    { value: 'intern', viewValue: 'Interno' },
+    { value: 'extern', viewValue: 'Externo' },
     { value: 'all', viewValue: 'Todos' },
   ];
 
-  types: NotificationType[] = [
-    { value: 'inmediato', viewValue: 'Inmediato' },
+  type: NotificationType[] = [
     { value: 'recurrente', viewValue: 'Recurrente' },
-    { value: 'programado', viewValue: 'Programado' },
+    { value: 'extemporaneo', viewValue: 'Inmediato' },
   ];
 
   constructor(
@@ -70,14 +66,8 @@ export class AppCreateNotificationComponent implements OnInit {
   
   ngOnInit(): void {}
   
-  // TODO: No guarda la hora en la que fue creada la notificación
+  // TODO: No guarda la hora para crear la programada
   onSubmit(): void {
-    if (this.notification.type === 'programada' && !this.notification.scheduledDate) {
-      this.snackBar.open('Debe seleccionar una fecha para notificaciones programadas', 'Cerrar', {
-        duration: 3000
-      });
-      return;
-    }
     
     this.firestore.collection('notification').add(this.notification)
     .then(() => {

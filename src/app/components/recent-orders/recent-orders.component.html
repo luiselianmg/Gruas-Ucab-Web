@@ -1,72 +1,56 @@
 <mat-card class="cardWithShadow m-t-24">
     <mat-card-header class="d-flex">
-        <div class="m-r-auto">
-            <mat-card-title>Ordenes</mat-card-title>
-        </div>
+      <div class="m-r-auto m-b-20">
+        <mat-card-title>Ordenes Recientes</mat-card-title>
+      </div>
     </mat-card-header>
     <mat-card-content>
-        <div class="table-responsive m-t-30">
-            <table mat-table [dataSource]="dataSource" class="w-100">
-                <ng-container matColumnDef="orderNumber">
-                    <th mat-header-cell *matHeaderCellDef class="f-w-600 f-s-14 mat-subtitle-1 p-l-0">
-                        Numero de Orden
-                    </th>
-                    <td mat-cell *matCellDef="let element" class="p-l-0">
-                        <div class="d-flex align-items-center">                        
-                            <div class="m-l-16">
-                                <h6 class="f-s-14 mat-subtitle-1 f-w-600">
-                                    {{ element.OrderNumber }}
-                                </h6>
-                            </div>
-                        </div>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="date">
-                    <th mat-header-cell *matHeaderCellDef class="f-w-600 f-s-14 mat-subtitle-1 p-l-0">
-                        Fecha
-                    </th>
-                    <td mat-cell *matCellDef="let element" class="p-l-0">
-                        <div class="d-flex align-items-center">                        
-                            <div class="m-l-16">
-                                <h6 class="f-s-14 mat-subtitle-1 f-w-600">
-                                    {{ element.Date }}
-                                </h6>
-                            </div>
-                        </div>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="incidentType">
-                    <th mat-header-cell *matHeaderCellDef class="f-w-600 f-s-14 mat-subtitle-1 p-l-0">
-                        Tipo de Incidente
-                    </th>
-                    <td mat-cell *matCellDef="let element" class="p-l-0">
-                        <div class="d-flex align-items-center">                        
-                            <div class="m-l-16">
-                                <h6 class="f-s-14 mat-subtitle-1 f-w-600">
-                                    {{ element.IncidentType }}
-                                </h6>
-                            </div>
-                        </div>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="cost">
-                    <th mat-header-cell *matHeaderCellDef class="f-w-600 f-s-14 mat-subtitle-1 p-l-0">
-                        Costo
-                    </th>
-                    <td mat-cell *matCellDef="let element" class="p-l-0">
-                        <div class="d-flex align-items-center">                        
-                            <div class="m-l-16">
-                                <h6 class="f-s-14 mat-subtitle-1 f-w-600">
-                                    {{ element.Cost }}
-                                </h6>
-                            </div>
-                        </div>
-                    </td>
-                </ng-container>
-
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-            </table>
-        </div>
+      <div class="cards-container" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+        <ng-container *ngFor="let element of dataSource">
+          <mat-card class="order-card cardWithShadow col-lg-4">
+            <mat-card-title class="m-l-20 m-t-20" style="font-weight: bolder; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
+                <mat-icon color="primary">navigation</mat-icon> Orden #{{ element.OrderNumber }}
+            </mat-card-title>
+            <mat-card-subtitle class="m-l-20 m-t-20" style="font-weight: bold; color: #ccc;">
+              {{ element.Date }}
+            </mat-card-subtitle>
+            <mat-card-content>
+              <p class="m-t-20 m-b-0" style="font-weight: bolder; font-size: 1.2rem;">
+                ${{ element.Cost }}
+              </p>
+              <p class="m-t-2" style="font-weight: bold; color: #ccc;">
+                {{ element.IncidentType }}
+              </p>
+  
+              <!-- Lista de Conductores -->
+              <div class="drivers-list m-t-20">
+                <p style="font-size: 1rem; margin-bottom: 8px; font-weight: bold; color: #777;">conductores</p>
+                <div *ngFor="let driver of element.drivers" class="driver-item" style="display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 8px;
+                font-size: 0.9rem;
+                color: #555;">
+                  <mat-icon style="color: rgb(255, 222, 122);">person</mat-icon>
+                  <span class="driver-name"> {{ driver.name }}</span>
+                  <span class="driver-distance"> {{ driver.distance }}</span>
+                </div>
+              </div>
+            </mat-card-content>
+            
+            <mat-card-actions style=" margin-top: auto;
+            display: flex;
+            justify-content: space-between;">
+              <button mat-raised-button color="primary" class="manual-button m-r-auto">
+                Manual
+              </button>
+              <button mat-raised-button color="accent" class="automatic-button">
+                Automática
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </ng-container>
+      </div>
     </mat-card-content>
-</mat-card>
+  </mat-card>
+  

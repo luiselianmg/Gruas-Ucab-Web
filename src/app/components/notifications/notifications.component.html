@@ -6,7 +6,7 @@
     <form (ngSubmit)="onSubmit()" #notificationForm="ngForm">
       <!-- Campo de etiqueta -->
       <mat-form-field appearance="outline" class="w-100 m-t-20">
-        <mat-label>Remitente</mat-label>
+        <mat-label>Conductor</mat-label>
         <mat-select [(ngModel)]="notification.recipient" name="recipient" appareance="none" required>
           <mat-option *ngFor="let recpt of recipients" [value]="recpt.value">{{ recpt.viewValue }}</mat-option>
         </mat-select>
@@ -22,11 +22,10 @@
       <mat-form-field appearance="outline" class="w-100">
         <mat-label>Tipo de Envío</mat-label>
         <mat-select [(ngModel)]="notification.type" name="type" required>
-          <mat-option *ngFor="let type of types" [value]="type.value">{{ type.viewValue }}</mat-option>
+          <mat-option *ngFor="let data of type" [value]="data.value">{{ data.viewValue }}</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <!-- Opciones Adicionales -->
       <div *ngIf="notification.type === 'recurrente'">
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>Frecuencia</mat-label>
@@ -35,14 +34,6 @@
             <mat-option value="weekly">Semanal</mat-option>
             <mat-option value="monthly">Mensual</mat-option>
           </mat-select>
-        </mat-form-field>
-      </div>
-      <div *ngIf="notification.type === 'programada'">
-        <mat-form-field appearance="outline" class="w-100">
-          <mat-label>Fecha y Hora</mat-label>
-          <input matInput [matDatepicker]="picker" [(ngModel)]="notification.scheduledDate" name="scheduledDate" [ngModelOptions]="{standalone: true}" required>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>      
 

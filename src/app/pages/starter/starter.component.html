@@ -1,9 +1,9 @@
 <h1>Bienvenido, {{ name }}!</h1>
   <div class="row">
-    <div class="col-lg-12" *appHasRole="['admin']">
+    <div class="col-lg-12" *appHasRole="['admin', 'operator']">
       <app-recent-orders></app-recent-orders>
     </div>
-    <div class="col-lg-12">
+    <div class="col-lg-12" *appHasRole="['admin', 'provider']">
       <app-departments></app-departments>
     </div>
   </div>

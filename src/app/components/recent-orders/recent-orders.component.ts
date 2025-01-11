@@ -1,10 +1,13 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { MaterialModule } from 'src/app/material.module';
+import { CommonModule } from '@angular/common';
 
 import { GoogleMapsModule } from '@angular/google-maps';
 import { FormsModule } from '@angular/forms';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 export interface orderData {
   OrderNumber: string;
@@ -15,6 +18,7 @@ export interface orderData {
   OrderDispatcherId: string;
   Cost: number;
   ContractId: string;
+  drivers: { name: string; distance: string }[];
 }
 
 const ORDER_DATA: orderData[] = [
@@ -25,22 +29,61 @@ const ORDER_DATA: orderData[] = [
     Destination:"40.7128,-74.0060",
     Location:"39.7128,-71.0060",
     OrderDispatcherId:"3867d5e5-c0eb-4008-9820-9236cd18caa6",
+    Cost:4763.4,
+    ContractId:"f57f0a79-b23b-496b-bcae-f9ef13529232",
+    drivers: [
+      { name: 'Juan Pérez', distance: '5km' },
+      { name: 'María López', distance: '3km' },
+      { name: 'Carlos Gómez', distance: '7km' },
+    ],
+  },
+  {
+    OrderNumber:"102",
+    Date:"2025-02-10",
+    IncidentType:"vehiculo accidentado",
+    Destination:"40.7128,-74.0060",
+    Location:"39.7128,-71.0060",
+    OrderDispatcherId:"3867d5e5-c0eb-4008-9820-9236cd18caa6",
     Cost:100,
-    ContractId:"f57f0a79-b23b-496b-bcae-f9ef13529232"
+    ContractId:"f57f0a79-b23b-496b-bcae-f9ef13529232",
+    drivers: [
+      { name: 'Ana Torres', distance: '2km' },
+      { name: 'Luis Fernández', distance: '4km' },
+    ],
+  },
+  {
+    OrderNumber:"103",
+    Date:"2025-02-10",
+    IncidentType:"vehiculo accidentado",
+    Destination:"40.7128,-74.0060",
+    Location:"39.7128,-71.0060",
+    OrderDispatcherId:"3867d5e5-c0eb-4008-9820-9236cd18caa6",
+    Cost:200,
+    ContractId:"f57f0a79-b23b-496b-bcae-f9ef13529232",
+    drivers: [
+      { name: 'Pedro García', distance: '6km' },
+    ],
   },
 ];
 
 @Component({
     selector: 'app-recent-orders',
     standalone: true,
-    imports: [NgApexchartsModule, MaterialModule, GoogleMapsModule, FormsModule],
+    imports: [
+      NgApexchartsModule, 
+      MaterialModule, 
+      GoogleMapsModule, 
+      FormsModule,
+      MatDialogModule,
+      CommonModule
+    ],
     templateUrl: './recent-orders.component.html',
 })
 export class AppRecentOrdersComponent implements OnInit {
     @ViewChild('originInput') originInput!: ElementRef<HTMLInputElement>;
     @ViewChild('destinationInput') destinationInput!: ElementRef<HTMLInputElement>;
   
-    displayedColumns: string[] = ['orderNumber', 'date', 'incidentType', 'cost'];
+    displayedColumns: string[] = ['orderNumber', 'date', 'incidentType', 'cost', 'assignee'];
     dataSource = ORDER_DATA;
 
     map!: google.maps.Map;
@@ -61,6 +104,8 @@ export class AppRecentOrdersComponent implements OnInit {
   
     ngOnInit() {
     }
+
+    constructor(private dialog: MatDialog) {}
   
     ngAfterViewInit() {
       this.initAutocomplete();
@@ -128,32 +173,10 @@ export class AppRecentOrdersComponent implements OnInit {
             const leg = result.routes[0].legs[0];
             this.distancia = leg.distance?.text || '';
   
-            this.addMarkers(leg.start_location, leg.end_location);
           } else {
             console.error('Error al calcular la ruta:', status);
           }
         }
       );
-    }
-  
-    private addMarkers(originLatLng: google.maps.LatLng, destinationLatLng: google.maps.LatLng) {
-      if (this.originMarker) {
-        this.originMarker.setMap(null);
-      }
-      if (this.destinationMarker) {
-        this.destinationMarker.setMap(null);
-      }
-  
-      this.originMarker = new google.maps.Marker({
-        position: originLatLng,
-        map: this.map,
-        title: 'Origen'
-      });
-  
-      this.destinationMarker = new google.maps.Marker({
-        position: destinationLatLng,
-        map: this.map,
-        title: 'Destino'
-      });
     }
 }

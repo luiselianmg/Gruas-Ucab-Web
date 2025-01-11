@@ -7,8 +7,10 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+
 import { MaterialModule } from '../../../material.module';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -27,7 +29,12 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AppLoginComponent {
 
   form: FormGroup;
-  constructor(private authService: AuthService, private router: Router) {
+
+  constructor(
+    private authService: AuthService, 
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.minLength(6)]),
       password: new FormControl('', [Validators.required]),
@@ -47,7 +54,7 @@ export class AppLoginComponent {
         if (success) {
           this.router.navigate(['/dashboard']);
         } else {
-          alert('Invalid credentials');
+          this.snackBar.open('Credenciales Incorrectas', 'Cerrar', {duration: 3000});
         }
       });
     }

@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+
 import { AppCreateNotificationComponent } from 'src/app/components/notifications/notifications.component';
 
 import { notificationData } from '../../../domain/notifications';

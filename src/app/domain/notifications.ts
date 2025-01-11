@@ -5,6 +5,5 @@ export interface notificationData {
     message: string;
     recipient: string;
     type: string;
-    scheduledDate?: string;
     timestamp: string;
 }

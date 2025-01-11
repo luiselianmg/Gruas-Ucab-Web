@@ -3,9 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\components",
-    "\\src\\app\\components\\notifications"
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\functionalities",
+    "\\src\\app\\pages\\functionalities\\costs",
+    "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\app.config.ts",
+  "SelectedNode": "\\src\\app\\services\\cost.service.ts",
   "PreviewInSolutionExplorer": false
 }
