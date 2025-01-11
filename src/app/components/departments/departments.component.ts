@@ -20,7 +20,6 @@ import { departmentData } from '../../domain/department.domain';
 })
 export class AppDepartmentsComponent implements OnInit {
   displayedColumns: string[] = ['name'];
-  
   dataSource: departmentData[] = [];
 
   constructor(private apiDepartmentService: ApiDepartmentService) {}

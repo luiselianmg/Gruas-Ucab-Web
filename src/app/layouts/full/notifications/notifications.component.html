@@ -1,18 +1,89 @@
-<mat-card class="cardWithShadow theme-card">
-  <mat-card-header>
-      <mat-card-title class="m-b-0">Notificaciones</mat-card-title>
-  </mat-card-header>
-  <mat-card-content class="b-t-1">
-      <div align="end" class="m-b-8">
-          <button mat-flat-button color="primary" class="m-r-8" (click)="openCreateNotification()">Crear</button>    
-      </div>   
-      <div class="notification-item" *ngFor="let notification of notifications">
-      <div class="notification-header">
-        <strong>{{ notification.sender }}</strong>
-      </div>
-      <p class="notification-content">{{ notification.message }}</p>
-      <span class="notification-date">{{ notification.date }}</span>
-      <div>---</div>
+  <mat-card-header class="header-container">
+    <div class="header-title">
+      <mat-card-title class="title">Notificaciones</mat-card-title>
     </div>
+    <div class="header-actions">
+      <button mat-flat-button color="primary" (click)="openCreateNotification()">Crear</button>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content class="content-container m-b-20">
+    <div *ngIf="notifications.length > 0; else noNotifications" class="notifications-list">
+      <div class="notification-item" *ngFor="let notification of notifications">
+        <div class="notification-header">
+          <strong class="notification-recipient">{{ notification.recipient }}</strong>
+          <span class="notification-type">({{ notification.type }})</span>
+        </div>
+        <p class="notification-message">{{ notification.message }}</p>
+        <span class="notification-date">{{ notification.timestamp }}</span>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+
+    <ng-template #noNotifications>
+      <p class="no-notifications">No hay notificaciones disponibles.</p>
+    </ng-template>
   </mat-card-content>
-</mat-card>
+
+<style>
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-title {
+    font-size: 0.5rem;
+    font-weight: bold;
+  }
+
+  .header-actions button {
+    margin-left: auto;
+  }
+
+  .content-container {
+    margin-top: 20px;
+  }
+
+  .notifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .notification-item {
+    padding: 10px 0;
+  }
+
+  .notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .notification-recipient {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .notification-type {
+    font-style: italic;
+    color: gray;
+  }
+
+  .notification-message {
+    margin: 5px 0;
+    font-size: 1rem;
+  }
+
+  .notification-date {
+    font-size: 0.8rem;
+    color: #888;
+  }
+
+  .no-notifications {
+    text-align: center;
+    color: #999;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+</style>

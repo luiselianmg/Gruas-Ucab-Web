@@ -1,29 +1,72 @@
-<mat-card class="cardWithShadow">
+<mat-card class="cardWithShadow m-t-24">
+    <mat-card-header class="d-flex">
+        <div class="m-r-auto">
+            <mat-card-title>Ordenes</mat-card-title>
+        </div>
+    </mat-card-header>
     <mat-card-content>
-        <mat-card-title>Ordenes Recientes</mat-card-title>
+        <div class="table-responsive m-t-30">
+            <table mat-table [dataSource]="dataSource" class="w-100">
+                <ng-container matColumnDef="orderNumber">
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 f-s-14 mat-subtitle-1 p-l-0">
+                        Numero de Orden
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="p-l-0">
+                        <div class="d-flex align-items-center">                        
+                            <div class="m-l-16">
+                                <h6 class="f-s-14 mat-subtitle-1 f-w-600">
+                                    {{ element.OrderNumber }}
+                                </h6>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 f-s-14 mat-subtitle-1 p-l-0">
+                        Fecha
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="p-l-0">
+                        <div class="d-flex align-items-center">                        
+                            <div class="m-l-16">
+                                <h6 class="f-s-14 mat-subtitle-1 f-w-600">
+                                    {{ element.Date }}
+                                </h6>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="incidentType">
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 f-s-14 mat-subtitle-1 p-l-0">
+                        Tipo de Incidente
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="p-l-0">
+                        <div class="d-flex align-items-center">                        
+                            <div class="m-l-16">
+                                <h6 class="f-s-14 mat-subtitle-1 f-w-600">
+                                    {{ element.IncidentType }}
+                                </h6>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="cost">
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 f-s-14 mat-subtitle-1 p-l-0">
+                        Costo
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="p-l-0">
+                        <div class="d-flex align-items-center">                        
+                            <div class="m-l-16">
+                                <h6 class="f-s-14 mat-subtitle-1 f-w-600">
+                                    {{ element.Cost }}
+                                </h6>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
 
-        <div class="timeline m-t-24">
-            @for(stat of stats; track stat.title) {
-            <div class="timeline-item d-flex overflow-hidden">
-                <div class="time text-right mat-subtitle-1 f-s-14">{{ stat.time }}</div>
-                <div class="point d-flex align-items-center">
-                    <span class="timeline-badge border-{{ stat.color }} m-y-8"></span>
-                    <span class="timline-border d-block"></span>
-                </div>
-                <div class="desc">
-                    @if(stat.subtext) {
-                    <span class="mat-subtitle-1 f-s-14 lh-20">{{ stat.subtext }}</span>
-                    }
-
-                    @if(stat.title) {
-                    <span class="mat-subtitle-1 f-s-14 lh-20 f-w-600 d-block">{{
-                        stat.title
-                        }}</span>
-                    }
-
-                </div>
-            </div>
-            }
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
         </div>
     </mat-card-content>
 </mat-card>

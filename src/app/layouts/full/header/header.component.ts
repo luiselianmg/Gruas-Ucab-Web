@@ -16,7 +16,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { AppNotificationsComponent } from '../notifications/notifications.component';
 import { AuthService } from '../../../services/auth.service';
 
-
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -41,7 +40,7 @@ export class HeaderComponent {
   
   openNotificationsDialog(): void {
     this.dialog.open(AppNotificationsComponent, {
-      width: '400px',
+      width: '600px',
       maxHeight: '500px',
     });
   }

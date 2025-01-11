@@ -14,8 +14,12 @@
     <img src="/assets/images/profile/user-1.jpg" class="roundedy-circle object-cover" width="35" />
   </button>
   <mat-menu #profilemenu="matMenu" class="cardWithShadow">
+    <button mat-menu-item [routerLink]="['/authentication/password']">
+      <mat-icon class="d-flex align-items-center"><i-tabler name="key" class="icon-18 d-flex"></i-tabler></mat-icon>
+      Cambiar contraseña
+    </button>
     <div class="p-x-12 m-t-12">
-      <a mat-stroked-button color="primary" class="w-100" (click)="logout()" >Cerrar Sesión</a>
+      <a [routerLink]="['/authentication/login']" mat-stroked-button color="primary" class="w-100" (click)="logout()">Logout</a>
     </div>
   </mat-menu>
 </mat-toolbar>

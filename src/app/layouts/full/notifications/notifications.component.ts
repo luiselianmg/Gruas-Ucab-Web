@@ -10,6 +10,8 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AppCreateNotificationComponent } from 'src/app/components/notifications/notifications.component';
 
+import { notificationData } from '../../../domain/notifications';
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -24,32 +26,23 @@ import { AppCreateNotificationComponent } from 'src/app/components/notifications
   encapsulation: ViewEncapsulation.None,
 })
 export class AppNotificationsComponent {
-    notifications = [
-        {
-          sender: 'James Smith',
-          message: 'Kindly check this latest update.',
-          date: '15-Jan',
-        },
-        {
-          sender: 'David Smith',
-          message: 'Literature from 45 BC, make sure to review it.',
-          date: '15-Jan',
-        },
-    ];
+    
+    notifications: notificationData[] = [];
 
     constructor(private dialog: MatDialog) {}
 
     openCreateNotification(): void {
       const dialogRef = this.dialog.open(AppCreateNotificationComponent, {
-        width: '500px',
+        width: '600px',
       });
   
       dialogRef.afterClosed().subscribe((result) => {
         if (result) {
           this.notifications.push({
-            sender: result.sender,
+            recipient: result.recipient,
             message: result.message,
-            date: new Date().toLocaleDateString(),
+            timestamp: new Date().toLocaleString(),
+            type: result.type,
           });
           console.log('Nueva notificación creada:', result);
         } else {

@@ -16,7 +16,8 @@
           </mat-form-field>
           <div class="action-buttons">
             <button mat-flat-button color="primary" class="full-width">Recuperar Contraseña</button>
-            <button mat-stroked-button color="accent" class="full-width">Volver al Inicio de Sesión</button>
+            <!-- TODO: Este redreccion no funciona creo que es por la proteccion-->
+            <button mat-stroked-button color="accent" class="full-width" [routerLink]="['/']">Volver al Inicio de Sesión</button>
           </div>
         </form>
       </mat-card-content>
