@@ -3,12 +3,9 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\directives",
-    "\\src\\app\\layouts",
-    "\\src\\app\\layouts\\full",
-    "\\src\\app\\layouts\\full\\sidebar",
-    "\\src\\app\\services"
+    "\\src\\app\\components",
+    "\\src\\app\\components\\notifications"
   ],
-  "SelectedNode": "\\src\\app\\layouts\\full\\sidebar\\sidebar.component.ts",
+  "SelectedNode": "\\src\\app\\app.config.ts",
   "PreviewInSolutionExplorer": false
 }

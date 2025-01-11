@@ -40,7 +40,7 @@
       <div *ngIf="notification.type === 'programada'">
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>Fecha y Hora</mat-label>
-          <input matInput [matDatepicker]="picker" [(ngModel)]="notification.scheduledDate" name="scheduledDate" required>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="notification.scheduledDate" name="scheduledDate" [ngModelOptions]="{standalone: true}" required>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
