@@ -3,11 +3,13 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\guards",
     "\\src\\app\\pages",
+    "\\src\\app\\pages\\administration",
+    "\\src\\app\\pages\\administration\\users",
     "\\src\\app\\pages\\functionalities",
-    "\\src\\app\\pages\\functionalities\\costs",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\services\\cost.service.ts",
+  "SelectedNode": "\\src\\app\\guards\\auth.guard.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -8,19 +8,19 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = '/auth';
+  private apiUrl = 'https://localhost:5350/auth';
 
   constructor(private http: HttpClient, private router: Router) { }
 
   login(email: string, password: string): Observable<boolean> {
     return this.http.post<any>(`${this.apiUrl}/login`, { email, password }).pipe(
       map(response => {
-        console.log(response);
-        console.log(response.user.role);
+        console.log('Response from backend:', response);
         if (response.token && response.user.name && response.user.role) {
           localStorage.setItem('token', response.token);
           localStorage.setItem('name', response.user.name);
           localStorage.setItem('role', response.user.role);
+          console.log('Token stored in localStorage:', response.token);
           return true;
         }
         return false;
@@ -33,7 +33,7 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('name');
     localStorage.removeItem('role');
-    console.log('Log out successfully');
+    console.log('Logout successfully');
     this.router.navigate(['/authentication/login']);
   }
 
@@ -47,5 +47,9 @@ export class AuthService {
 
   getRole(): string | null {
     return localStorage.getItem('role');
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 }

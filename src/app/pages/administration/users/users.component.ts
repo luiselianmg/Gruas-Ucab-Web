@@ -8,6 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms'; 
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ApiUserService } from 'src/app/services/user.service';
 import { userData } from '../../../domain/user.domain';
@@ -100,7 +101,7 @@ export class AppUsersComponent implements OnInit {
     password: ''
   };
 
-  constructor(private apiUserService: ApiUserService) { }
+  constructor(private apiUserService: ApiUserService, private snackBar: MatSnackBar ) { }
 
   ngOnInit(): void {
     this.loadUsers();
@@ -111,8 +112,14 @@ export class AppUsersComponent implements OnInit {
       (response) => {
         console.log('Usuario creado:', response);
         this.users.push(response);
-        this.resetNewUser();
         this.loadUsers();
+  
+        this.snackBar.open('Usuario creado con éxito.', 'Cerrar', {
+          duration: 3000,
+        });
+        setTimeout(() => {
+          location.reload()
+        }, 1000);
       },
       (error) => {
         console.error('Error al crear usuario:', error);
@@ -122,18 +129,7 @@ export class AppUsersComponent implements OnInit {
       }
     );
   }
-
-  resetNewUser(): void {
-    this.newUser = {
-      name: '',
-      phone: '',
-      role: '',
-      department: '',
-      isActive: false,
-      email: '',
-      password: ''
-    };
-  }
+  
 
   loadUsers(): void {
     this.apiUserService.getUser().subscribe(
