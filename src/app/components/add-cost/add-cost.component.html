@@ -1,0 +1,22 @@
+<mat-card-header>
+    <mat-card-title>Agregar Costo Extra</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      <mat-form-field appearance="outline" class="w-100 m-t-12">
+        <mat-select [(value)]="selectedCost">
+          @for(option of cost; track option.value) {
+            <mat-option [value]="option.value">{{ option.viewValue }}</mat-option>
+          }
+        </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="w-100 m-t-12">
+      <input matInput type="number" [(ngModel)]="extraCost" min="0" required />
+    </mat-form-field>
+  
+    <div mat-dialog-actions class="m-t-12">
+      <button mat-stroked-button color="warn" (click)="onCancel()" class="m-b-8">Cancelar</button>
+      <button mat-flat-button color="primary" (click)="onAdd()" class="m-l-12 m-b-8">Agregar</button>
+    </div>
+  </mat-card-content>
+  

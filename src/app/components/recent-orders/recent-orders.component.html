@@ -26,9 +26,9 @@
           <p class="m-t-2" style="font-weight: bold; color: #ccc;">
             Conductor Asignado: {{ conductors[element.conductorAssignedId]?.name || 'Por Asignar' }}
           </p>
-          <a href="#" style="font-weight: bold; color: #007bff; text-decoration: underline;">
+          <button mat-raised-button style="font-weight: bold; color: #ff9d00; background-color: #fff4dd;" (click)="openExtraCostDialog(element)">
             Ver costos extras
-          </a>
+          </button>
         </mat-card-content>
 
         <mat-card-actions *ngIf="element.orderStatus === 'por asignar'" style=" margin-top: auto;
@@ -48,7 +48,7 @@
     <button mat-icon-button (click)="previousPage()" [disabled]="currentPage === 0">
       <mat-icon>chevron_left</mat-icon>
     </button>
-    <span>Página {{ currentPage + 1 }}</span>
+    <span style="color: #e5a000;">Página {{ currentPage + 1 }}</span>
     <button mat-icon-button (click)="nextPage()" [disabled]="(currentPage + 1) * pageSize >= dataSource.length">
       <mat-icon>chevron_right</mat-icon>
     </button>

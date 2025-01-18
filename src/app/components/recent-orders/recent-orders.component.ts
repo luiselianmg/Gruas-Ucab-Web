@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 
+import { AppExtraCostComponent } from '../extra-cost/extra-cost.component';
+
 import { orderAllData } from '../../domain/orderAll.domain';
 import { conductorData } from '../../domain/conductor.domain';
 
@@ -100,6 +102,14 @@ export class AppRecentOrdersComponent {
     this.dialog.open(AppAutomaticComponent, {
       width: '600px',
       maxHeight: '500px',
+    });
+  }
+
+  openExtraCostDialog(order: orderAllData): void {
+    this.dialog.open(AppExtraCostComponent, {
+      width: '600px',
+      maxHeight: '500px',
+      data: order,
     });
   }
 

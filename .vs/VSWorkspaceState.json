@@ -3,9 +3,9 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\pages",
-    "\\src\\app\\pages\\functionalities",
-    "\\src\\app\\pages\\functionalities\\orders"
+    "\\src\\app\\components",
+    "\\src\\app\\components\\extra-cost"
   ],
+  "SelectedNode": "\\src\\app\\components\\extra-cost\\extra-cost.component.ts",
   "PreviewInSolutionExplorer": false
 }
