@@ -35,7 +35,7 @@ export const navItems: NavItem[] = [
   },
   {
     displayName: 'Contratos',
-    iconName: 'air-balloon',
+    iconName: 'signature',
     route: '/functionalities/contract',
     roles: ['admin', 'operator'],
   },

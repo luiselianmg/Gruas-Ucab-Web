@@ -6,9 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { ContractData, VehicleData} from 'src/app/domain/contract.domain';
-import { ContractService } from 'src/app/services/contract.service';
-import { policyData } from 'src/app/domain/policy';
+
+import { contractData } from 'src/app/domain/contract.domain';
+
+import { ApiContractService } from 'src/app/services/contract.service';
 
 @Component({
   selector: 'app-crane',
@@ -26,39 +27,14 @@ import { policyData } from 'src/app/domain/policy';
 })
 export class AppContractComponent {
   // Table
-  displayedColumns1: string[] = ['imagePath', 'number', 'vehicle', 'policy' ,'endDate', 'isActive', 'budget'];
+  displayedColumns: string[] = ['numberContract', 'expirationDate'];
+  dataSource: contractData[] = [];
 
-  // Select
-  policy: policyData[] = [ ];
+  constructor(private apiContractService: ApiContractService) {}
 
-  craneStatus: string[] = ['Activa', 'Inactiva'];
-
-    // // Select
-    // type: VehicleData[] = [
-    //   { value: 'Ligero' },
-    //   { value: 'Mediano' },
-    //   { value: 'Pesado' },
-    // ];
-    // selectedType = this.type[0].value;
-    // // End Select
-
-    contracts: ContractData[] = [];
-    constructor(private contractService: ContractService) { }
-
-    ngOnInit(): void {
-      this.loadContracts();
-    }
-
-    loadContracts(): void {
-      this.contractService.getContracts().subscribe(
-        (data: ContractData[]) => {
-          this.contracts = data;
-          console.log('Contratos:', this.contracts);
-        },
-        (error) => {
-          console.error('Error:', error);
-        }
-      );
-    }
-
+  ngOnInit(): void {
+    this.apiContractService.getContracts().subscribe((data) => {
+      this.dataSource = data;
+    });
+  }
 }

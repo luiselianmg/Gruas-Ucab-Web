@@ -10,12 +10,10 @@ import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { ExtraCostDialogComponent } from '../../../components/extra-cost/extra-cost.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 
 import { ExtraCostData } from '../../../domain/extra-cost.domain';
 import { orderData } from '../../../domain/order.domain';
-import { conductorData } from '../../../domain/conductor.domain';
 import { contractData } from '../../../domain/contract.domain';
 import { userData } from 'src/app/domain/user.domain';
 
@@ -251,7 +249,7 @@ createOrder(): void {
   const destinito = markers._destination.replace(/[()]/g, '').replace(/\s+/g, '');
 
   const currentDate = new Date();
-  const formattedDate = currentDate.toISOString().split('T')[0]; // Convert to "YYYY-MM-DD" format
+  const formattedDate = currentDate.toISOString().split('T')[0]; 
 
   const newOrder: orderData = {
     Date: "2025-03-15",
