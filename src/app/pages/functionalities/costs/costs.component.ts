@@ -4,6 +4,12 @@ import { TablerIconsModule } from 'angular-tabler-icons';
 import { CostsService } from '../../../services/cost.service';
 import { CommonModule } from '@angular/common';
 import { ExtraCostData } from 'src/app/domain/extra-cost.domain';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-costs',
@@ -12,18 +18,42 @@ import { ExtraCostData } from 'src/app/domain/extra-cost.domain';
     TablerIconsModule,
     MaterialModule,
     TablerIconsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './costs.component.html',
 })
 export class AppCostsComponent implements OnInit {
+  form: FormGroup;
   costs: ExtraCostData[] = [];
+  constructor(private costsService: CostsService) {
+    this.form = new FormGroup({
+      description: new FormControl('', [Validators.required]),
+      defaultPrice: new FormControl('', [Validators.required]),
+    });
+  }
 
-  constructor(private costsService: CostsService) { }
+  get f() {
+    return this.form.controls;
+  }
 
   ngOnInit(): void {
-    this.costsService.getCosts().subscribe(data => {
+    this.costsService.getCosts().subscribe((data) => {
       this.costs = data;
     });
+  }
+
+  createCost() {
+    if (this.form.valid) {
+      this.costsService
+        .createCost(this.form.value.description, this.form.value.defaultPrice)
+        .subscribe((success) => {
+          if (success) {
+            this.costsService.getCosts().subscribe((data) => {
+              this.costs = data;
+            });
+          }
+        });
+    }
   }
 }

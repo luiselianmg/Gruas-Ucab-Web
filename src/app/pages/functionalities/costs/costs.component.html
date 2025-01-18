@@ -1,7 +1,8 @@
+<h1 class="page-title">Listado de Costos Extras</h1>
+
 <mat-card class="cardWithShadow" *ngFor="let cost of costs">
   <mat-card-header class="d-flex align-items-center">
-    <mat-card-title>Costo Extra</mat-card-title>
-    <mat-card-subtitle class="m-t-12 m-b-12">{{ cost.description }}</mat-card-subtitle>
+    <mat-card-title>{{ cost.description | titlecase }}</mat-card-title>
     <div class="m-l-auto">
       <button mat-fab color="accent" class="shadow-none icon-48">
         <i-tabler name="currency-dollar" class="text-white d-flex"></i-tabler>
@@ -9,10 +10,25 @@
     </div>
   </mat-card-header>
   <mat-card-content class="m-b-15 m-t-15">
-    <h4 class="mat-headline-5 f-s-24">${{ cost.price }}</h4>
-    <div class="m-t-20 m-b-0">
-      <button mat-flat-button class="bg-light-warning text-warning m-r-8">Rechazar</button>
-      <button mat-flat-button class="bg-light-success text-success">Aprobar</button>
-    </div>
+    <h4 class="mat-headline-5 f-s-18">Precio por Defecto: ${{ cost.price }}</h4>
   </mat-card-content>
 </mat-card>
+
+<form [formGroup]="form" (ngSubmit)="createCost()" class="m-t-30">
+  <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+    >Descripcion</mat-label
+  >
+  <mat-form-field appearance="outline" class="w-100" color="primary">
+    <input matInput formControlName="description" />
+  </mat-form-field>
+
+  <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+    >Precio por defecto</mat-label
+  >
+  <mat-form-field appearance="outline" class="w-100" color="primary">
+    <input matInput formControlName="defaultPrice" />
+  </mat-form-field>
+  <button mat-flat-button color="primary" class="w-70 m-t-10" type="submit">
+    Crear Costo Extra
+  </button>
+</form>
