@@ -13,24 +13,24 @@ import { CommonModule } from '@angular/common';
 import { ExtraCostDialogComponent } from '../../../components/extra-cost/extra-cost.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 
-interface Conductor {
-  value: number;
-  viewValue: string;
-}
-interface Contract {
-  value: number;
-}
+import { ExtraCostData } from '../../../domain/extra-cost.domain';
+import { orderData } from '../../../domain/order.domain';
+import { conductorData } from '../../../domain/conductor.domain';
+import { contractData } from '../../../domain/contract.domain';
+import { userData } from 'src/app/domain/user.domain';
+
+import { ApiOrderService } from '../../../services/order.service';
+import { ApiContractService } from '../../../services/contract.service';
+import { ApiUserService } from '../../../services/user.service';
+
 interface Status {
   value: string;
   viewValue: string;
 }
+
+// TODO: Agregar para agregar tipos de incidentes
 interface IncidentType {
   value: string;
-  viewValue: string;
-}
-
-interface Operator {
-  value: number;
   viewValue: string;
 }
 
@@ -56,34 +56,24 @@ export class AppOrdersComponent implements OnInit {
   @ViewChild('originInput') originInput!: ElementRef<HTMLInputElement>;
   @ViewChild('destinationInput') destinationInput!: ElementRef<HTMLInputElement>;
 
+  private _origin: string;
+  private _destination: string;
+
   map!: google.maps.Map;
   distanciaAccidente!: string;
   origin: string = '';
   destination: string = '';
 
+  operator: userData[] = [];
+  operatorOptions: { value: string; viewValue: string }[] = [];
+  selectedOperator: string | null = null;
+
+  contract: contractData[] = [];
+  contractOptions: { value: string; viewValue: number }[] = [];
+  selectedContract: string | null = null;
+
+  extraCostDetails: ExtraCostData[] = [];
   extraCosts: number = 0;
-  extraCostDetails: { cost: number; description: string }[] = [];
-
-  constructor(public dialog: MatDialog) {}
-
-
-  openExtraCostDialog(): void {
-    const dialogRef = this.dialog.open(ExtraCostDialogComponent, {
-      width: '400px',
-    });
-
-    dialogRef.beforeClosed().subscribe((result) => {
-      if (result) {
-        const confirmation = window.confirm(
-          `¿Seguro que quiere realizar esta operación? No es reversible.`
-        );
-        if (confirmation) {
-          this.extraCosts += result.cost;
-          this.extraCostDetails.push(result);
-        }
-      }
-    });
-  }
 
   originMarker!: google.maps.Marker;
   destinationMarker!: google.maps.Marker;
@@ -96,7 +86,33 @@ export class AppOrdersComponent implements OnInit {
     zoom: 12,
   };
 
+  constructor(
+    public dialog: MatDialog,
+    private apiOrderService: ApiOrderService,
+    private apiContractService: ApiContractService,
+    private apiUserService: ApiUserService
+  ) {}
+
   ngOnInit() {
+    // Get Operators
+    this.apiUserService.getUser().subscribe((data: userData[]) => {
+      this.operator = data.filter(user => user.role === 'operator');
+      this.operatorOptions = this.operator.map(operator => ({
+        value: operator.id as string,
+        viewValue: `${operator.name}`
+      }));
+      this.selectedOperator = this.operatorOptions.length > 0 ? this.operatorOptions[0].value : null;
+    });
+
+    // Get Contracts
+    this.apiContractService.getContracts().subscribe((data: contractData[]) => {
+      this.contract = data;
+      this.contractOptions = data.map(contract => ({
+        value: contract.id,
+        viewValue: contract.numberContract
+      }));
+      this.selectedContract = this.contractOptions.length > 0 ? this.contractOptions[0].value : null;
+    });
   }
 
   ngAfterViewInit() {
@@ -177,103 +193,88 @@ export class AppOrdersComponent implements OnInit {
   // End Route Calculation
 
   // Markers at the map
-  private addMarkers(originLatLng: google.maps.LatLng, destinationLatLng: google.maps.LatLng) {
+  private addMarkers(originLatLng: google.maps.LatLng, destinationLatLng: google.maps.LatLng): { _origin: string, _destination: string } {
     if (this.originMarker) {
       this.originMarker.setMap(null);
     }
     if (this.destinationMarker) {
       this.destinationMarker.setMap(null);
     }
-
+  
     this.originMarker = new google.maps.Marker({
       position: originLatLng,
       map: this.map,
       title: 'Origen'
     });
-
+  
     this.destinationMarker = new google.maps.Marker({
       position: destinationLatLng,
       map: this.map,
       title: 'Destino'
     });
-
+  
     console.log('Coordenadas de Origen:', originLatLng.toString());
     console.log('Coordenadas de Destino:', destinationLatLng.toString());
+  
+    return {
+      _origin: originLatLng.toString(),
+      _destination: destinationLatLng.toString()
+    };
   }
   // End Maker at the map
 
-  // Conductor
-  conductor: Conductor[] = [
-    { value: 1, viewValue: 'Alfonso Perez' },
-    { value: 2, viewValue: 'Carlos Rodriguez' },
-    { value: 3, viewValue: 'Jorge Perez' },
-    { value: 4, viewValue: 'Maria Rodriguez' },
-    { value: 5, viewValue: 'Pedro Perez' },
-    { value: 6, viewValue: 'Rosa Rodriguez' },
-    { value: 7, viewValue: 'Sofia Perez' },
-    { value: 8, viewValue: 'Tomas Rodriguez' },
-    { value: 9, viewValue: 'Vicente Perez' },
-  ];
-  selectedConductor = this.conductor[0].value;
-  // End Conductor
-
-  // Contract
-  contract: Contract[] = [
-    { value: 5678 },
-    { value: 9012 },
-    { value: 3456 },
-    { value: 7890 },
-    { value: 1234 },
-    { value: 5678 },
-    { value: 9012 },
-    { value: 3456 },
-    { value: 7890 },
-  ];
-  selectedContract = this.contract[0].value;
-  // End Contract
-
-  // Status
-  status: Status[] = [
-    { value: 'for_assign', viewValue: 'Por Asignar' },
-    { value: 'asigned', viewValue: 'Asignada' },
-    { value: 'located', viewValue: 'Localizada' },
-    { value: 'in_process', viewValue: 'En Proceso' },
-    { value: 'canceled', viewValue: 'Cancelado' },
-    { value: 'pending', viewValue: 'Pendiente' },
-    { value: 'finished', viewValue: 'Finalizada' },
-    { value: 'for_accept', viewValue: 'Por Aceptar' },
-  ];
-
-  selectedStatus = this.status[0].value;
-  // End Status
-
-  // Incident Type
   incidentType: IncidentType[] = [
-    { value: 'accident', viewValue: 'Acccidente' },
-    { value: 'mechanical-failure', viewValue: 'Falla Mecanica' },
-    { value: 'overturning', viewValue: 'Volcamiento' },
-    { value: 'electrical-failure', viewValue: 'Falla Electrica' },
-    { value: 'lack-of-fuel', viewValue: 'Falta de Combustible' },
-    { value: 'tire-failure', viewValue: 'Falla de Neumaticos' }
+    { value: 'accidente automovilistico', viewValue: 'Acccidente Automovilistico' },
+    { value: 'incendio', viewValue: 'Incendio' },
+    { value: 'volcamiento', viewValue: 'Volcamiento' },
+    { value: 'vehiculo accidentado', viewValue: 'Vehiculo Accidentado' },
   ];
-
   selectedIncidentType = this.incidentType[0].value;
-  // End Incident Type
 
-  // Operator
-  operator: Operator[] = [
-    { value: 1, viewValue: 'Daniel Mendez' },
-    { value: 2, viewValue: 'Jose Perez' },
-    { value: 3, viewValue: 'Luis Rodriguez' },
-    { value: 4, viewValue: 'Maria Perez' },
-    { value: 5, viewValue: 'Pedro Rodriguez' },
-    { value: 6, viewValue: 'Rosa Perez' },
-    { value: 7, viewValue: 'Sofia Rodriguez' },
-    { value: 8, viewValue: 'Tomas Perez' },
-    { value: 9, viewValue: 'Vicente Fernandez' }
-  ];
+//  Create Order
+createOrder(): void {
+  if (!this.originMarker || !this.destinationMarker) {
+    console.error('Markers are not set');
+    return;
+  }
 
-  selectedOperator = this.operator[0].value;
-  // End Operator
+  const originLatLng = this.originMarker.getPosition();
+  const destinationLatLng = this.destinationMarker.getPosition();
+
+  if (!originLatLng || !destinationLatLng) {
+    console.error('Marker positions are not set');
+    return;
+  }
+
+  const markers = this.addMarkers(originLatLng, destinationLatLng);
+  const origensito = markers._origin.replace(/[()]/g, '').replace(/\s+/g, '');
+  const destinito = markers._destination.replace(/[()]/g, '').replace(/\s+/g, '');
+
+  const currentDate = new Date();
+  const formattedDate = currentDate.toISOString().split('T')[0]; // Convert to "YYYY-MM-DD" format
+
+  const newOrder: orderData = {
+    Date: "2025-03-15",
+    IncidentType: this.selectedIncidentType,
+    Destination: destinito,
+    Location: origensito,
+    OrderDispatcherId: this.selectedOperator || '',
+    ContractId: this.selectedContract || '',
+  };
+
+  this.apiOrderService.createOrder(newOrder).subscribe(
+    (response) => {
+      console.log('Order created successfully', response);
+    },
+    (error) => {
+      console.error('Error creating order', error);
+    }
+  );
+}
+      
+  onSubmit() {
+    this.createOrder();
+    this.mapRoute();
+  }
 
 }

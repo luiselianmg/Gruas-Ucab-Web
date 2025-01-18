@@ -3,14 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\layouts",
-    "\\src\\app\\layouts\\full",
-    "\\src\\app\\layouts\\full\\header",
-    "\\src\\app\\layouts\\full\\notifications",
-    "\\src\\app\\layouts\\full\\sidebar",
     "\\src\\app\\pages",
-    "\\src\\app\\services"
+    "\\src\\app\\pages\\functionalities",
+    "\\src\\app\\pages\\functionalities\\orders"
   ],
-  "SelectedNode": "\\src\\app\\layouts\\full\\header\\header.component.ts",
+  "SelectedNode": "\\src\\app\\pages\\functionalities\\orders\\orders.component.ts",
   "PreviewInSolutionExplorer": false
 }

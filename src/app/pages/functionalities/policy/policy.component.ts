@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 
 import { ApiPolicyService } from 'src/app/services/policy.service';
-import { policyData } from 'src/app/domain/policy';
+import { policyData } from 'src/app/domain/policy.domain';
 
 interface Type {
   value: string;

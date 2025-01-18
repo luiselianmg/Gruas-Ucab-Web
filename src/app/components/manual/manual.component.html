@@ -1,0 +1,16 @@
+<mat-card-header>
+  <mat-card-title>Asignacion Manual</mat-card-title>
+</mat-card-header>
+
+<mat-card-content>
+  <mat-selection-list [multiple]="false" [(ngModel)]="selectedConductorId">
+    <mat-list-option *ngFor="let conductor of conductorsSource" [value]="conductor.conductorId">
+        {{ conductor.name }} - {{ distances[+conductor.conductorId] || 'Calculando...' }}
+    </mat-list-option>
+  </mat-selection-list>
+</mat-card-content>
+
+<mat-card-actions>
+  <button mat-raised-button color="primary" (click)="onAccept()" class="m-r-8">Aceptar</button>
+  <button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
+</mat-card-actions>

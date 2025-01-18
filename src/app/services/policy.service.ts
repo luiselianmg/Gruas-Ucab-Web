@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { policyData } from '../domain/policy';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { environment } from 'src/environments/environment';
+
+import { policyData } from '../domain/policy.domain';
 
 @Injectable({
   providedIn: 'root',
