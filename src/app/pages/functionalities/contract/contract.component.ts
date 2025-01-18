@@ -6,59 +6,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-
-export interface contractData {
-  id: number;
-  imagePath: string;
-  number: number;
-  vehicle: string;
-  policy: string;
-  endDate: string;
-  isActive: boolean;
-}
-
-interface Vehicle {
-  value: string;
-}
-
-interface Policy {
-  value: string;
-}
-
-interface Type {
-  value: string;
-}
-
-const CONTRACT_DATA: contractData[] = [
-  {
-    id: 1,
-    imagePath: 'assets/images/contract/image.png',
-    number: 1,
-    vehicle: 'Mercedes Amg GT 63s',
-    policy: 'Oro',
-    endDate: '2025-07-01',
-    isActive: true,
-  },
-  {
-    id: 2,
-    imagePath: 'assets/images/contract/image.png',
-    number: 2,
-    vehicle: 'Ford F-150',
-    policy: 'Bronce',
-    endDate: '2021-07-01',
-    isActive: false,
-  },
-  {
-    id: 3,
-    imagePath: 'assets/images/contract/image.png',
-    number: 3,
-    vehicle: 'Chevrolet Silverado',
-    policy: 'Plata',
-    endDate: '2025-07-01',
-    isActive: true,
-  },
-
-];
+import { ContractData, VehicleData} from 'src/app/domain/contract.domain';
+import { ContractService } from 'src/app/services/contract.service';
+import { policyData } from 'src/app/domain/policy';
 
 @Component({
   selector: 'app-crane',
@@ -77,27 +27,38 @@ const CONTRACT_DATA: contractData[] = [
 export class AppContractComponent {
   // Table
   displayedColumns1: string[] = ['imagePath', 'number', 'vehicle', 'policy' ,'endDate', 'isActive', 'budget'];
-  dataSource1 = CONTRACT_DATA;
-  // End Table
 
   // Select
-  policy: Policy[] = [
-    { value: 'Oro' },
-    { value: 'Plata' },
-    { value: 'Bronce' },
-  ];
-  selectedPolicy = this.policy[0].value;  
-  // End Select  
+  policy: policyData[] = [ ];
 
   craneStatus: string[] = ['Activa', 'Inactiva'];
 
-    // Select
-    type: Type[] = [
-      { value: 'Ligero' },
-      { value: 'Mediano' },
-      { value: 'Pesado' },
-    ];
-    selectedType = this.type[0].value;
-    // End Select
+    // // Select
+    // type: VehicleData[] = [
+    //   { value: 'Ligero' },
+    //   { value: 'Mediano' },
+    //   { value: 'Pesado' },
+    // ];
+    // selectedType = this.type[0].value;
+    // // End Select
+
+    contracts: ContractData[] = [];
+    constructor(private contractService: ContractService) { }
+
+    ngOnInit(): void {
+      this.loadContracts();
+    }
+
+    loadContracts(): void {
+      this.contractService.getContracts().subscribe(
+        (data: ContractData[]) => {
+          this.contracts = data;
+          console.log('Contratos:', this.contracts);
+        },
+        (error) => {
+          console.error('Error:', error);
+        }
+      );
+    }
 
 }

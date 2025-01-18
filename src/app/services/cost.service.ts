@@ -2,7 +2,7 @@
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { AuthService } from './auth.service';
 import { environment } from 'src/environments/environment';
 import { ExtraCostData } from '../domain/extra-cost.domain';
@@ -23,5 +23,23 @@ export class CostsService {
         headers,
       }
     );
+  }
+
+  createCost(description: string, defaultPrice: number): Observable<boolean> {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http
+      .post<boolean>(
+        `${this.apiUrl}/orders-ms/extra-cost`,
+        { description, defaultPrice },
+        { headers }
+      )
+      .pipe(
+        map((response) => {
+          console.log('Response from backend:', response);
+          return true;
+        }),
+        catchError(() => of(false))
+      );
   }
 }
