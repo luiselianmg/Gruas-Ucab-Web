@@ -2,7 +2,6 @@ import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
-import { NavigationEnd, Router } from '@angular/router';
 import { navItems } from './sidebar/sidebar-data';
 import { NavService } from '../../services/nav.service';
 import { AppNavItemComponent } from './sidebar/nav-item/nav-item.component';
@@ -13,6 +12,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { TablerIconsModule } from 'angular-tabler-icons';
 import { HeaderComponent } from './header/header.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 const MOBILE_VIEW = 'screen and (max-width: 768px)';
 const TABLET_VIEW = 'screen and (min-width: 769px) and (max-width: 1024px)';
@@ -40,7 +40,8 @@ const BELOWMONITOR = 'screen and (max-width: 1023px)';
 
 export class FullComponent implements OnInit {
 
-  navItems = navItems;
+  navItems = navItems; // Original navItems array
+  filteredNavItems: any[] = []; // Filtered navItems based on user role
 
   @ViewChild('leftsidenav')
   public sidenav: MatSidenav | any;
@@ -55,7 +56,11 @@ export class FullComponent implements OnInit {
     return this.isMobileScreen;
   }
 
-  constructor(private breakpointObserver: BreakpointObserver, private navService: NavService) {
+  constructor(
+    private breakpointObserver: BreakpointObserver, 
+    private navService: NavService,
+    private authService: AuthService
+  ) {
     
     this.htmlElement = document.querySelector('html')!;
     this.htmlElement.classList.add('light-theme');
@@ -70,8 +75,16 @@ export class FullComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+    const userRole = this.authService.getRole(); // Get user role from AuthService
+    if (userRole) {
+      this.filteredNavItems = this.navItems.filter((item) =>
+        item.roles?.includes(userRole)
+      );
+    } else {
+      this.filteredNavItems = [];
+    }
+  }
   ngOnDestroy() {
     this.layoutChangesSubscription.unsubscribe();
   }

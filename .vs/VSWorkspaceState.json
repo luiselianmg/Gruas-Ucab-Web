@@ -3,13 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\guards",
+    "\\src\\app\\layouts",
+    "\\src\\app\\layouts\\full",
+    "\\src\\app\\layouts\\full\\header",
+    "\\src\\app\\layouts\\full\\notifications",
+    "\\src\\app\\layouts\\full\\sidebar",
     "\\src\\app\\pages",
-    "\\src\\app\\pages\\administration",
-    "\\src\\app\\pages\\administration\\users",
-    "\\src\\app\\pages\\functionalities",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\guards\\auth.guard.ts",
+  "SelectedNode": "\\src\\app\\layouts\\full\\header\\header.component.ts",
   "PreviewInSolutionExplorer": false
 }

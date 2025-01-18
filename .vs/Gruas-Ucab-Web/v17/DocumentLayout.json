@@ -3,24 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\header\\header.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\layouts\\full\\header\\header.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\sidebar\\sidebar-data.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\layouts\\full\\sidebar\\sidebar-data.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\services\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\services\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\services\\user.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\services\\user.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\full.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\layouts\\full\\full.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\directives\\has-role.directive.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\directives\\has-role.directive.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\full.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\layouts\\full\\full.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\pages.routes.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\pages\\pages.routes.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\sidebar\\sidebar.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\layouts\\full\\sidebar\\sidebar.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\sidebar\\sidebar.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\layouts\\full\\sidebar\\sidebar.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\app.routes.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.routes.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\administration\\users\\users.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\pages\\administration\\users\\users.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\administration\\users\\users.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\pages\\administration\\users\\users.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,60 +50,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "app.routes.ts",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\app.routes.ts",
-              "RelativeDocumentMoniker": "src\\app\\app.routes.ts",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\app.routes.ts",
-              "RelativeToolTip": "src\\app\\app.routes.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-01-15T00:21:07.224Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "users.component.html",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\administration\\users\\users.component.html",
-              "RelativeDocumentMoniker": "src\\app\\pages\\administration\\users\\users.component.html",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\administration\\users\\users.component.html",
-              "RelativeToolTip": "src\\app\\pages\\administration\\users\\users.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-01-15T00:02:29.284Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "users.component.ts",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\administration\\users\\users.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\pages\\administration\\users\\users.component.ts",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\administration\\users\\users.component.ts",
-              "RelativeToolTip": "src\\app\\pages\\administration\\users\\users.component.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-01-15T00:02:28.27Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "user.service.ts",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\services\\user.service.ts",
-              "RelativeDocumentMoniker": "src\\app\\services\\user.service.ts",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\services\\user.service.ts",
-              "RelativeToolTip": "src\\app\\services\\user.service.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-01-14T23:57:46.431Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -99,14 +67,131 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "header.component.ts",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\header\\header.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\layouts\\full\\header\\header.component.ts",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\header\\header.component.ts",
+              "RelativeToolTip": "src\\app\\layouts\\full\\header\\header.component.ts",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-01-18T02:20:08.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "sidebar-data.ts",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\sidebar\\sidebar-data.ts",
+              "RelativeDocumentMoniker": "src\\app\\layouts\\full\\sidebar\\sidebar-data.ts",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\sidebar\\sidebar-data.ts",
+              "RelativeToolTip": "src\\app\\layouts\\full\\sidebar\\sidebar-data.ts",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-01-18T01:20:28.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "auth.service.ts",
               "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\services\\auth.service.ts",
               "RelativeDocumentMoniker": "src\\app\\services\\auth.service.ts",
               "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\services\\auth.service.ts",
               "RelativeToolTip": "src\\app\\services\\auth.service.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwC0AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-01-14T23:56:51.41Z",
+              "WhenOpened": "2025-01-18T01:19:59.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "full.component.html",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\full.component.html",
+              "RelativeDocumentMoniker": "src\\app\\layouts\\full\\full.component.html",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\full.component.html",
+              "RelativeToolTip": "src\\app\\layouts\\full\\full.component.html",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-01-18T01:20:20.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "has-role.directive.ts",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\directives\\has-role.directive.ts",
+              "RelativeDocumentMoniker": "src\\app\\directives\\has-role.directive.ts",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\directives\\has-role.directive.ts",
+              "RelativeToolTip": "src\\app\\directives\\has-role.directive.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-01-18T01:48:38.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "full.component.ts",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\full.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\layouts\\full\\full.component.ts",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\full.component.ts",
+              "RelativeToolTip": "src\\app\\layouts\\full\\full.component.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-01-18T01:20:21.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "pages.routes.ts",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\pages.routes.ts",
+              "RelativeDocumentMoniker": "src\\app\\pages\\pages.routes.ts",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\pages.routes.ts",
+              "RelativeToolTip": "src\\app\\pages\\pages.routes.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-01-18T01:52:28.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "sidebar.component.html",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\sidebar\\sidebar.component.html",
+              "RelativeDocumentMoniker": "src\\app\\layouts\\full\\sidebar\\sidebar.component.html",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\sidebar\\sidebar.component.html",
+              "RelativeToolTip": "src\\app\\layouts\\full\\sidebar\\sidebar.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-01-18T01:20:29.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "sidebar.component.ts",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\sidebar\\sidebar.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\layouts\\full\\sidebar\\sidebar.component.ts",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\layouts\\full\\sidebar\\sidebar.component.ts",
+              "RelativeToolTip": "src\\app\\layouts\\full\\sidebar\\sidebar.component.ts",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-01-18T01:20:32.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "app.routes.ts",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\app.routes.ts",
+              "RelativeDocumentMoniker": "src\\app\\app.routes.ts",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\app.routes.ts",
+              "RelativeToolTip": "src\\app\\app.routes.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-01-15T00:21:07.224Z",
               "EditorCaption": ""
             }
           ]

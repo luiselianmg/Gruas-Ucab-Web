@@ -13,6 +13,8 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 
+import { HasRoleDirective } from 'src/app/directives/has-role.directive';
+
 import { AppNotificationsComponent } from '../notifications/notifications.component';
 import { AuthService } from '../../../services/auth.service';
 
@@ -25,6 +27,7 @@ import { AuthService } from '../../../services/auth.service';
     TablerIconsModule, 
     MaterialModule, 
     MatDialogModule,
+    HasRoleDirective,
   ],
   templateUrl: './header.component.html',
   encapsulation: ViewEncapsulation.None,
