@@ -6,8 +6,8 @@ import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 import { orderData } from '../domain/order.domain';
+import { orderAllData } from '../domain/orderAll.domain';
 import { conductorData } from '../domain/conductor.domain';
-
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +20,14 @@ export class ApiOrderService {
     const token = this.authService.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get<orderData[]>(`${this.apiUrl}/orders-ms/order`, {
+      headers,
+    });
+  }
+
+  getOrdersAllData(): Observable<orderAllData[]> {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<orderAllData[]>(`${this.apiUrl}/orders-ms/order`, {
       headers,
     });
   }
