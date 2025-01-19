@@ -160,19 +160,25 @@
         <div class="col-lg-6">
           <mat-label class="f-w-600 m-b-8 d-block">Marca</mat-label>
           <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput placeholder="marca" />
+            <input matInput formControlName="brand" placeholder="marca" />
           </mat-form-field>
         </div>
         <div class="col-lg-6">
           <mat-label class="f-w-600 m-b-8 d-block">Modelo</mat-label>
           <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput placeholder="modelo" />
+            <input matInput formControlName="model" placeholder="modelo" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Placa</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput formControlName="plate" placeholder="placa" />
           </mat-form-field>
         </div>
         <div class="col-lg-6">
           <mat-label class="f-w-600 m-b-8 d-block">Año</mat-label>
           <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput type="number" placeholder="2025" />
+            <input matInput formControlName="year" type="number" placeholder="2025" />
           </mat-form-field>
         </div>
         <div class="col-lg-6">
