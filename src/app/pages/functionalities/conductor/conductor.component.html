@@ -75,38 +75,48 @@
   </mat-card-content>
 </mat-card>
 
-
-<!-- <mat-card class="cardWithShadow theme-card">
+<mat-card class="cardWithShadow theme-card">
   <mat-card-header>
-    <mat-card-title class="m-b-0">Crear Poliza</mat-card-title>
+    <mat-card-title class="m-b-0">Crear Conductor</mat-card-title>
   </mat-card-header>
   <mat-card-content class="b-t-1">
-    <form [formGroup]="form" (ngSubmit)="createPolicy()" class="">
+    <form [formGroup]="form" (ngSubmit)="createConductor()" class="">
       <div class="row">
+
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Cedula</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput type='number' formControlName="dni" placeholder="28210570" />
+          </mat-form-field>
+        </div>
+
         <div class="col-lg-6">
           <mat-label class="f-w-600 m-b-8 d-block">Nombre</mat-label>
           <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput formControlName="name" placeholder="Nombre de la Póliza" />
+            <input matInput formControlName="name" placeholder="Nombre del Conductor" />
           </mat-form-field>
         </div>
+
         <div class="col-lg-6">
-          <mat-label class="f-w-600 m-b-8 d-block">Covertura (km)</mat-label>
+          <mat-label class="f-w-600 m-b-8 d-block">Grua Asignada</mat-label>
           <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput formControlName="kmCoverage" placeholder="200" />
+            <input matInput formControlName="assignedCrane" placeholder="10" />
           </mat-form-field>
         </div>
-        <div class="col-lg-6">
-          <mat-label class="f-w-600 m-b-8 d-block">Covertura ($)</mat-label>
-          <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput formControlName="monetaryCoverage" placeholder="3500" />
-          </mat-form-field>
-        </div>
-        <div class="col-lg-6">
-          <mat-label class="f-w-600 m-b-8 d-block">Precio Base Por Km</mat-label>
-          <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput formControlName="baseKmPrice" placeholder="10" />
-          </mat-form-field>
-        </div>
+
+        <!-- <div class="col-lg-6 m-t-12">
+          <mat-label class="f-w-600 m-b-8 d-block">Adjuntar Imagen</mat-label>
+          <div class="custom-file-input">
+            <input
+              type="file"
+              accept="image/*"
+              name="image"
+              class="m-b-12"
+              (change)="onFileSelected($event)"
+            />
+          </div>
+        </div> -->
+
       </div>
 
       <div class="m-t-12">
@@ -114,4 +124,4 @@
       </div>
     </form>
   </mat-card-content>
-</mat-card> -->
+</mat-card>

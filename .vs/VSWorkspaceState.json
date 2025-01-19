@@ -3,11 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\components",
     "\\src\\app\\pages",
     "\\src\\app\\pages\\functionalities",
-    "\\src\\app\\pages\\functionalities\\conductor"
+    "\\src\\app\\pages\\functionalities\\conductor",
+    "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\pages\\functionalities\\contract",
+  "SelectedNode": "\\src\\app\\pages\\functionalities\\conductor\\conductor.component.html",
   "PreviewInSolutionExplorer": false
 }
