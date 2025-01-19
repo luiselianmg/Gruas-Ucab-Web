@@ -106,8 +106,8 @@ export class AppOrdersComponent implements OnInit {
     this.apiContractService.getContracts().subscribe((data: contractData[]) => {
       this.contract = data;
       this.contractOptions = data.map(contract => ({
-        value: contract.id,
-        viewValue: contract.numberContract
+        value: contract.id as string,
+        viewValue: contract.contractNumber
       }));
       this.selectedContract = this.contractOptions.length > 0 ? this.contractOptions[0].value : null;
     });

@@ -7,11 +7,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { craneData } from 'src/app/domain/crane.domain';
 
 import { ApiCraneService } from 'src/app/services/crane.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Type {
   value: string;
@@ -97,6 +97,7 @@ export class AppCraneComponent implements OnInit{
 
     this.ApiCraneService.createCrane(newCrane).subscribe(
       (data: craneData) => {
+        this.dataSource.push(data);
         console.log('Grua creada:', data);
         this.snackBar.open('Se creo la grua exitosamente', 'Cerrar', {
           duration: 3000
