@@ -38,7 +38,7 @@
           </th>
           <td mat-cell *matCellDef="let element" class="mat-body-1">
             <h6 class="mat-body-1 f-s-16 m-b-4">
-              <span class="text-dark f-w-600">{{ element.expirationDate }} </span>
+              <span class="text-dark f-w-600">{{ element.expirationDate | date}} </span>
             </h6>
           </td>
         </ng-container>
@@ -137,21 +137,41 @@
         <div class="col-lg-6">
           <mat-label class="f-w-600 m-b-8 d-block">Año</mat-label>
           <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput type="number" placeholder="2025" />
+            <input matInput  placeholder="2025" />
           </mat-form-field>
         </div>
-        <!-- <div class="col-lg-6">
-          <mat-label class="f-w-600 m-b-8 d-block">Tipo</mat-label>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Color</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput  placeholder="Color" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Kilometraje</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput  placeholder="Kilometraje" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Dni del Cliente</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput  placeholder="Dni" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Nombre del Cliente</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput placeholder="Nombre" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Póliza</mat-label>
           <mat-form-field appearance="outline" class="w-100">
-            <mat-select [(value)]="selectedType">
-              @for(option of type; track option.value) {
-              <mat-option [value]="option.value">{{
-                option.value
-              }}</mat-option>
-              }
+            <mat-select [(value)]="selectedPolicy">
+              <mat-option *ngFor="let policy of policies;" [value]="policy.id">{{ policy.name }}</mat-option>
             </mat-select>
           </mat-form-field>
-        </div> -->
+        </div>
       </div>
 
       <div class="m-t-15">
