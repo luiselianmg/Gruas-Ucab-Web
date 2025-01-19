@@ -40,8 +40,8 @@ const BELOWMONITOR = 'screen and (max-width: 1023px)';
 
 export class FullComponent implements OnInit {
 
-  navItems = navItems; // Original navItems array
-  filteredNavItems: any[] = []; // Filtered navItems based on user role
+  navItems = navItems;
+  filteredNavItems: any[] = [];
 
   @ViewChild('leftsidenav')
   public sidenav: MatSidenav | any;
@@ -67,7 +67,6 @@ export class FullComponent implements OnInit {
     this.layoutChangesSubscription = this.breakpointObserver
       .observe([MOBILE_VIEW, TABLET_VIEW, MONITOR_VIEW])
       .subscribe((state) => {
-        // SidenavOpened must be reset true when layout changes
 
         this.isMobileScreen = state.breakpoints[MOBILE_VIEW];
 
@@ -76,7 +75,7 @@ export class FullComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const userRole = this.authService.getRole(); // Get user role from AuthService
+    const userRole = this.authService.getRole();
     if (userRole) {
       this.filteredNavItems = this.navItems.filter((item) =>
         item.roles?.includes(userRole)

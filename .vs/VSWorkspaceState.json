@@ -4,10 +4,10 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\add-cost",
-    "\\src\\app\\components\\extra-cost",
-    "\\src\\app\\services"
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\functionalities",
+    "\\src\\app\\pages\\functionalities\\conductor"
   ],
-  "SelectedNode": "\\src\\app\\services\\cost.service.ts",
+  "SelectedNode": "\\src\\app\\pages\\functionalities\\contract",
   "PreviewInSolutionExplorer": false
 }

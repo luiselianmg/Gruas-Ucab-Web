@@ -40,7 +40,7 @@ export const FunctionalitiesRoutes: Routes = [
       {
         path: 'conductor',
         component: AppConductorComponent,
-      }
+      },
     ],
   },
 ];

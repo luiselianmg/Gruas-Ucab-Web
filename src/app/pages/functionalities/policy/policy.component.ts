@@ -6,10 +6,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
+import { policyData } from 'src/app/domain/policy.domain';
 
 import { ApiPolicyService } from 'src/app/services/policy.service';
-import { policyData } from 'src/app/domain/policy.domain';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 interface Type {
   value: string;
