@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 
 import { ApiPolicyService } from 'src/app/services/policy.service';
 import { policyData } from 'src/app/domain/policy.domain';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 interface Type {
   value: string;
@@ -25,41 +26,69 @@ interface Type {
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
+    ReactiveFormsModule
   ],
   templateUrl: './policy.component.html',
 })
 export class AppPolicyComponent implements OnInit {
-    // Table
-    displayedColumns: string[] = ['name', 'monetaryCoverage', 'kmCoverage', 'baseKmPrice' ,'budget'];
-    dataSource: policyData[] = [];
-    // End Table
+  // Table
+  displayedColumns: string[] = [
+    'name',
+    'monetaryCoverage',
+    'kmCoverage',
+    'baseKmPrice',
+    'budget',
+  ];
+  dataSource: policyData[] = [];
+  // End Table
 
-    // Select
-    type: Type[] = [
-      { value: 'Oro' },
-      { value: 'Plata' },
-      { value: 'Bronce' },
-    ];
-    selectedType = this.type[0].value;
-    // End Select
+  form: FormGroup;
 
-    policy: policyData[] = [];
+  constructor(private apiPolicyService: ApiPolicyService) {
+    this.form = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      monetaryCoverage: new FormControl('', [Validators.required]),
+      kmCoverage: new FormControl('', [Validators.required]),
+      baseKmPrice: new FormControl('', [Validators.required]),
+    });
+  }
 
-    constructor(private apiPolicyService: ApiPolicyService) { }
+  get f() {
+    return this.form.controls;
+  }
 
-    ngOnInit(): void {
-      this.loadPolicy();
+  ngOnInit(): void {
+    this.loadPolicy();
+  }
+
+  loadPolicy(): void {
+    this.apiPolicyService.getPolicy().subscribe(
+      (data: policyData[]) => {
+        this.dataSource = data;
+        console.log('Polizas:', this.dataSource);
+      },
+      (error) => {
+        console.error('Error al obtener las polizas:', error);
+      }
+    );
+  }
+
+  createPolicy() {
+    if (this.form.valid) {
+      this.apiPolicyService
+        .createPolicy(
+          this.form.value.name,
+          this.form.value.monetaryCoverage,
+          this.form.value.kmCoverage,
+          this.form.value.baseKmPrice
+        )
+        .subscribe((success) => {
+          if (success) {
+            this.apiPolicyService.getPolicy().subscribe((data) => {
+              this.dataSource = data;
+            });
+          }
+        });
     }
-    
-    loadPolicy(): void {
-      this.apiPolicyService.getPolicy().subscribe(
-        (data: policyData[]) => {
-          this.dataSource = data;
-          console.log('Polizas:', this.dataSource);
-        },
-        (error) => {
-          console.error('Error al obtener las polizas:', error);
-        }
-      );
-  }    
+  }
 }
