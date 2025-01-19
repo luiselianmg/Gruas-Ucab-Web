@@ -36,8 +36,10 @@ export class ApiUserService {
     const token = this.authService.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
+    console.log('Datos enviados:', user);
+
     return this.http
-      .post<userData>(`${this.apiUrl}/users-ms//user`, user, { headers })
+      .post<userData>(`${this.apiUrl}/users-ms/user`, user, { headers })
       .pipe(
         catchError((error) => {
           console.error('Error al agregar al usuario:', error);

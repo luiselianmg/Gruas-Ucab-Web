@@ -60,7 +60,7 @@ export class AppContractComponent {
       km: ['', Validators.required],
       ownerDni: ['', Validators.required],
       ownerName: ['', Validators.required],
-      policyId: [null, Validators.required], // Asegúrate de incluir policyId en el FormGroup
+      policyId: [null, Validators.required],
     });
   }
 
@@ -69,9 +69,7 @@ export class AppContractComponent {
   }
 
   ngOnInit(): void {
-    this.apiContractService.getContracts().subscribe((data) => {
-      this.dataSource = data;
-    });
+    this.loadContract();
 
     this.apiPoliciesService.getPolicy().subscribe((data: policyData[]) => {
       this.policies = data;
@@ -80,6 +78,18 @@ export class AppContractComponent {
         viewValue: policy.name,
       }));
     });
+  }
+
+  loadContract(): void {
+    this.apiContractService.getContracts().subscribe(
+      (data: contractData[]) => {
+        this.dataSource = data;
+        console.log('Contratos:', this.dataSource);
+      },
+      (error) => {
+        console.error('Error al obtener los contratos:', error);
+      }
+    );
   }
 
   createContract(): void {
@@ -104,9 +114,10 @@ export class AppContractComponent {
       (data) => {
         console.log('Contrato creado:', data);
         this.dataSource.push(data);
-        this.snackBar.open('Se creo la grua exitosamente', 'Cerrar', {
+        this.snackBar.open('Se creo el contrato exitosamente', 'Cerrar', {
           duration: 3000
         });
+        this.loadContract();
       },
       (error) => {
         console.error('Error al crear contrato:', error);

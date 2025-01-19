@@ -65,24 +65,20 @@ export class AppUsersComponent implements OnInit {
   // Table
   displayedColumns: string[] = ['name', 'phone', 'department', 'role', 'isActive', 'budget'];
   dataSource: userData[] = [];
-  // End Table
+
+  dept: departmentData[] = [];
+  deptOptions: { value: string; viewValue: string }[] = [];
+  selectedDept: string | null = null;
 
   // Formulario de creación de usuario
   users: userData[] = [];
 
   // Select
-  dept: Dept[] = [
-    {value: 'ff212f2d-66ff-4162-b353-90bb7e52e026', viewValue: 'Administración'},
-    {value: 'a57d79bd-dde2-4861-87e8-45db7f69f4e4', viewValue: 'Ventas'},
-    {value: '725f1fed-7ecd-48d6-94ca-729067789108', viewValue: 'Desarrollo'},
-    {value: '06dafc18-1503-48c8-8639-5cac37d1eeae', viewValue: 'Recursos Humanos'}
-  ];
-  selectedDept = this.dept[1].value;
-
   role: Role[] = [
     {value: 'admin', viewValue: 'Administrador'},
     {value: 'operator', viewValue: 'Operador de Cabina'},
     {value: 'conductor', viewValue: 'Conductor'},
+    {value: 'provider', viewValue: 'Proveedor'},
   ];
   selectedRole = this.role[0].value;
 
@@ -101,15 +97,28 @@ export class AppUsersComponent implements OnInit {
     password: ''
   };
 
-  constructor(private apiUserService: ApiUserService, private snackBar: MatSnackBar ) { }
+  constructor(
+    private apiUserService: ApiUserService, 
+    private ApiDepartmentService: ApiDepartmentService,
+    private snackBar: MatSnackBar 
+  ) { }
 
   ngOnInit(): void {
     this.loadUsers();
+
+    this.ApiDepartmentService.getDepartments().subscribe((data: departmentData[]) => {
+      this.dept = data;
+      this.deptOptions = this.dept.map((dept) => ({
+        value: dept.id as string,
+        viewValue: dept.name,
+      }));
+    });
+
   }
 
   addUser() {
-    this.apiUserService.addUser(this.newUser).subscribe(
-      (response) => {
+    this.apiUserService.addUser(this.newUser).subscribe(    
+        (response) => {
         console.log('Usuario creado:', response);
         this.users.push(response);
         this.loadUsers();
@@ -130,7 +139,6 @@ export class AppUsersComponent implements OnInit {
     );
   }
   
-
   loadUsers(): void {
     this.apiUserService.getUser().subscribe(
       (data: userData[]) => {

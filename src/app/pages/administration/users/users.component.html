@@ -155,7 +155,7 @@
           <mat-label class="f-w-600 m-b-8 d-block">Departamento</mat-label>
           <mat-form-field appearance="outline" class="w-100" color="primary">
             <mat-select [(ngModel)]="newUser.department" name="department" required>
-              <mat-option *ngFor="let option of dept" [value]="option.value">
+              <mat-option *ngFor="let option of deptOptions" [value]="option.value">
                 {{ option.viewValue }}
               </mat-option>
             </mat-select>
