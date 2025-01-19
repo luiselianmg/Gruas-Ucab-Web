@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\domain",
     "\\src\\app\\pages",
-    "\\src\\app\\pages\\functionalities",
-    "\\src\\app\\pages\\functionalities\\contract",
+    "\\src\\app\\pages\\administration",
+    "\\src\\app\\pages\\administration\\providers",
+    "\\src\\app\\pages\\authentication",
     "\\src\\assets",
     "\\src\\assets\\images",
     "\\src\\assets\\images\\crane"
   ],
-  "SelectedNode": "\\src\\app\\pages\\functionalities\\contract\\contract.component.ts",
+  "SelectedNode": "\\src\\app\\pages\\administration\\providers\\providers.component.ts",
   "PreviewInSolutionExplorer": false
 }

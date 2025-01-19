@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\functionalities\\contract\\contract.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\pages\\functionalities\\contract\\contract.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\administration\\providers\\providers.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\pages\\administration\\providers\\providers.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\administration\\providers\\providers.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\pages\\administration\\providers\\providers.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,14 +35,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "contract.component.ts",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\functionalities\\contract\\contract.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\pages\\functionalities\\contract\\contract.component.ts",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\functionalities\\contract\\contract.component.ts",
-              "RelativeToolTip": "src\\app\\pages\\functionalities\\contract\\contract.component.ts",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAIwHQAAAAAAAAAAAAAAA==",
+              "Title": "providers.component.ts",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\administration\\providers\\providers.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\pages\\administration\\providers\\providers.component.ts",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\administration\\providers\\providers.component.ts",
+              "RelativeToolTip": "src\\app\\pages\\administration\\providers\\providers.component.ts",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAQwHUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-01-19T13:47:54.086Z",
+              "WhenOpened": "2025-01-19T15:50:07.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "providers.component.html",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\administration\\providers\\providers.component.html",
+              "RelativeDocumentMoniker": "src\\app\\pages\\administration\\providers\\providers.component.html",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\administration\\providers\\providers.component.html",
+              "RelativeToolTip": "src\\app\\pages\\administration\\providers\\providers.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-01-19T15:50:06.155Z",
               "EditorCaption": ""
             }
           ]
