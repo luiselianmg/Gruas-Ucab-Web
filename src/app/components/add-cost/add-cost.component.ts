@@ -34,20 +34,5 @@ export class AppAddCostDialogComponent {
 
   constructor(public dialogRef: MatDialogRef<AppAddCostDialogComponent>) {}
 
-  // Conductor
-  cost: Costs[] = [
-    { value: 'tire', viewValue: 'Neumatico', cost: 100 },
-    { value: 'engine', viewValue: 'Motor', cost: 500 },
-    { value: 'brake', viewValue: 'Freno', cost: 300 },
-  ];
-  selectedCost = this.cost[0].value;
-  // End Conductor  
-  
-  onCancel(): void {
-    this.dialogRef.close();
-  }
 
-  onAdd(): void {
-    this.dialogRef.close({ cost: this.extraCost, description: this.description });
-  }
 }

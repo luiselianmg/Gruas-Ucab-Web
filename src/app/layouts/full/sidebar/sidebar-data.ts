@@ -45,6 +45,12 @@ export const navItems: NavItem[] = [
     route: '/functionalities/vehicle',
     roles: ['admin', 'operator'],
   },
+  {
+    displayName: 'Conductores',
+    iconName: 'steering-wheel',
+    route: '/functionalities/conductor',
+    roles: ['admin', 'provider'],
+  },
   { navCap: 'Administración', roles: ['admin'] },
   {
     displayName: 'Usuarios',

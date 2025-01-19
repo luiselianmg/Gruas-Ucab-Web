@@ -7,6 +7,7 @@ import { AppCraneComponent } from './crane/crane.component';
 import { AppPolicyComponent } from './policy/policy.component';
 import { AppContractComponent } from './contract/contract.component';
 import { AppVehicleComponent } from './vehicle/vehicle.component';
+import { AppConductorComponent } from './conductor/conductor.component';
 
 export const FunctionalitiesRoutes: Routes = [
   {
@@ -36,6 +37,10 @@ export const FunctionalitiesRoutes: Routes = [
         path: 'vehicle',
         component: AppVehicleComponent,
       },
+      {
+        path: 'conductor',
+        component: AppConductorComponent,
+      }
     ],
   },
 ];

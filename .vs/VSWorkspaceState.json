@@ -4,8 +4,10 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\extra-cost"
+    "\\src\\app\\components\\add-cost",
+    "\\src\\app\\components\\extra-cost",
+    "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\components\\extra-cost\\extra-cost.component.ts",
+  "SelectedNode": "\\src\\app\\services\\order.service.ts",
   "PreviewInSolutionExplorer": false
 }

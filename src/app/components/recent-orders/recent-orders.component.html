@@ -48,7 +48,7 @@
     <button mat-icon-button (click)="previousPage()" [disabled]="currentPage === 0">
       <mat-icon>chevron_left</mat-icon>
     </button>
-    <span style="color: #e5a000;">Página {{ currentPage + 1 }}</span>
+    <span style="color: #ff9100;">Página {{ currentPage + 1 }}</span>
     <button mat-icon-button (click)="nextPage()" [disabled]="(currentPage + 1) * pageSize >= dataSource.length">
       <mat-icon>chevron_right</mat-icon>
     </button>
