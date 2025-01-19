@@ -1,28 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\add-cost\\add-cost.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\add-cost\\add-cost.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\add-cost\\add-cost.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\add-cost\\add-cost.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\extra-cost\\extra-cost.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\extra-cost\\extra-cost.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\services\\order.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\services\\order.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\extra-cost\\extra-cost.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\extra-cost\\extra-cost.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -30,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,71 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "add-cost.component.ts",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\add-cost\\add-cost.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\components\\add-cost\\add-cost.component.ts",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\add-cost\\add-cost.component.ts",
-              "RelativeToolTip": "src\\app\\components\\add-cost\\add-cost.component.ts",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-01-18T23:20:38.601Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "add-cost.component.html",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\add-cost\\add-cost.component.html",
-              "RelativeDocumentMoniker": "src\\app\\components\\add-cost\\add-cost.component.html",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\add-cost\\add-cost.component.html",
-              "RelativeToolTip": "src\\app\\components\\add-cost\\add-cost.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-01-18T23:20:37.821Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "extra-cost.component.html",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\extra-cost\\extra-cost.component.html",
-              "RelativeDocumentMoniker": "src\\app\\components\\extra-cost\\extra-cost.component.html",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\extra-cost\\extra-cost.component.html",
-              "RelativeToolTip": "src\\app\\components\\extra-cost\\extra-cost.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-01-18T23:20:34.119Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "order.service.ts",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\services\\order.service.ts",
-              "RelativeDocumentMoniker": "src\\app\\services\\order.service.ts",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\services\\order.service.ts",
-              "RelativeToolTip": "src\\app\\services\\order.service.ts",
-              "ViewState": "AgIAADUAAAAAAAAAAAAgwFEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-01-18T23:26:06.555Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "extra-cost.component.ts",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\extra-cost\\extra-cost.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\components\\extra-cost\\extra-cost.component.ts",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\extra-cost\\extra-cost.component.ts",
-              "RelativeToolTip": "src\\app\\components\\extra-cost\\extra-cost.component.ts",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwDgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-01-18T23:20:33.291Z",
-              "EditorCaption": ""
             }
           ]
         }

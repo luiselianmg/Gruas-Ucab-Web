@@ -2,7 +2,7 @@
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, map, Observable, of, throwError } from 'rxjs';
 import { AuthService } from './auth.service';
 import { environment } from 'src/environments/environment';
 import { ExtraCostData } from '../domain/extra-cost.domain';
@@ -40,6 +40,18 @@ export class CostsService {
           return true;
         }),
         catchError(() => of(false))
+      );
+  }
+
+  patchExtraCost(orderId: string, costData: { id:string }): Observable<any> {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.patch(`${this.apiUrl}/orders-ms/order/add-extra-costs/${orderId}`, costData, { headers })
+      .pipe(
+        catchError((error: any) => {
+          console.error('Error al agregar el costo extra:', error);
+          return throwError(error);
+        })
       );
   }
 }

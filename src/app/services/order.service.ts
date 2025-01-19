@@ -73,16 +73,4 @@ export class ApiOrderService {
       );
   }
 
-  patchExtraCost(orderId: string, costData: { description: string; price: number }): Observable<any> {
-    const token = this.authService.getToken();
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.patch(`${this.apiUrl}/orders-ms/order/add-extra-costs/${orderId}`, costData, { headers })
-      .pipe(
-        catchError((error: any) => {
-          console.error('Error al agregar el costo extra:', error);
-          return throwError(error);
-        })
-      );
-  }
-
 }

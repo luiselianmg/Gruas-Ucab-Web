@@ -8,6 +8,6 @@
     "\\src\\app\\components\\extra-cost",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\services\\order.service.ts",
+  "SelectedNode": "\\src\\app\\services\\cost.service.ts",
   "PreviewInSolutionExplorer": false
 }

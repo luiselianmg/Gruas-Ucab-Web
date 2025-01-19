@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 
 import { MatListModule } from '@angular/material/list'; 
@@ -10,9 +10,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 
 import { AppAddCostDialogComponent } from '../add-cost/add-cost.component';
-import { ApiOrderService } from 'src/app/services/order.service';
-import { orderData } from 'src/app/domain/order.domain';
-
 
 import { orderAllData } from '../../domain/orderAll.domain';
 
@@ -32,7 +29,6 @@ import { orderAllData } from '../../domain/orderAll.domain';
 export class AppExtraCostComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
-    private apiOrderService: ApiOrderService,
     @Inject(MAT_DIALOG_DATA) public order: orderAllData
   ) { }
 
@@ -42,13 +38,13 @@ export class AppExtraCostComponent implements OnInit {
 
   openAddCostDialog(): void {
     const dialogRef = this.dialog.open(AppAddCostDialogComponent, {
-      width: '250px',
-      data: { description: '', extraCost: 0 }
+      width: '600px',
+      maxHeight: '500px',
+      data: { order: this.order }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        // this.addExtraCost(result.description, result.extraCost);
       }
     });
   }
