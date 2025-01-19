@@ -4,10 +4,14 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\pages",
+    "\\src\\app\\pages\\administration",
+    "\\src\\app\\pages\\administration\\users",
     "\\src\\app\\pages\\functionalities",
-    "\\src\\app\\pages\\functionalities\\conductor",
-    "\\src\\app\\services"
+    "\\src\\app\\pages\\functionalities\\crane",
+    "\\src\\assets",
+    "\\src\\assets\\images",
+    "\\src\\assets\\images\\crane"
   ],
-  "SelectedNode": "\\src\\app\\pages\\functionalities\\conductor\\conductor.component.html",
+  "SelectedNode": "\\src\\app\\pages\\administration\\users\\users.component.ts",
   "PreviewInSolutionExplorer": false
 }
