@@ -7,10 +7,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { conductorData } from 'src/app/domain/conductor.domain';
+import { userData } from 'src/app/domain/user.domain';
 
 import { ApiOrderService } from 'src/app/services/order.service';
+import { ApiProviderService } from 'src/app/services/provider.service';
 
 interface  conductorAux {
   providerId: string;
@@ -46,23 +49,39 @@ export class AppConductorComponent implements OnInit {
     'isActive',
     'actions',
   ];
-  dataSource: conductorData[] = [];
 
   form: FormGroup;
+
+  conductor: conductorData[] = [];
+  conductorOptions: { value: string; viewValue: string }[] = [];
+  selectedOperator: string | null = null;
+
+  provider: userData[] = [];
+  providerOptions: { value: string; viewValue: string }[] = [];
+  selectedProvider: string | null = null;
+
+  user: userData[] = [];
+  userOptions: { value: string; viewValue: string }[] = [];
+  selectedUser: string | null = null;
 
   // TODO: Falta agregar los Dropdowns de gruas y conductores, falta pasar el providerId por parametro
 
   constructor(
     private apiOrderService: ApiOrderService,
-    private fb: FormBuilder
+    private apiProviderService: ApiProviderService,
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar
   ) {
     this.form = this.fb.group({
-      providerId: ['04eab328-a4bf-42ad-94f6-1a1cbc3bd07c'],
-      conductorId: ['8a74790c-bab2-4557-9207-61cad2280d69'],
+      // TODO: Agregar aqui una validacion que diga que si el usuario tiene rol de admin extraiga del formulario, sino el id del provider va a ser el id del usuario 
+      providerId: ['', Validators.required],
+      conductorId: ['', Validators.required],
       dni: ['', Validators.required],
       name: ['', Validators.required],
+      // TODO: Esta location viene del backend
       location: ['39.7128,-71.0060'],
       image: ['../../../../assets/images/conductor.png'],
+      // TODO: Falta el dropdown de las gruas
       craneId: ['2889e97d-c16e-4fac-9046-1401163508e1'],
     });
   }
@@ -73,18 +92,41 @@ export class AppConductorComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadConductor();
+    this.loadProvider();
+    this.loadUsuario();
   }
 
   loadConductor(): void {
     this.apiOrderService.getConductors().subscribe(
       (data: conductorData[]) => {
-        this.dataSource = data;
-        console.log('Conductores:', this.dataSource);
+        this.conductor = data;
+        console.log('Conductores:', this.conductor);
       },
       (error) => {
         console.error('Error al obtener los conductores:', error);
       }
     );
+  }
+  
+  loadProvider(): void {
+    this.apiProviderService.getUser().subscribe((users) => {
+      this.provider = users.filter(user => user.role === 'provider');
+      this.providerOptions = this.provider.map((user) => ({
+        value: user.id as string,
+        viewValue: user.name,
+      }));
+    });
+  }
+
+  // Este usuario es el conductor
+  loadUsuario(): void {
+    this.apiProviderService.getUser().subscribe((users) => {
+      this.user = users.filter(user => user.role === 'conductor');
+      this.userOptions = this.user.map((user) => ({
+        value: user.id as string,
+        viewValue: user.name,
+      }));
+    });
   }
 
   createConductor() {
@@ -102,9 +144,15 @@ export class AppConductorComponent implements OnInit {
       (data: conductorAux) => {
         console.log('Conductor creado:', data);
         this.loadConductor();
+        this.snackBar.open('Conductor Creado con Exito', 'Cerrar', {
+          duration: 3000
+        });
       },
       (error) => {
         console.error('Error al crear el conductor:', error);
+        this.snackBar.open('Error al crear el conductor', 'Cerrar', {
+          duration: 3000
+        });
       }
     );
   }

@@ -41,8 +41,8 @@ export class AppRecentOrdersComponent {
   ) { }
 
   ngOnInit() {
-    this.loadOrders();
     this.loadConductors();
+    this.loadOrders();
   }
 
   ngAfterViewInit() {
@@ -52,6 +52,7 @@ export class AppRecentOrdersComponent {
     this.orderService.getOrdersAllData().subscribe(
       (data: orderAllData[]) => {
         this.dataSource = data;
+        this.loadConductors();
       },
       (error) => {
         console.error('Error al obtener las órdenes:', error);
@@ -91,12 +92,13 @@ export class AppRecentOrdersComponent {
     }
   }
 
-  openManualDialog(): void {
+  openManualDialog(order: orderAllData): void {
     this.dialog.open(AppManualComponent, {
       width: '600px',
       maxHeight: '500px',
+      data: order,
     });
-  }
+  }  
 
   openAutomaticDialog(): void {
     this.dialog.open(AppAutomaticComponent, {

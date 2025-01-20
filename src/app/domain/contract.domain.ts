@@ -3,7 +3,7 @@ import { vehicleData } from './vehicle.domain';
 
 export interface contractData {
   id?: string;
-  contractNumber: number;
+  numberContract: number;
   contractExpirationDate: string;
   licensePlate: string;
   brand: string;

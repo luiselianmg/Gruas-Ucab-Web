@@ -28,19 +28,19 @@
           </p>
           <button mat-raised-button style="font-weight: bold; color: #ff9d00; background-color: #fff4dd;" (click)="openExtraCostDialog(element)">
             Ver costos extras
-          </button>
+          </button>          
         </mat-card-content>
-
         <mat-card-actions *ngIf="element.orderStatus === 'por asignar'" style=" margin-top: auto;
           display: flex;
           justify-content: space-between;">
-          <button mat-raised-button color="primary" class="manual-button m-r-auto" (click)="openManualDialog()">
+          <button mat-raised-button color="primary" class="manual-button m-r-auto" (click)="openManualDialog(element)">
             Manual
           </button>
           <button mat-raised-button color="accent" class="automatic-button" (click)="openAutomaticDialog()">
             Automática
           </button>
         </mat-card-actions>
+
       </mat-card>
     </ng-container>
   </div>

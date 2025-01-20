@@ -43,8 +43,8 @@ export class HeaderComponent {
   
   openNotificationsDialog(): void {
     this.dialog.open(AppNotificationsComponent, {
-      width: '600px',
-      maxHeight: '500px',
+      width: '800px',
+      maxHeight: '600px',
     });
   }
 

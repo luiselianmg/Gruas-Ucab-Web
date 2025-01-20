@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of, throwError } from 'rxjs';
 import { AuthService } from './auth.service';
 import { environment } from 'src/environments/environment';
+
 import { ExtraCostData } from '../domain/extra-cost.domain';
 
 @Injectable({
@@ -43,13 +44,19 @@ export class CostsService {
       );
   }
 
-  patchExtraCost(orderId: string, costData: { id:string }): Observable<any> {
+  patchExtraCost(orderId: string, costData: ExtraCostData): Observable<any> {
     const token = this.authService.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    console.log('Datos enviados:', costData, 'id de la orden', orderId);
+
     return this.http.patch(`${this.apiUrl}/orders-ms/order/add-extra-costs/${orderId}`, costData, { headers })
       .pipe(
         catchError((error: any) => {
           console.error('Error al agregar el costo extra:', error);
+          if (error.error && error.error.errors) {
+            console.error('Validation errors:', error.error.errors);
+          }
           return throwError(error);
         })
       );

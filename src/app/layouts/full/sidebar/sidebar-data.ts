@@ -39,12 +39,12 @@ export const navItems: NavItem[] = [
     route: '/functionalities/contract',
     roles: ['admin', 'operator'],
   },
-  {
-    displayName: 'Vehiculos',
-    iconName: 'car-suv',
-    route: '/functionalities/vehicle',
-    roles: ['admin', 'operator'],
-  },
+  // {
+  //   displayName: 'Vehiculos',
+  //   iconName: 'car-suv',
+  //   route: '/functionalities/vehicle',
+  //   roles: ['admin', 'operator'],
+  // },
   {
     displayName: 'Conductores',
     iconName: 'steering-wheel',

@@ -99,6 +99,7 @@ export class AppOrdersComponent implements OnInit {
         value: operator.id as string,
         viewValue: `${operator.name}`
       }));
+      console.log('Operadores:', this.operator);
       this.selectedOperator = this.operatorOptions.length > 0 ? this.operatorOptions[0].value : null;
     });
 
@@ -107,10 +108,12 @@ export class AppOrdersComponent implements OnInit {
       this.contract = data;
       this.contractOptions = data.map(contract => ({
         value: contract.id as string,
-        viewValue: contract.contractNumber
+        viewValue: contract.numberContract
       }));
+      console.log('Contratos:', this.contract);
       this.selectedContract = this.contractOptions.length > 0 ? this.contractOptions[0].value : null;
     });
+
   }
 
   ngAfterViewInit() {
@@ -181,7 +184,7 @@ export class AppOrdersComponent implements OnInit {
           const leg = result.routes[0].legs[0];
           this.distanciaAccidente = leg.distance?.text || '';
 
-          this.addMarkers(leg.start_location, leg.end_location);
+          // this.addMarkers(leg.start_location, leg.end_location);
         } else {
           console.error('Error al calcular la ruta:', status);
         }

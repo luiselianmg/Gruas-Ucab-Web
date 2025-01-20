@@ -6,9 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { contractData } from 'src/app/domain/contract.domain';
 import { policyData } from 'src/app/domain/policy.domain';
@@ -27,8 +28,8 @@ import { ApiPolicyService } from 'src/app/services/policy.service';
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
-    MatFormFieldModule
   ],
   templateUrl: './contract.component.html',
 })
@@ -50,7 +51,7 @@ export class AppContractComponent {
     private snackBar: MatSnackBar
   ) {
     this.form = this.fb.group({
-      contractNumber: ['', Validators.required],
+      numberContract: ['', Validators.required],
       contractExpirationDate: ['', Validators.required],
       licensePlate: ['', Validators.required],
       brand: ['', Validators.required],
@@ -95,7 +96,7 @@ export class AppContractComponent {
   createContract(): void {
     const contractExpirationDate = new Date(this.form.value.contractExpirationDate).toISOString().split('T')[0];
     const newContract: contractData = {
-      contractNumber: this.form.value.contractNumber,
+      numberContract: this.form.value.contractNumber,
       contractExpirationDate: contractExpirationDate,
       licensePlate: this.form.value.licensePlate,
       brand: this.form.value.brand,
@@ -121,6 +122,9 @@ export class AppContractComponent {
       },
       (error) => {
         console.error('Error al crear contrato:', error);
+        this.snackBar.open('Error al crear contrato', 'Cerrar', {
+          duration: 3000
+        });
       }
     );
   }

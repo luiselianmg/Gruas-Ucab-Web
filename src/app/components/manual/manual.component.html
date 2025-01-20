@@ -1,16 +1,31 @@
-<mat-card-header>
-  <mat-card-title>Asignacion Manual</mat-card-title>
-</mat-card-header>
-
-<mat-card-content>
-  <mat-selection-list [multiple]="false" [(ngModel)]="selectedConductorId">
-    <mat-list-option *ngFor="let conductor of conductorsSource" [value]="conductor.conductorId">
-        {{ conductor.name }} - {{ distances[+conductor.conductorId] || 'Calculando...' }}
-    </mat-list-option>
-  </mat-selection-list>
-</mat-card-content>
-
-<mat-card-actions>
-  <button mat-raised-button color="primary" (click)="onAccept()" class="m-r-8">Aceptar</button>
-  <button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
-</mat-card-actions>
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">Asignar Conductor</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="patchOrder()">
+      <div class="row">
+        <div class="col-lg-12">
+          <mat-label class="f-w-600 m-b-8 d-block">Seleccionar Conductor</mat-label>
+          <mat-selection-list [multiple]="false" (selectionChange)="onConductorSelection($event)">
+            <mat-list-option *ngFor="let conductor of conductorOptions" [value]="conductor">
+              {{ conductor.viewValue }} - {{ conductor.distance }}
+            </mat-list-option>
+          </mat-selection-list>
+        </div>
+      </div>
+      <div class="m-t-15">
+        <button mat-flat-button color="primary" class="m-r-8" type="submit">Asignar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+<!-- 
+<div class="col-lg-6">
+  <mat-label class="f-w-600 m-b-8 d-block">Nombre del Conductor</mat-label>
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-select [(value)]="selectedUser" formControlName="conductorId">
+      <mat-option *ngFor="let data of user;" [value]="{id: data.id, name: data.name}">{{ data.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div> -->

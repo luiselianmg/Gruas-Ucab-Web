@@ -11,6 +11,7 @@ import { TablerIconsModule } from 'angular-tabler-icons';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common';
 
 import { ExtraCostData } from '../../domain/extra-cost.domain';
 import { orderAllData } from '../../domain/orderAll.domain';
@@ -35,6 +36,7 @@ interface Costs {
     MatInputModule,
     TablerIconsModule,
     MatButtonModule,
+    CommonModule
   ],
   templateUrl: './add-cost.component.html',
 })
@@ -67,15 +69,32 @@ export class AppAddCostDialogComponent implements OnInit {
 
   onAddCost(): void {
     if (this.selectedCost) {
-      this.costsService.patchExtraCost(this.data.order.id, { id: this.selectedCost })
-        .subscribe((response) => {
-          if (response) {
-            this.snackBar.open('Costo agregado correctamente', 'Cerrar', {
-              duration: 3000
-            });
-            this.dialogRef.close(true);
-          }
-        });
+      const selectedCostData = this.costOptions.find(cost => cost.value === this.selectedCost);
+      if (selectedCostData) {
+        const extraCost: ExtraCostData = {
+          id: selectedCostData.value,
+          description: selectedCostData.viewValue,
+          price: selectedCostData.numberValue
+        };
+        console.log('Adding cost:', extraCost);
+        this.costsService.patchExtraCost(this.data.order.id, extraCost)
+          .subscribe(
+            (response) => {
+              if (response) {
+                this.snackBar.open('Costo agregado correctamente', 'Cerrar', {
+                  duration: 3000
+                });
+                this.dialogRef.close(true);
+              }
+            },
+            (error) => {
+              console.error('Error al agregar el costo extra:', error);
+              this.snackBar.open('Error al agregar el costo extra. Por favor, inténtelo de nuevo más tarde.', 'Cerrar', {
+                duration: 3000
+              });
+            }
+          );
+      }
     }
   }
 

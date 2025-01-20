@@ -49,5 +49,4 @@ export class AppExtraCostComponent implements OnInit {
     });
   }
 
-
 }
