@@ -32,8 +32,10 @@ export class AppRecentOrdersComponent {
   dataSource: orderAllData[] = [];
   currentPage: number = 0;
   pageSize: number = 4;
-  
-  conductors: { [key: string]: conductorData } = {}; 
+  selectedStatus: string = '';
+  orderStatuses: string[] = ["por asignar", "por aceptar", "aceptado", "localizado", "en proceso", "finalizado", "pagado", "cancelado"];
+
+  conductors: { [key: string]: conductorData } = {};
 
   constructor(
     private dialog: MatDialog,
@@ -51,7 +53,8 @@ export class AppRecentOrdersComponent {
   private loadOrders() {
     this.orderService.getOrdersAllData().subscribe(
       (data: orderAllData[]) => {
-        this.dataSource = data;
+        const statusOrder = ["por asignar", "por aceptar", "aceptado", "localizado", "en proceso", "finalizado", "pagado", "cancelado"];
+        this.dataSource = data.sort((a, b) => statusOrder.indexOf(a.orderStatus) - statusOrder.indexOf(b.orderStatus));
         this.loadConductors();
       },
       (error) => {
@@ -77,7 +80,8 @@ export class AppRecentOrdersComponent {
 
   get paginatedOrders() {
     const startIndex = this.currentPage * this.pageSize;
-    return this.dataSource.slice(startIndex, startIndex + this.pageSize);
+    const filteredOrders = this.selectedStatus ? this.dataSource.filter(order => order.orderStatus === this.selectedStatus) : this.dataSource;
+    return filteredOrders.slice(startIndex, startIndex + this.pageSize);
   }
 
   nextPage() {
@@ -92,13 +96,18 @@ export class AppRecentOrdersComponent {
     }
   }
 
+  filterOrders(status: string) {
+    this.selectedStatus = status;
+    this.currentPage = 0;
+  }
+
   openManualDialog(order: orderAllData): void {
     this.dialog.open(AppManualComponent, {
       width: '600px',
       maxHeight: '500px',
       data: order,
     });
-  }  
+  }
 
   openAutomaticDialog(): void {
     this.dialog.open(AppAutomaticComponent, {

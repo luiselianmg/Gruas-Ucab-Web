@@ -9,6 +9,7 @@ import { TablerIconsModule } from 'angular-tabler-icons';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { GoogleMapsModule } from '@angular/google-maps';
 
@@ -88,7 +89,9 @@ export class AppOrdersComponent implements OnInit {
     public dialog: MatDialog,
     private apiOrderService: ApiOrderService,
     private apiContractService: ApiContractService,
-    private apiUserService: ApiUserService
+    private apiUserService: ApiUserService,
+    private snackBar: MatSnackBar 
+    
   ) {}
 
   ngOnInit() {
@@ -99,7 +102,6 @@ export class AppOrdersComponent implements OnInit {
         value: operator.id as string,
         viewValue: `${operator.name}`
       }));
-      console.log('Operadores:', this.operator);
       this.selectedOperator = this.operatorOptions.length > 0 ? this.operatorOptions[0].value : null;
     });
 
@@ -110,10 +112,8 @@ export class AppOrdersComponent implements OnInit {
         value: contract.id as string,
         viewValue: contract.numberContract
       }));
-      console.log('Contratos:', this.contract);
       this.selectedContract = this.contractOptions.length > 0 ? this.contractOptions[0].value : null;
     });
-
   }
 
   ngAfterViewInit() {
@@ -184,7 +184,7 @@ export class AppOrdersComponent implements OnInit {
           const leg = result.routes[0].legs[0];
           this.distanciaAccidente = leg.distance?.text || '';
 
-          // this.addMarkers(leg.start_location, leg.end_location);
+          this.addMarkers(leg.start_location, leg.end_location);
         } else {
           console.error('Error al calcular la ruta:', status);
         }
@@ -254,6 +254,8 @@ createOrder(): void {
   const currentDate = new Date();
   const formattedDate = currentDate.toISOString().split('T')[0]; 
 
+  // TODO: Arreglar la fecha
+
   const newOrder: orderData = {
     Date: "2025-03-15",
     IncidentType: this.selectedIncidentType,
@@ -266,9 +268,18 @@ createOrder(): void {
   this.apiOrderService.createOrder(newOrder).subscribe(
     (response) => {
       console.log('Order created successfully', response);
+      this.snackBar.open('Usuario creado con éxito.', 'Cerrar', {
+        duration: 3000,
+      });
     },
     (error) => {
-      console.error('Error creating order', error);
+      console.error('Error al crear orden:', error);
+      if (error.error && error.error.errors) {
+        console.error('Errores de validación:', error.error.errors);
+        this.snackBar.open('Error de Validacion: ', error.error.error, {
+          duration: 3000,
+        });
+      }
     }
   );
 }

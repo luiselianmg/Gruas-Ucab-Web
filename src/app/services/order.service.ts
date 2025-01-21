@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { orderData } from '../domain/order.domain';
 import { orderAllData } from '../domain/orderAll.domain';
 import { conductorData } from '../domain/conductor.domain';
+import { activeConductorData } from '../domain/activeConductor.domain';
 
 interface conductorAux {
   providerId: string;
@@ -45,7 +46,17 @@ export class ApiOrderService {
   patchOrder(orderId: string, patchData: { conductorAssignedId: string; totalDistance: number }): Observable<any> {
     const token = this.authService.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.patch(`${this.apiUrl}/orders-ms/order/assign-conductor/${orderId}`, patchData, { headers });
+    return this.http
+      .patch(`${this.apiUrl}/orders-ms/order/assign-conductor/${orderId}`, patchData, { headers })
+      .pipe(
+        catchError((error: any) => {
+          console.error('Error al asignar conductor:', error);
+          if (error.error && error.error.errors) {
+            console.error('Validation errors:', error.error.errors);
+          }
+          return throwError(error);
+        })
+      );
   }
 
   createOrder(order: orderData): Observable<orderData> {
@@ -75,6 +86,14 @@ export class ApiOrderService {
         headers,
       });
     }
+
+    getConductorsActive(): Observable<activeConductorData[]> {
+      const token = this.authService.getToken();
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      return this.http.get<activeConductorData[]>(`${this.apiUrl}/providers-ms/provider/conductors`, {
+        headers,
+      });
+    }
   
     getConductor(id: string): Observable<conductorData> {
       const token = this.authService.getToken();
@@ -84,7 +103,6 @@ export class ApiOrderService {
       });
     }
   
-
     createConductor(conductor: conductorAux): Observable<conductorAux> {
       const token = this.authService.getToken();
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);

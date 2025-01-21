@@ -4,45 +4,57 @@
   </div>
 </mat-card-header>
 <mat-card-content>
+  <div class="filter-buttons" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 16px;">
+    <button mat-button (click)="filterOrders('')" [color]="selectedStatus === '' ? 'primary' : ''">
+      todas
+    </button>
+    <button mat-button *ngFor="let status of orderStatuses" (click)="filterOrders(status)" [color]="selectedStatus === status ? 'primary' : ''">
+      {{ status }}
+    </button>
+  </div>
   <div class="cards-container" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
-    <ng-container *ngFor="let element of paginatedOrders">
-      <mat-card class="order-card cardWithShadow col-lg-4">
-        <mat-card-title class="m-l-20 m-t-20" style="font-weight: bolder; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
-          <mat-icon color="primary">navigation</mat-icon> Orden #{{ element.orderNumber }}
-          <span class="m-l-auto" style="font-weight: light; color: #dbc500; font-size: 1rem;">
-            {{ element.orderStatus }}
-          </span>
-        </mat-card-title>
-        <mat-card-subtitle class="m-l-20 m-t-20" style="font-weight: bold; color: #ccc; font-size: .8rem;">
-          {{ element.orderDate | date: 'dd/MM HH:mm' }}
-        </mat-card-subtitle>
-        <mat-card-content>
-          <p class="m-t-20 m-b-0" style="font-weight: bolder; font-size: 1.2rem;">
-            ${{ element.cost }}
-          </p>
-          <p class="m-t-2" style="font-weight: bold; color: #ccc;">
-            {{ element.incidentType }}
-          </p>
-          <p class="m-t-2" style="font-weight: bold; color: #ccc;">
-            Conductor Asignado: {{ conductors[element.conductorAssignedId]?.name || 'Por Asignar' }}
-          </p>
-          <button mat-raised-button style="font-weight: bold; color: #ff9d00; background-color: #fff4dd;" (click)="openExtraCostDialog(element)">
-            Ver costos extras
-          </button>          
-        </mat-card-content>
-        <mat-card-actions *ngIf="element.orderStatus === 'por asignar'" style=" margin-top: auto;
-          display: flex;
-          justify-content: space-between;">
-          <button mat-raised-button color="primary" class="manual-button m-r-auto" (click)="openManualDialog(element)">
-            Manual
-          </button>
-          <button mat-raised-button color="accent" class="automatic-button" (click)="openAutomaticDialog()">
-            Automática
-          </button>
-        </mat-card-actions>
-
-      </mat-card>
+    <ng-container *ngIf="paginatedOrders.length > 0; else noOrders">
+      <ng-container *ngFor="let element of paginatedOrders">
+        <mat-card class="order-card cardWithShadow col-lg-4">
+          <mat-card-title class="m-l-20 m-t-20" style="font-weight: bolder; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
+            <mat-icon color="primary">navigation</mat-icon> Orden #{{ element.orderNumber }}
+            <span class="m-l-auto" style="font-weight: light; color: #dbc500; font-size: 1rem;">
+              {{ element.orderStatus }}
+            </span>
+          </mat-card-title>
+          <mat-card-subtitle class="m-l-20 m-t-20" style="font-weight: bold; color: #ccc; font-size: .8rem;">
+            {{ element.orderDate | date: 'dd/MM HH:mm' }}
+          </mat-card-subtitle>
+          <mat-card-content>
+            <p class="m-t-20 m-b-0" style="font-weight: bolder; font-size: 1.2rem;">
+              ${{ element.cost }}
+            </p>
+            <p class="m-t-2" style="font-weight: bold; color: #ccc;">
+              {{ element.incidentType }}
+            </p>
+            <p class="m-t-2" style="font-weight: bold; color: #ccc;">
+              Conductor Asignado: {{ conductors[element.conductorAssignedId]?.name || 'Por Asignar' }}
+            </p>
+            <button mat-raised-button style="font-weight: bold; color: #ff9d00; background-color: #fff4dd;" (click)="openExtraCostDialog(element)">
+              Ver costos extras
+            </button>
+          </mat-card-content>
+          <mat-card-actions *ngIf="element.orderStatus === 'por asignar'" style=" margin-top: auto;
+            display: flex;
+            justify-content: space-between;">
+            <button mat-raised-button color="primary" class="manual-button m-r-auto" (click)="openManualDialog(element)">
+              Manual
+            </button>
+            <button mat-raised-button color="accent" class="automatic-button" (click)="openAutomaticDialog()">
+              Automática
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </ng-container>
     </ng-container>
+    <ng-template #noOrders>
+      <div style="text-align: center; color: #777; margin-top: 16px;">No hay órdenes disponibles</div>
+    </ng-template>
   </div>
   <div class="pagination-controls" style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
     <button mat-icon-button (click)="previousPage()" [disabled]="currentPage === 0">

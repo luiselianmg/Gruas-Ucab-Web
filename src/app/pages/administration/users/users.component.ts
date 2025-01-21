@@ -16,11 +16,6 @@ import { userData } from '../../../domain/user.domain';
 import { ApiDepartmentService } from 'src/app/services/departament.service';
 import { departmentData } from '../../../domain/department.domain';
 
-interface Dept {
-  value: string;
-  viewValue: string;
-}
-
 interface Role {
   value: string;
   viewValue: string;
@@ -134,6 +129,12 @@ export class AppUsersComponent implements OnInit {
         console.error('Error al crear usuario:', error);
         if (error.error && error.error.errors) {
           console.error('Errores de validación:', error.error.errors);
+          if (error.error && error.error.errors) {
+            console.error('Errores de validación:', error.error.errors);
+            this.snackBar.open('Error de Validacion: ', error.error.error, {
+              duration: 3000,
+            });
+          }
         }
       }
     );

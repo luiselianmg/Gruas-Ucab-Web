@@ -5,9 +5,7 @@
     "\\src\\app",
     "\\src\\app\\components",
     "\\src\\app\\components\\manual",
-    "\\src\\app\\pages",
-    "\\src\\app\\pages\\functionalities",
-    "\\src\\app\\pages\\functionalities\\crane"
+    "\\src\\app\\pages"
   ],
   "SelectedNode": "\\src\\app\\components\\manual\\manual.component.ts",
   "PreviewInSolutionExplorer": false
