@@ -4,9 +4,10 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
+    "\\src\\app\\components\\automatic",
     "\\src\\app\\components\\manual",
     "\\src\\app\\pages"
   ],
-  "SelectedNode": "\\src\\app\\components\\manual\\manual.component.ts",
+  "SelectedNode": "\\src\\app\\components\\automatic\\automatic.component.ts",
   "PreviewInSolutionExplorer": false
 }

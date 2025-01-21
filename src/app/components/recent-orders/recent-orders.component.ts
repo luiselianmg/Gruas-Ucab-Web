@@ -109,10 +109,11 @@ export class AppRecentOrdersComponent {
     });
   }
 
-  openAutomaticDialog(): void {
+  openAutomaticDialog(order: orderAllData): void {
     this.dialog.open(AppAutomaticComponent, {
       width: '600px',
       maxHeight: '500px',
+      data: order,
     });
   }
 
@@ -123,5 +124,4 @@ export class AppRecentOrdersComponent {
       data: order,
     });
   }
-
 }

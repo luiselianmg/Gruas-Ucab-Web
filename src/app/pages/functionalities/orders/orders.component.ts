@@ -255,7 +255,6 @@ createOrder(): void {
   const formattedDate = currentDate.toISOString().split('T')[0]; 
 
   // TODO: Arreglar la fecha
-
   const newOrder: orderData = {
     Date: "2025-03-15",
     IncidentType: this.selectedIncidentType,
@@ -268,9 +267,10 @@ createOrder(): void {
   this.apiOrderService.createOrder(newOrder).subscribe(
     (response) => {
       console.log('Order created successfully', response);
-      this.snackBar.open('Usuario creado con éxito.', 'Cerrar', {
+      this.snackBar.open('Orden creada con éxito.', 'Cerrar', {
         duration: 3000,
       });
+      window.location.reload();
     },
     (error) => {
       console.error('Error al crear orden:', error);

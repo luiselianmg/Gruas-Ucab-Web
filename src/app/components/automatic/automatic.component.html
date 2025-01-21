@@ -1,7 +1,8 @@
-  <mat-card-header>
-    <mat-card-title>Asignacion Automática</mat-card-title>
-  </mat-card-header>
+<mat-card-header>
+  <mat-card-title>Asignacion Automática</mat-card-title>
+</mat-card-header>
 
-  <mat-card-content>
-
-  </mat-card-content>
+<mat-card-content>
+  <div> Quiere asignar a <span style="color:tomato">{{ closestConductorName }}</span> a esta orden?</div>
+  <button type="submit" (click)="patchOrder()">Aceptar Conductor</button>
+</mat-card-content>

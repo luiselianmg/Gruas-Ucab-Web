@@ -12,7 +12,6 @@ import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
-import { MatSelectionListChange } from '@angular/material/list';
 
 import { GoogleMapsModule } from '@angular/google-maps';
 
@@ -96,37 +95,43 @@ export class AppManualComponent implements OnInit {
         return {
           value: conductor.id as string,
           viewValue: conductor.name,
-          distance: await this.calculateDistance(conductor.location, this.order.location)
+          distance: await this.calculateDistance(conductor.location, this.order.location),
         };
       }));
     });
   }
 
   loadConductors(): void {
-    this.orderService.getConductorsActive().subscribe((conductores) => {
+    this.orderService.getConductorsActive().subscribe(
+      (conductores) => {
         this.dataSource = conductores;
-        console.log('Usuarios:', this.dataSource); // Log para verificar los datos de usuarios
-    });
-}
-
+        console.log('Conductores recibidos:', this.dataSource);
+      },
+      (error) => {
+        console.error('Error al obtener conductores:', error);
+      }
+    );
+  }
 
   async calculateDistance(conductorLocation: string, orderLocation: string): Promise<string> {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       const directionService = new google.maps.DirectionsService();
-      directionService.route(
-        {
-          origin: conductorLocation,
-          destination: orderLocation,
-          travelMode: google.maps.TravelMode.DRIVING,
-        },
-        (result, status) => {
-          if (status === google.maps.DirectionsStatus.OK && result?.routes[0]?.legs[0]?.distance) {
-            resolve(result.routes[0].legs[0].distance.text.replace(' km', ''));
-          } else {
-            console.error('Error al calcular la ruta:', status);
-          }
+      const directionRender = new google.maps.DirectionsRenderer();
+  
+      directionRender.setMap(this.map);
+  
+      directionService.route({
+        origin: conductorLocation,
+        destination: orderLocation,
+        travelMode: google.maps.TravelMode.DRIVING
+      }, (result, status) => {
+        if (status === google.maps.DirectionsStatus.OK && result && result.routes.length > 0 && result.routes[0].legs.length > 0 && result.routes[0].legs[0].distance) {
+          resolve(result.routes[0].legs[0].distance.text);
+        } else {
+          console.error('Error al calcular la ruta:', status);
+          resolve('Fuera de Rango');
         }
-      );
+      });
     });
   }
 
@@ -145,7 +150,8 @@ export class AppManualComponent implements OnInit {
     console.log('Extracted conductorId:', conductorId);
     console.log('Extracted totalDistance:', totalDistance);
   
-    totalDistance = parseFloat(totalDistance);
+    const distanceMatch = totalDistance.match(/[\d.]+/);
+    totalDistance = distanceMatch ? parseFloat(distanceMatch[0]) : NaN;
   
     if (!conductorId || isNaN(totalDistance)) {
       console.error('ConductorAssignedId or TotalDistance is missing or invalid');
@@ -161,9 +167,8 @@ export class AppManualComponent implements OnInit {
       (data) => {
         console.log('Asignación exitosa:', data);
         this.snackBar.open('Se asignó el conductor exitosamente', 'Cerrar', { duration: 3000 });
-        // window.location.reload();
-      },
-      (error) => {
+        window.location.reload();
+      },      (error) => {
         console.error('Error en la asignación:', error);
         if (error.error && error.error.errors) {
           console.error('Errores de validación:', error.error.errors);
@@ -176,4 +181,5 @@ export class AppManualComponent implements OnInit {
   
     return { conductorAssignedId: conductorId, totalDistance };
   }
+  
 }
