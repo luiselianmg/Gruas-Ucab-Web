@@ -5,7 +5,7 @@ import { AuthService } from './auth.service';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
-import { contractData } from '../domain/contract.domain';
+import { contractData, contractAllData } from '../domain/contract.domain';
 
 @Injectable({
     providedIn: 'root',
@@ -14,10 +14,10 @@ import { contractData } from '../domain/contract.domain';
     private apiUrl = environment.apiUrl;
     constructor(private http: HttpClient, private authService: AuthService) { }
   
-    getContracts(): Observable<contractData[]> {
+    getContracts(): Observable<contractAllData[]> {
       const token = this.authService.getToken();
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      return this.http.get<contractData[]>(`${this.apiUrl}/orders-ms/contract`, {
+      return this.http.get<contractAllData[]>(`${this.apiUrl}/orders-ms/contract`, {
         headers,
       });
     }

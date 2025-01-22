@@ -7,6 +7,9 @@
       <button mat-fab color="accent" class="shadow-none icon-48">
         <i-tabler name="currency-dollar" class="text-white d-flex"></i-tabler>
       </button>
+      <button mat-icon-button color="primary" (click)="openEditDialog(cost)">
+        <mat-icon>edit</mat-icon>
+      </button>
     </div>
   </mat-card-header>
   <mat-card-content class="m-b-15 m-t-15">
@@ -34,7 +37,7 @@
         <input matInput formControlName="defaultPrice" />
       </mat-form-field>
       <button mat-flat-button color="primary" class="w-70 m-t-10" type="submit">
-        Crear Costo Extra
+        Crear Costo
       </button>
     </form>
   </mat-card-content>

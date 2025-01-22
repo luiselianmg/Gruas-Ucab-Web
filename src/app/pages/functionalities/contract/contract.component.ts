@@ -11,7 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { contractData } from 'src/app/domain/contract.domain';
+import { contractData, contractAllData } from 'src/app/domain/contract.domain';
 import { policyData } from 'src/app/domain/policy.domain';
 
 import { ApiContractService } from 'src/app/services/contract.service';
@@ -35,8 +35,9 @@ import { ApiPolicyService } from 'src/app/services/policy.service';
 })
 export class AppContractComponent {
   // Table
-  displayedColumns: string[] = ['numberContract', 'expirationDate'];
+  displayedColumns: string[] = ['contractNumber', 'expirationDate'];
   dataSource: contractData[] = [];
+  dataSource1: contractAllData[] = [];
 
   policies: policyData[] = [];
   policiesOptions: { value: string; viewValue: string }[] = [];
@@ -51,7 +52,7 @@ export class AppContractComponent {
     private snackBar: MatSnackBar
   ) {
     this.form = this.fb.group({
-      numberContract: ['', Validators.required],
+      contractNumber: ['', Validators.required],
       contractExpirationDate: ['', Validators.required],
       licensePlate: ['', Validators.required],
       brand: ['', Validators.required],
@@ -79,9 +80,9 @@ export class AppContractComponent {
 
   loadContract(): void {
     this.apiContractService.getContracts().subscribe(
-      (data: contractData[]) => {
-        this.dataSource = data;
-        console.log('Contratos:', this.dataSource);
+      (data: contractAllData[]) => {
+        this.dataSource1 = data;
+        console.log('Contratos:', this.dataSource1);
       },
       (error) => {
         console.error('Error al obtener los contratos:', error);
@@ -92,7 +93,7 @@ export class AppContractComponent {
   createContract(): void {
     const contractExpirationDate = new Date(this.form.value.contractExpirationDate).toISOString().split('T')[0];
     const newContract: contractData = {
-      numberContract: this.form.value.contractNumber,
+      contractNumber: this.form.value.contractNumber,
       contractExpirationDate: contractExpirationDate,
       licensePlate: this.form.value.licensePlate,
       brand: this.form.value.brand,

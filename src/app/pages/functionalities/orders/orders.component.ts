@@ -15,7 +15,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 
 import { ExtraCostData } from '../../../domain/extra-cost.domain';
 import { orderData } from '../../../domain/order.domain';
-import { contractData } from '../../../domain/contract.domain';
+import { contractAllData } from '../../../domain/contract.domain';
 import { userData } from 'src/app/domain/user.domain';
 
 import { ApiOrderService } from '../../../services/order.service';
@@ -67,7 +67,7 @@ export class AppOrdersComponent implements OnInit {
   operatorOptions: { value: string; viewValue: string }[] = [];
   selectedOperator: string | null = null;
 
-  contract: contractData[] = [];
+  contract: contractAllData[] = [];
   contractOptions: { value: string; viewValue: number }[] = [];
   selectedContract: string | null = null;
 
@@ -106,7 +106,7 @@ export class AppOrdersComponent implements OnInit {
     });
 
     // Get Contracts
-    this.apiContractService.getContracts().subscribe((data: contractData[]) => {
+    this.apiContractService.getContracts().subscribe((data: contractAllData[]) => {
       this.contract = data;
       this.contractOptions = data.map(contract => ({
         value: contract.id as string,

@@ -4,13 +4,9 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\edit",
-    "\\src\\app\\components\\edit\\policy",
-    "\\src\\app\\pages",
-    "\\src\\app\\pages\\functionalities",
-    "\\src\\app\\pages\\functionalities\\policy",
+    "\\src\\app\\components\\add-cost",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\services\\policy.service.ts",
+  "SelectedNode": "\\src\\app\\services\\order.service.ts",
   "PreviewInSolutionExplorer": false
 }

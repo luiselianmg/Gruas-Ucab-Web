@@ -44,13 +44,69 @@ export class CostsService {
       );
   }
 
-  patchExtraCost(orderId: string, costData: ExtraCostData): Observable<any> {
+  patchExtraCost(
+    orderId: string,
+    description: string,
+    id: string,
+    price: number
+  ): Observable<any> {
     const token = this.authService.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-    console.log('Datos enviados:', costData, 'id de la orden', orderId);
-
+    const body: any = {
+      description,
+      id,
+      price,
+    };
+    console.log('Datos enviados en la solicitud PATCH:', body);
     return this.http
-      .patch(`${this.apiUrl}/orders-ms/order/add-extra-costs/${orderId}`, costData, { headers })
+      .patch<any>(`${this.apiUrl}/orders-ms/order/add-extra-costs/${orderId}`, body, { headers })
+      .pipe(
+        map((response) => {
+          console.log('Response from backend:', response);
+          return true;
+        }),
+        catchError((error) => {
+          console.error('Error en la solicitud PATCH:', error);
+          if (error.error && error.error.errors) {
+            console.error('Errores de validación:', error.error.errors);
+          }
+          return of(false);
+        })
+      );
   }
+
+  updateCost(
+    id: string,
+    description?: string,
+    defaultPrice?: number
+  ): Observable<any> {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const body: any = {
+      description,
+      defaultPrice,
+    };
+
+    Object.keys(body).forEach((key) => {
+      if (body[key] === undefined || body[key] === null || body[key] === '') {
+        delete body[key];
+      }
+    });
+
+    console.log('Datos enviados en la solicitud PATCH:', body);
+    return this.http
+      .patch<boolean>(`${this.apiUrl}/orders-ms/extra-cost/update/${id}`, body, { headers })
+      .pipe(
+        map((response) => {
+          console.log('Response from backend:', response);
+          return true;
+        }),
+        catchError((error) => {
+          console.error('Error en la solicitud PATCH:', error);
+          return of(false);
+        })
+      );
+  }
+
 }
+

@@ -66,7 +66,6 @@ export class ApiPolicyService {
       baseKmPrice,
     };
 
-    // Eliminar campos vacíos o nulos
     Object.keys(body).forEach(key => {
       if (body[key] === undefined || body[key] === null || body[key] === '') {
         delete body[key];

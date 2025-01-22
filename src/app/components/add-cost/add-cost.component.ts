@@ -66,7 +66,6 @@ export class AppAddCostDialogComponent implements OnInit {
       this.cost = costo;
       console.log('Costos traidos:', this.cost);
       this.costOptions = await Promise.all(this.cost.map(async (cost) => {
-        console.log('cost ID:', cost.id);
         return {
           value: cost.id as string,
           viewValue: cost.description,
@@ -76,30 +75,35 @@ export class AppAddCostDialogComponent implements OnInit {
     });
   }
 
-
-  patchExtraCost(): void {
-    const {id, description, price} = this.form.value.costs;
-    const newOrder : ExtraCostData = {
-      id: id,
-      description: description,
-      price: price,
-    }
-    console.log('Orden a Asignar:', this.data.order.id);
-    console.log('Costo a asignar:', newOrder);
-    this.costsService.patchExtraCost(this.data.order.id, newOrder).subscribe(
-        (data) => {
-          this.cost.push(data);
-          this.snackBar.open('Costo asignado con exito', 'Cerrar', {
-            duration: 2000,
-          });
-          this.dialogRef.close(this.cost);
-        },
-        (error) => {
-          console.error('Error al asignar el costo: ', error);
-          this.snackBar.open('Error al asignar el costo:', 'Cerrar', {
-            duration: 2000,
-          });
-        }
-    );  
+  patchExtraCost(data: ExtraCostData): void {
+    const selectedCost = this.form.value.costs;
+    console.log('Datos del formulario:', selectedCost);
+    this.costsService.patchExtraCost(
+      this.data.order.id,
+      selectedCost.description,
+      selectedCost.id,
+      selectedCost.price,
+    ).subscribe((success) => {
+      if (success) {
+        this.snackBar.open('Costo asignado exitosamente', 'Cerrar', {
+          duration: 5000
+        });
+        window.location.reload();
+      } else {
+        this.snackBar.open('Error al asignar el costo', 'Cerrar', {
+          duration: 3000
+        });
+      }
+    },
+      (error) => {
+        console.error('Error al actualizar el costo:', error);
+        this.snackBar.open('Error al actualizar el costo', 'Cerrar', {
+          duration: 3000
+        });
+      }
+    );
   }
+
+
+
 }
