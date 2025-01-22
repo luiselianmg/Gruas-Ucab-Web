@@ -8,8 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { contractData } from 'src/app/domain/contract.domain';
 import { policyData } from 'src/app/domain/policy.domain';
@@ -63,10 +63,6 @@ export class AppContractComponent {
       ownerName: ['', Validators.required],
       policyId: [null, Validators.required],
     });
-  }
-
-  get f() {
-    return this.form.controls;
   }
 
   ngOnInit(): void {

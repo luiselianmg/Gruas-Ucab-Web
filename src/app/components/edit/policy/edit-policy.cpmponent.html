@@ -1,0 +1,38 @@
+<mat-card-header>
+  <mat-card-title>Editar Poliza</mat-card-title>
+</mat-card-header>
+
+<mat-card-content>
+  <form [formGroup]="form" (ngSubmit)="updatePolicy(form.value)" class="">
+    <div class="row">
+      <div class="col-lg-6">
+        <mat-label class="f-w-600 m-b-8 d-block">Nombre</mat-label>
+        <mat-form-field appearance="outline" class="w-100" color="primary">
+          <input matInput formControlName="name" placeholder="Nombre de la Póliza" />
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6">
+        <mat-label class="f-w-600 m-b-8 d-block">Covertura (km)</mat-label>
+        <mat-form-field appearance="outline" class="w-100" color="primary">
+          <input matInput formControlName="kmCoverage" placeholder="200" />
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6">
+        <mat-label class="f-w-600 m-b-8 d-block">Covertura ($)</mat-label>
+        <mat-form-field appearance="outline" class="w-100" color="primary">
+          <input matInput formControlName="monetaryCoverage" placeholder="3500" />
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6">
+        <mat-label class="f-w-600 m-b-8 d-block">Precio Base Por Km</mat-label>
+        <mat-form-field appearance="outline" class="w-100" color="primary">
+          <input matInput formControlName="baseKmPrice" placeholder="10" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="m-t-12">
+      <button mat-flat-button color="primary" class="m-r-8" type="submit">Crear</button>
+    </div>
+  </form>
+</mat-card-content>

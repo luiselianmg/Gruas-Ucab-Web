@@ -17,11 +17,19 @@ export class ApiCraneService {
     getCranes(): Observable<craneData[]> {
         const token = this.authService.getToken();
         const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-        return this.http.get<craneData[]>(`${this.apiUrl}/providers-ms/cranes`, {
+        return this.http.get<craneData[]>(`${this.apiUrl}/providers-ms/provider/cranes`, {
             headers,
           });
     }
     
+    getCraneByProvider(id: string): Observable<craneData[]> {
+      const token = this.authService.getToken();
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      return this.http.get<craneData[]>(`${this.apiUrl}/providers-ms/provider/cranes/${id}`, {
+        headers,
+      });
+    }
+
     createCrane(crane: craneData): Observable<craneData> {
       const token = this.authService.getToken();
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
@@ -40,5 +48,4 @@ export class ApiCraneService {
           })
         );
     }
-
 }

@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\recent-orders\\recent-orders.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\recent-orders\\recent-orders.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\services\\policy.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\services\\policy.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\material.module.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\material.module.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\edit\\policy\\edit-policy.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\edit\\policy\\edit-policy.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\automatic\\automatic.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\automatic\\automatic.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\edit\\policy\\edit-policy.cpmponent.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\edit\\policy\\edit-policy.cpmponent.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\automatic\\automatic.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\automatic\\automatic.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\functionalities\\policy\\policy.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\pages\\functionalities\\policy\\policy.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\functionalities\\policy\\policy.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\pages\\functionalities\\policy\\policy.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,53 +47,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "recent-orders.component.html",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\recent-orders\\recent-orders.component.html",
-              "RelativeDocumentMoniker": "src\\app\\components\\recent-orders\\recent-orders.component.html",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\recent-orders\\recent-orders.component.html",
-              "RelativeToolTip": "src\\app\\components\\recent-orders\\recent-orders.component.html",
-              "ViewState": "AgIAACIAAAAAAAAAAAAkwDwAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-01-21T18:37:23.961Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "material.module.ts",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\material.module.ts",
-              "RelativeDocumentMoniker": "src\\app\\material.module.ts",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\material.module.ts",
-              "RelativeToolTip": "src\\app\\material.module.ts",
-              "ViewState": "AgIAADYAAAAAAAAAAAAhwE8AAAANAAAAAAAAAA==",
+              "Title": "policy.service.ts",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\services\\policy.service.ts",
+              "RelativeDocumentMoniker": "src\\app\\services\\policy.service.ts",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\services\\policy.service.ts",
+              "RelativeToolTip": "src\\app\\services\\policy.service.ts",
+              "ViewState": "AgIAACUAAAAAAAAAAAAMwFUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-01-21T18:37:06.693Z",
+              "WhenOpened": "2025-01-22T16:47:04.558Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "automatic.component.ts",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\automatic\\automatic.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\components\\automatic\\automatic.component.ts",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\automatic\\automatic.component.ts",
-              "RelativeToolTip": "src\\app\\components\\automatic\\automatic.component.ts",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAQwHwAAAAFAAAAAAAAAA==",
+              "Title": "edit-policy.cpmponent.html",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\edit\\policy\\edit-policy.cpmponent.html",
+              "RelativeDocumentMoniker": "src\\app\\components\\edit\\policy\\edit-policy.cpmponent.html",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\edit\\policy\\edit-policy.cpmponent.html",
+              "RelativeToolTip": "src\\app\\components\\edit\\policy\\edit-policy.cpmponent.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-01-22T16:46:57.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "edit-policy.component.ts",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\edit\\policy\\edit-policy.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\components\\edit\\policy\\edit-policy.component.ts",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\edit\\policy\\edit-policy.component.ts",
+              "RelativeToolTip": "src\\app\\components\\edit\\policy\\edit-policy.component.ts",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-01-21T18:01:12.026Z",
+              "WhenOpened": "2025-01-22T16:46:56.426Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "automatic.component.html",
-              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\automatic\\automatic.component.html",
-              "RelativeDocumentMoniker": "src\\app\\components\\automatic\\automatic.component.html",
-              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\components\\automatic\\automatic.component.html",
-              "RelativeToolTip": "src\\app\\components\\automatic\\automatic.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Title": "policy.component.ts",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\functionalities\\policy\\policy.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\pages\\functionalities\\policy\\policy.component.ts",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\functionalities\\policy\\policy.component.ts",
+              "RelativeToolTip": "src\\app\\pages\\functionalities\\policy\\policy.component.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-01-22T16:46:49.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "policy.component.html",
+              "DocumentMoniker": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\functionalities\\policy\\policy.component.html",
+              "RelativeDocumentMoniker": "src\\app\\pages\\functionalities\\policy\\policy.component.html",
+              "ToolTip": "C:\\Users\\ampar\\Desktop\\1. Proyecto Desarrollo\\Gruas-Ucab-Web\\src\\app\\pages\\functionalities\\policy\\policy.component.html",
+              "RelativeToolTip": "src\\app\\pages\\functionalities\\policy\\policy.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-01-21T18:01:10.862Z",
+              "WhenOpened": "2025-01-22T16:46:48.435Z",
               "EditorCaption": ""
             }
           ]

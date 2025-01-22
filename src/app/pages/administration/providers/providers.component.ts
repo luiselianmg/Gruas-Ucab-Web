@@ -51,7 +51,6 @@ export class AppProvidersComponent implements OnInit {
 
     constructor (
       private apiProviderService: ApiProviderService,
-      private ApiUserService: ApiUserService,
       private fb: FormBuilder,
       private snackBar: MatSnackBar      
     ) {

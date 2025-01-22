@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MaterialModule } from 'src/app/material.module';
@@ -7,14 +6,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms'; 
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'; 
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 import { ApiUserService } from 'src/app/services/user.service';
 import { userData } from '../../../domain/user.domain';
 
 import { ApiDepartmentService } from 'src/app/services/departament.service';
 import { departmentData } from '../../../domain/department.domain';
+import { AppEditUserComponent } from 'src/app/components/edit/users/edit-user.component';
 
 interface Role {
   value: string;
@@ -38,7 +41,8 @@ interface Status {
     MatMenuModule,
     MatButtonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
     ],
   templateUrl: './users.component.html',
 })
@@ -51,7 +55,6 @@ export class AppUsersComponent implements OnInit {
     'assets/images/profile/user-3.jpg',
     'assets/images/profile/user-4.jpg'
   ];
-  // End Imagenes
 
   getImagePath(index: number): string {
     return this.imagePaths[index % this.imagePaths.length];
@@ -95,7 +98,8 @@ export class AppUsersComponent implements OnInit {
   constructor(
     private apiUserService: ApiUserService, 
     private ApiDepartmentService: ApiDepartmentService,
-    private snackBar: MatSnackBar 
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -138,6 +142,14 @@ export class AppUsersComponent implements OnInit {
         }
       }
     );
+  }
+
+  openEditDialog(user: userData): void {
+    this.dialog.open(AppEditUserComponent, {
+      width: '600px',
+      maxHeight: '500px',
+      data: user,
+    });
   }
   
   loadUsers(): void {

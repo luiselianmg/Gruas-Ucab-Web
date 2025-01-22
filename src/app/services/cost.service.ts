@@ -50,15 +50,7 @@ export class CostsService {
 
     console.log('Datos enviados:', costData, 'id de la orden', orderId);
 
-    return this.http.patch(`${this.apiUrl}/orders-ms/order/add-extra-costs/${orderId}`, costData, { headers })
-      .pipe(
-        catchError((error: any) => {
-          console.error('Error al agregar el costo extra:', error);
-          if (error.error && error.error.errors) {
-            console.error('Validation errors:', error.error.errors);
-          }
-          return throwError(error);
-        })
-      );
+    return this.http
+      .patch(`${this.apiUrl}/orders-ms/order/add-extra-costs/${orderId}`, costData, { headers })
   }
 }

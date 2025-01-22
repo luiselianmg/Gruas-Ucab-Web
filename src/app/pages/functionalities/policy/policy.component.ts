@@ -8,13 +8,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+
 import { policyData } from 'src/app/domain/policy.domain';
 
 import { ApiPolicyService } from 'src/app/services/policy.service';
-
-interface Type {
-  value: string;
-}
+import { AppEditPolicyComponent } from 'src/app/components/edit/policy/edit-policy.component';
 
 @Component({
   selector: 'app-policy',
@@ -27,7 +27,8 @@ interface Type {
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   templateUrl: './policy.component.html',
 })
@@ -41,11 +42,13 @@ export class AppPolicyComponent implements OnInit {
     'budget',
   ];
   dataSource: policyData[] = [];
-  // End Table
 
   form: FormGroup;
 
-  constructor(private apiPolicyService: ApiPolicyService) {
+  constructor(
+    private apiPolicyService: ApiPolicyService,
+    private dialog: MatDialog
+  ) {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required]),
       monetaryCoverage: new FormControl('', [Validators.required]),
@@ -72,6 +75,14 @@ export class AppPolicyComponent implements OnInit {
         console.error('Error al obtener las polizas:', error);
       }
     );
+  }
+
+  openEditDialog(data: policyData): void {
+    this.dialog.open(AppEditPolicyComponent, {
+      width: '600px',
+      maxHeight: '500px',
+      data: data,
+    });
   }
 
   createPolicy() {

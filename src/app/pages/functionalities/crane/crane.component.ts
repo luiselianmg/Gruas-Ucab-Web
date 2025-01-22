@@ -9,9 +9,14 @@ import { CommonModule } from '@angular/common';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { HasRoleDirective } from '../../../directives/has-role.directive';
+
 import { craneData } from 'src/app/domain/crane.domain';
+import { userData } from 'src/app/domain/user.domain';
 
 import { ApiCraneService } from 'src/app/services/crane.service';
+import { ApiProviderService } from 'src/app/services/provider.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 interface Type {
   value: string;
@@ -30,12 +35,13 @@ interface Type {
     MatMenuModule,
     MatButtonModule,
     ReactiveFormsModule, 
+    HasRoleDirective
   ],
   templateUrl: './crane.component.html',
 })
 export class AppCraneComponent implements OnInit{
   // Table
-  displayedColumns: string[] = ['brand', 'model', 'plate' ,'year', 'type', 'budget'];
+  displayedColumns: string[] = ['imagePath', 'brand', 'model', 'plate' ,'year', 'type', 'budget'];
   dataSource: craneData[] = [];
 
   // Select
@@ -48,14 +54,22 @@ export class AppCraneComponent implements OnInit{
 
   form: FormGroup;
 
+  provider: userData[] = [];
+  providerOptions: { value: string; viewValue: string }[] = [];
+  selectedProvider: string | null = null;
+
+  userId = this.apiAuthProvider.getUserId();
+
   constructor
   (
     private ApiCraneService: ApiCraneService,
+    private apiProviderService: ApiProviderService,
+    private apiAuthProvider: AuthService,
     private fb: FormBuilder,
     private snackBar: MatSnackBar
   ) {
     this.form = this.fb.group({
-      providerId: ['04eab328-a4bf-42ad-94f6-1a1cbc3bd07c'],
+      providerId: ['', Validators.required],
       brand: ['', Validators.required],
       model: ['', Validators.required],
       plate: ['', Validators.required],
@@ -70,14 +84,34 @@ export class AppCraneComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.loadCrane();
+    const userId = this.apiAuthProvider.getUserId();
+    if (userId) {
+    if (this.apiAuthProvider.isAdmin()) {
+      this.loadCraneAdmin();
+    }else{
+      this.loadCrane(userId);
+    }
+    this.loadProvider();
+  } else {
+    console.error('Error al obtener el id del Proveedor');
+  }
+}
+
+  loadCrane(userId: string): void {
+    this.ApiCraneService.getCraneByProvider(userId).subscribe((data: craneData[]) => {
+      this.dataSource = data;
+      console.log('Gruas de Proveedor:', this.dataSource);
+    },
+    (error) => {
+      console.error('Error al obtener las gruas de proveedor:', error);
+    }
+    );
   }
 
-  loadCrane(): void {
-    this.ApiCraneService.getCranes().subscribe(
-      (data: craneData[]) => {
+  loadCraneAdmin(): void {
+    this.ApiCraneService.getCranes().subscribe((data) => {
         this.dataSource = data;
-        console.log('Gruas:', this.dataSource);
+        console.log('Gruas de Administrador:', this.dataSource);
       },
       (error) => {
         console.error('Error al obtener las gruas:', error);
@@ -85,9 +119,20 @@ export class AppCraneComponent implements OnInit{
     );
   }
 
+  loadProvider(): void {
+    this.apiProviderService.getUser().subscribe((users) => {
+      this.provider = users.filter(user => user.role === 'provider');
+      this.providerOptions = this.provider.map((user) => ({
+        value: user.id as string,
+        viewValue: user.name,
+      }));
+    });
+  }
+// TODO: Error con la placa
   createCrane(): void {
+    console.log('From', this.form.value);
     const newCrane: craneData = {
-      providerId: this.form.value.providerId,
+      providerId: this.form.value.providerId || this.apiAuthProvider.getUserId(),
       brand: this.form.value.brand,
       model: this.form.value.model,
       plate: this.form.value.plate,
@@ -102,10 +147,13 @@ export class AppCraneComponent implements OnInit{
         this.snackBar.open('Se creo la grua exitosamente', 'Cerrar', {
           duration: 3000
         });
-        this.loadCrane();
+        window.location.reload();
       },
       (error) => {
         console.error('Error al crear la grua:', error);
+        this.snackBar.open('Error al crear la grua', 'Cerrar', {
+          duration: 3000
+        });
       }
     );
   }
@@ -113,13 +161,11 @@ export class AppCraneComponent implements OnInit{
   getImagePath(type: string): string {
     switch (type) {
       case 'light':
-        return 'assets/images/light.png';
+        return '/assets/images/crane/ligera.png';
       case 'medium':
-        return 'assets/images/medium.png';
-      case 'heavy':
-        return 'assets/images/heavy.png';
+        return '/assets/images/crane/mediana.png';
       default:
-        return 'assets/images/default.png';
+        return '/assets/images/crane/pesada.png';
     }
   }
 

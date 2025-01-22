@@ -16,6 +16,8 @@ import { ApiOrderService } from '../../services/order.service';
 import { AppManualComponent } from '../manual/manual.component';
 import { AppAutomaticComponent } from '../automatic/automatic.component';
 
+// TODO: Editar Estado de las Ordenes
+
 @Component({
   selector: 'app-recent-orders',
   standalone: true,

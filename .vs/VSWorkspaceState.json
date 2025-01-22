@@ -4,10 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\automatic",
-    "\\src\\app\\components\\manual",
-    "\\src\\app\\pages"
+    "\\src\\app\\components\\edit",
+    "\\src\\app\\components\\edit\\policy",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\functionalities",
+    "\\src\\app\\pages\\functionalities\\policy",
+    "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\components\\automatic\\automatic.component.ts",
+  "SelectedNode": "\\src\\app\\services\\policy.service.ts",
   "PreviewInSolutionExplorer": false
 }

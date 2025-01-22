@@ -49,4 +49,46 @@ export class ApiPolicyService {
         catchError(() => of(false))
       );
   }
+  
+  updatePolicy(
+    id: string,
+    name?: string,
+    monetaryCoverage?: number,
+    kmCoverage?: number,
+    baseKmPrice?: number
+  ): Observable<boolean> {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const body: any = {
+      name,
+      monetaryCoverage,
+      kmCoverage,
+      baseKmPrice,
+    };
+
+    // Eliminar campos vacíos o nulos
+    Object.keys(body).forEach(key => {
+      if (body[key] === undefined || body[key] === null || body[key] === '') {
+        delete body[key];
+      }
+    });
+
+    console.log('Datos enviados en la solicitud PATCH:', body);
+    return this.http
+      .patch<boolean>(
+        `${this.apiUrl}/orders-ms/policy/update/${id}`,
+        body,
+        { headers }
+      )
+      .pipe(
+        map((response) => {
+          console.log('Response from backend:', response);
+          return true;
+        }),
+        catchError((error) => {
+          console.error('Error en la solicitud PATCH:', error);
+          return of(false);
+        })
+      );
+  }
 }

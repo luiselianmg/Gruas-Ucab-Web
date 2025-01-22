@@ -17,10 +17,11 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/users-ms/auth/login`, { email, password }).pipe(
       map(response => {
         console.log('Response from backend:', response);
-        if (response.token && response.user.name && response.user.role) {
+        if (response.token && response.user.name && response.user.role && response.user.userId) {
           localStorage.setItem('token', response.token);
           localStorage.setItem('name', response.user.name);
           localStorage.setItem('role', response.user.role);
+          localStorage.setItem('id', response.user.userId);
           console.log('Token stored in localStorage:', response.token);
           return true;
         }
@@ -34,6 +35,7 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('name');
     localStorage.removeItem('role');
+    localStorage.removeItem('id');
     console.log('Logout successfully');
     this.router.navigate(['/authentication/login']);
   }
@@ -52,5 +54,13 @@ export class AuthService {
 
   getToken(): string | null {
     return localStorage.getItem('token');
+  }
+  
+  getUserId(): string | null {
+    return localStorage.getItem('id');
+  }
+
+  isAdmin(): boolean {
+    return localStorage.getItem('role') === 'admin';
   }
 }

@@ -102,6 +102,14 @@ export class ApiOrderService {
         headers,
       });
     }
+
+    getConductorByProvider(id: string): Observable<conductorData[]> {
+      const token = this.authService.getToken();
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      return this.http.get<conductorData[]>(`${this.apiUrl}/providers-ms/provider/conductors/${id}`, {
+        headers,
+      });
+    }
   
     createConductor(conductor: conductorAux): Observable<conductorAux> {
       const token = this.authService.getToken();

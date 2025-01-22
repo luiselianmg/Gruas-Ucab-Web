@@ -1,6 +1,6 @@
 <mat-card class="cardWithShadow">
   <mat-card-content>
-    
+    <!-- TODO: Agreegar Columna de nombre de proveedor -->
     <mat-card-title>Gruas</mat-card-title>
     <mat-card-subtitle class="mat-body-1">Lista de Gruas</mat-card-subtitle>
 
@@ -156,36 +156,50 @@
     <mat-card-title class="m-b-0">Crear Grua</mat-card-title>
   </mat-card-header>
   <mat-card-content class="b-t-1">
-    <form>
+
+    <form [formGroup]="form" (ngSubmit)="createCrane()" class="">
       <div class="row">
+        <div class="col-lg-6" *appHasRole="['admin']">
+          <mat-label class="f-w-600 m-b-8 d-block" >Nombre del Proveedor</mat-label>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-select [(value)]="selectedProvider" formControlName="providerId">
+              <mat-option *ngFor="let data of provider;" [value]="data.id">{{ data.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
         <div class="col-lg-6">
           <mat-label class="f-w-600 m-b-8 d-block">Marca</mat-label>
           <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput formControlName="brand" placeholder="marca" />
+            <input matInput formControlName="brand" placeholder="Marca del vehiculo" />
           </mat-form-field>
         </div>
+  
         <div class="col-lg-6">
           <mat-label class="f-w-600 m-b-8 d-block">Modelo</mat-label>
           <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput formControlName="model" placeholder="modelo" />
+            <input matInput formControlName="model" placeholder="Modelo del vehiculo" />
           </mat-form-field>
         </div>
+
         <div class="col-lg-6">
           <mat-label class="f-w-600 m-b-8 d-block">Placa</mat-label>
           <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput formControlName="plate" placeholder="placa" />
+            <input matInput formControlName="plate" placeholder="Placa del vehiculo" />
           </mat-form-field>
         </div>
+
         <div class="col-lg-6">
           <mat-label class="f-w-600 m-b-8 d-block">Año</mat-label>
           <mat-form-field appearance="outline" class="w-100" color="primary">
             <input matInput formControlName="year" type="number" placeholder="2025" />
           </mat-form-field>
         </div>
+
         <div class="col-lg-6">
           <mat-label class="f-w-600 m-b-8 d-block">Tipo</mat-label>
           <mat-form-field appearance="outline" class="w-100">
-            <mat-select [(value)]="selectedType">
+            <mat-select [(value)]="selectedType" formControlName="type">
               <mat-option *ngFor="let option of type" [value]="option.value">
                 {{ option.viewValue }}
               </mat-option>
