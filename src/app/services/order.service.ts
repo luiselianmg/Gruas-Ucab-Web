@@ -130,4 +130,74 @@ export class ApiOrderService {
         );
     }
 
+    // Estados de las ordenes
+    cancelOrder(id: string): Observable<any> {
+      const token = this.authService.getToken();
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    
+      return this.http
+        .patch(`${this.apiUrl}/orders-ms/order/cancel/${id}`, {}, { headers })
+        .pipe(
+          catchError((error: any) => {
+            console.error('Error en la actualizacion del estatus: ', error);
+            if (error.error && error.error.errors) {
+              console.error('Validation errors:', error.error.errors);
+            }
+            return throwError(error);
+          })
+        );
+    }
+
+    
+    processOrder(id: string): Observable<any> {
+      const token = this.authService.getToken();
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    
+      return this.http
+        .patch(`${this.apiUrl}/orders-ms/order/start/${id}`, {}, { headers })
+        .pipe(
+          catchError((error: any) => {
+            console.error('Error en la actualizacion del estatus: ', error);
+            if (error.error && error.error.errors) {
+              console.error('Validation errors:', error.error.errors);
+            }
+            return throwError(error);
+          })
+        );
+    }
+
+    finalizeOrder(id: string): Observable<any> {
+      const token = this.authService.getToken();
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    
+      return this.http
+        .patch(`${this.apiUrl}/orders-ms/order/finish/${id}`, {}, { headers })
+        .pipe(
+          catchError((error: any) => {
+            console.error('Error en la actualizacion del estatus: ', error);
+            if (error.error && error.error.errors) {
+              console.error('Validation errors:', error.error.errors);
+            }
+            return throwError(error);
+          })
+        );
+    }
+
+    payOrder(id: string): Observable<any> {
+      const token = this.authService.getToken();
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    
+      return this.http
+        .patch(`${this.apiUrl}/orders-ms/order/pay/${id}`, {}, { headers })
+        .pipe(
+          catchError((error: any) => {
+            console.error('Error en la actualizacion del estatus: ', error);
+            if (error.error && error.error.errors) {
+              console.error('Validation errors:', error.error.errors);
+            }
+            return throwError(error);
+          })
+        );
+    }
+
 }

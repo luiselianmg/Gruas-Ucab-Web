@@ -3,6 +3,7 @@ import { MaterialModule } from 'src/app/material.module';
 import { TablerIconsModule } from 'angular-tabler-icons';
 import { CostsService } from '../../../services/cost.service';
 import { CommonModule } from '@angular/common';
+
 import { ExtraCostData } from 'src/app/domain/extra-cost.domain';
 
 import { MatDialogModule } from '@angular/material/dialog';
@@ -33,8 +34,10 @@ export class AppCostsComponent implements OnInit {
   form: FormGroup;
   costs: ExtraCostData[] = [];
 
-  
-  constructor(private costsService: CostsService, private dialog: MatDialog) {
+  constructor(
+    private costsService: CostsService, 
+    private dialog: MatDialog
+  ) {
     this.form = new FormGroup({
       description: new FormControl('', [Validators.required]),
       defaultPrice: new FormControl('', [Validators.required]),

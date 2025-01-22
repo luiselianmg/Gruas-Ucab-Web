@@ -23,10 +23,13 @@
         <mat-card class="order-card cardWithShadow col-lg-4">
           <mat-card-title class="m-l-20 m-t-20" style="font-weight: bolder; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
             <mat-icon color="primary">navigation</mat-icon> Orden #{{ element.orderNumber }}
-            <span class="m-l-auto" style="font-weight: light; color: #dbc500; font-size: 1rem;">
+            <span class="m-l-auto" style="font-weight: light; color: #ffc800; font-size: 1rem;">
               {{ element.orderStatus }}
             </span>
           </mat-card-title>
+          <button mat-icon-button *ngIf="element.orderStatus !== 'por asignar' && element.orderStatus !== 'cancelado' && element.orderStatus !== 'pagado'  && element.orderStatus !== 'por aceptar'" (click)="openEditDialog(element)" style="margin-left: auto; color: #ff6f00;">
+            <mat-icon>swap_horiz</mat-icon>
+          </button>
           <mat-card-subtitle class="m-l-20 m-t-20" style="font-weight: bold; color: #ccc; font-size: .8rem;">
             {{ element.orderDate | date: 'dd/MM HH:mm' }}
           </mat-card-subtitle>
@@ -45,8 +48,8 @@
             </button>
           </mat-card-content>
           <mat-card-actions *ngIf="element.orderStatus === 'por asignar'" style=" margin-top: auto;
-            display: flex;
-            justify-content: space-between;">
+          display: flex;
+          justify-content: space-between;">
             <button mat-raised-button color="primary" class="manual-button m-r-auto" (click)="openManualDialog(element)">
               Manual
             </button>

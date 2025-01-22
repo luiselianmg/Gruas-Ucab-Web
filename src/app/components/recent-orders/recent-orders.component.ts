@@ -15,6 +15,7 @@ import { ApiOrderService } from '../../services/order.service';
 
 import { AppManualComponent } from '../manual/manual.component';
 import { AppAutomaticComponent } from '../automatic/automatic.component';
+import { AppEditOrderComponent } from '../edit/order/edit-order.component';
 
 // TODO: Editar Estado de las Ordenes
 
@@ -35,7 +36,15 @@ export class AppRecentOrdersComponent {
   currentPage: number = 0;
   pageSize: number = 4;
   selectedStatus: string = '';
-  orderStatuses: string[] = ["por asignar", "por aceptar", "aceptado", "localizado", "en proceso", "finalizado", "pagado", "cancelado"];
+  orderStatuses: string[] = [
+    "por asignar", 
+    "por aceptar", 
+    "aceptado", 
+    "localizado", 
+    "en proceso", 
+    "finalizado", 
+    "pagado", 
+    "cancelado"];
 
   conductors: { [key: string]: conductorData } = {};
 
@@ -121,6 +130,14 @@ export class AppRecentOrdersComponent {
 
   openExtraCostDialog(order: orderAllData): void {
     this.dialog.open(AppExtraCostComponent, {
+      width: '600px',
+      maxHeight: '500px',
+      data: order,
+    });
+  }
+
+  openEditDialog(order: orderAllData): void {
+    this.dialog.open(AppEditOrderComponent, {
       width: '600px',
       maxHeight: '500px',
       data: order,

@@ -5,8 +5,11 @@
     "\\src\\app",
     "\\src\\app\\components",
     "\\src\\app\\components\\add-cost",
+    "\\src\\app\\components\\edit",
+    "\\src\\app\\components\\edit\\order",
+    "\\src\\app\\components\\recent-orders",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\services\\order.service.ts",
+  "SelectedNode": "\\src\\app\\components\\recent-orders\\recent-orders.component.html",
   "PreviewInSolutionExplorer": false
 }

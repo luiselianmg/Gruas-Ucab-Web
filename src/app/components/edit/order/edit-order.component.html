@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Editar Orden</h2>
+<mat-dialog-content>
+  <p>¿Qué acción desea realizar con la orden #{{ data.orderNumber }}?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button *ngIf="data.orderStatus == 'localizado' || data.orderStatus == 'en proceso'" (click)="onCancelOrder(data)" color="warn" class="m-r-4">Cancelar Orden</button>
+  <button *ngIf="data.orderStatus == 'localizado'" mat-flat-button (click)="onProcessOrder(data)" color="primary">Poner en Proceso</button>
+  <button *ngIf="data.orderStatus === 'en proceso'" mat-flat-button (click)="onFinalizeOrder(data)" color="primary">Finalizar Orden</button>
+  <button *ngIf="data.orderStatus === 'finalizado'" mat-flat-button (click)="onPayOrder(data)" color="primary">Marcar como Pagada</button>
+</mat-dialog-actions>
