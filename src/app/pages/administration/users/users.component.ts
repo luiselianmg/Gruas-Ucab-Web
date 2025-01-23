@@ -48,7 +48,6 @@ interface Status {
 })
 export class AppUsersComponent implements OnInit {
   
-  // Imagenes
   imagePaths: string[] = [
     'assets/images/profile/user-1.jpg',
     'assets/images/profile/user-2.jpg',

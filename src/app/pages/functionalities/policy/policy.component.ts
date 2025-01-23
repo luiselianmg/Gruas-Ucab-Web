@@ -33,6 +33,18 @@ import { AppEditPolicyComponent } from 'src/app/components/edit/policy/edit-poli
   templateUrl: './policy.component.html',
 })
 export class AppPolicyComponent implements OnInit {
+  
+  imagePaths: string[] = [
+    'assets/images/policy/policy-1.png',
+    'assets/images/policy/policy-2.png',
+    'assets/images/policy/policy-3.png',
+    'assets/images/policy/policy-4.png',
+  ];
+
+  getImagePath(index: number): string {
+    return this.imagePaths[index % this.imagePaths.length];
+  }
+
   // Table
   displayedColumns: string[] = [
     'name',
@@ -85,6 +97,7 @@ export class AppPolicyComponent implements OnInit {
     });
   }
 
+  // TODO: Falta mensaje de success
   createPolicy() {
     if (this.form.valid) {
       this.apiPolicyService
@@ -99,6 +112,7 @@ export class AppPolicyComponent implements OnInit {
             this.apiPolicyService.getPolicy().subscribe((data) => {
               this.dataSource = data;
             });
+            window.location.reload();
           }
         });
     }

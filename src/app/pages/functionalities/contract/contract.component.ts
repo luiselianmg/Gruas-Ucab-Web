@@ -34,6 +34,18 @@ import { ApiPolicyService } from 'src/app/services/policy.service';
   templateUrl: './contract.component.html',
 })
 export class AppContractComponent {
+
+  imagePaths: string[] = [
+    'assets/images/contract/contract-1.png',
+    'assets/images/contract/contract-2.png',
+    'assets/images/contract/contract-3.png',
+    'assets/images/contract/contract-4.png',
+  ];
+
+  getImagePath(index: number): string {
+    return this.imagePaths[index % this.imagePaths.length];
+  }
+
   // Table
   displayedColumns: string[] = ['contractNumber', 'expirationDate'];
   dataSource: contractData[] = [];
@@ -115,7 +127,7 @@ export class AppContractComponent {
         this.snackBar.open('Se creo el contrato exitosamente', 'Cerrar', {
           duration: 3000
         });
-        this.loadContract();
+        window.location.reload();
       },
       (error) => {
         console.error('Error al crear contrato:', error);

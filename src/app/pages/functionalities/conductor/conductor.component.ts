@@ -54,7 +54,6 @@ export class AppConductorComponent implements OnInit {
     'name',
     'assignedCrane',
     'isActive',
-    'budget',
   ];
   // TODO: Filtrado para que la grua que segun el proveedor que se seleccione solo salgan las gruas asociadas a ese proveedor
   form: FormGroup;
@@ -91,7 +90,7 @@ export class AppConductorComponent implements OnInit {
       dni: ['', Validators.required],
       name: ['', Validators.required],
       location: ['10.482110,-66.862813'],
-      image: ['../../../../assets/images/user-4.png'],
+      image: ['/assets/images/conductor.png'],
       craneId: ['', Validators.required],
     });
   }

@@ -53,9 +53,13 @@ export class CostsService {
     const token = this.authService.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     const body: any = {
-      description,
-      id,
-      price,
+      extraCosts: [
+        {
+          description,
+          id,
+          price,
+        }
+      ]
     };
     console.log('Datos enviados en la solicitud PATCH:', body);
     return this.http

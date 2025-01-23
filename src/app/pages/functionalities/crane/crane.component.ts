@@ -41,7 +41,7 @@ interface Type {
 })
 export class AppCraneComponent implements OnInit{
   // Table
-  displayedColumns: string[] = ['imagePath', 'brand', 'model', 'plate' ,'year', 'type', 'budget'];
+  displayedColumns: string[] = ['imagePath', 'brand', 'model', 'plate' ,'year', 'type'];
   dataSource: craneData[] = [];
 
   // Select

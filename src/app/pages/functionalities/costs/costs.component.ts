@@ -71,6 +71,7 @@ export class AppCostsComponent implements OnInit {
             this.costsService.getCosts().subscribe((data) => {
               this.costs = data;
             });
+            window.location.reload();
           }
         });
     }

@@ -27,7 +27,7 @@
               {{ element.orderStatus }}
             </span>
           </mat-card-title>
-          <button mat-icon-button *ngIf="element.orderStatus !== 'por asignar' && element.orderStatus !== 'cancelado' && element.orderStatus !== 'pagado'  && element.orderStatus !== 'por aceptar'" (click)="openEditDialog(element)" style="margin-left: auto; color: #ff6f00;">
+          <button mat-icon-button *ngIf="element.orderStatus !== 'por asignar' && element.orderStatus !== 'cancelado' && element.orderStatus !== 'pagado'  && element.orderStatus !== 'por aceptar' && element.orderStatus !== 'aceptado'" (click)="openEditDialog(element)" style="margin-left: auto; color: #ff6f00;">
             <mat-icon>swap_horiz</mat-icon>
           </button>
           <mat-card-subtitle class="m-l-20 m-t-20" style="font-weight: bold; color: #ccc; font-size: .8rem;">

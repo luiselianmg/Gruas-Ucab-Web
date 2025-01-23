@@ -57,7 +57,7 @@ export class AppProvidersComponent implements OnInit {
         this.form = this.fb.group({
           provider: [null, Validators.required],
           rif: ['', Validators.required],
-          image: ['../../../../assets/images/profile/user-3.jpg'],
+          image: ['/assets/images/profile/user-3.jpg'],
         });
     }
 
@@ -112,13 +112,5 @@ export class AppProvidersComponent implements OnInit {
         }
       );
     }
-
-    onFileSelected(event: Event): void {
-      const input = event.target as HTMLInputElement;
-    
-      if (input.files && input.files.length > 0) {
-        const file = input.files[0];
-        console.log('Archivo seleccionado:', file);    
-      }
-    }
 }
+
