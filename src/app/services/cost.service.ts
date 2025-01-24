@@ -63,21 +63,22 @@ export class CostsService {
     };
     console.log('Datos enviados en la solicitud PATCH:', body);
     return this.http
-      .patch<any>(`${this.apiUrl}/orders-ms/order/add-extra-costs/${orderId}`, body, { headers })
+      .patch(`${this.apiUrl}/orders-ms/order/add-extra-costs/${orderId}`, body, { headers, responseType: 'text' })
       .pipe(
         map((response) => {
           console.log('Response from backend:', response);
-          return true;
+          return response;
         }),
         catchError((error) => {
           console.error('Error en la solicitud PATCH:', error);
           if (error.error && error.error.errors) {
             console.error('Errores de validación:', error.error.errors);
           }
-          return of(false);
+          return throwError(error);
         })
       );
   }
+
 
   updateCost(
     id: string,
@@ -99,7 +100,7 @@ export class CostsService {
 
     console.log('Datos enviados en la solicitud PATCH:', body);
     return this.http
-      .patch<boolean>(`${this.apiUrl}/orders-ms/extra-cost/update/${id}`, body, { headers })
+      .patch(`${this.apiUrl}/orders-ms/extra-cost/update/${id}`, body, { headers, responseType: 'text' })
       .pipe(
         map((response) => {
           console.log('Response from backend:', response);
@@ -111,6 +112,7 @@ export class CostsService {
         })
       );
   }
+
 
 }
 

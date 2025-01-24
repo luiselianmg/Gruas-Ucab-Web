@@ -8,20 +8,18 @@
         <div class="table-responsive m-t-30">
             <table mat-table [dataSource]="dataSource" class="w-100">
                 <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef class="f-w-600 f-s-14 mat-subtitle-1 p-l-0">
-                        Nombre
-                    </th>
-                    <td mat-cell *matCellDef="let element" class="p-l-0">
-                        <div class="d-flex align-items-center">
-                            <img [src]="'../../../assets/images/department/image.png'" alt="dept" width="48" class="rounded" />
-                            <div class="m-l-16">
-                                <h6 class="f-s-14 mat-subtitle-1 f-w-600">
-                                    {{ element.name }}
-                                </h6>
-                            </div>
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 mat-subtitle-1 f-s-14">Nombre</th>
+                    <td mat-cell *matCellDef="let element; let i = index" class="mat-body-1">
+                      <div style="display: flex; align-items: center;">
+                        <img [src]="getImagePath(i)" alt="users" width="60" class="rounded" style="margin-right: 16px;" />
+                        <div>
+                          <h6 class="mat-body-1 f-s-16 m-b-4">
+                            <span class="text-dark f-w-600">{{ element.name | titlecase }} </span>
+                          </h6>
                         </div>
+                      </div>
                     </td>
-                </ng-container>
+                  </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

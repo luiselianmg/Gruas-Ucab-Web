@@ -36,19 +36,19 @@ export class AppEditOrderComponent {
     this.orderService.cancelOrder(data.id).subscribe((success) => {
       if (success) {
         this.snackBar.open('Se cancelo la orden exitosamente', 'Cerrar', {
-          duration: 5000
+          duration: 50000
         });
         window.location.reload();
       } else {
         this.snackBar.open('Error al cancelar la orden', 'Cerrar', {
-          duration: 3000
+          duration: 50000
         });
       }
     },
       (error) => {
         console.error('Error al cancelar la orden: ', error);
         this.snackBar.open('Error al cancelar la orden', 'Cerrar', {
-          duration: 3000
+          duration: 50000
         });
       }
     );
@@ -58,19 +58,19 @@ export class AppEditOrderComponent {
     this.orderService.processOrder(data.id).subscribe((success) => {
       if (success) {
         this.snackBar.open('La orden esta en proceso', 'Cerrar', {
-          duration: 5000
+          duration: 50000
         });
         window.location.reload();
       } else {
         this.snackBar.open('Error al colocar la orden en proceso', 'Cerrar', {
-          duration: 3000
+          duration: 50000
         });
       }
     },
       (error) => {
         console.error('Error al colocar la orden en proceso: ', error);
         this.snackBar.open('Error al colocar la orden en proceso', 'Cerrar', {
-          duration: 3000
+          duration: 50000
         });
       }
     );
@@ -80,19 +80,19 @@ export class AppEditOrderComponent {
     this.orderService.finalizeOrder(data.id).subscribe((success) => {
       if (success) {
         this.snackBar.open('La orden se finalizo correctamente', 'Cerrar', {
-          duration: 5000
+          duration: 50000
         });
         window.location.reload();
       } else {
         this.snackBar.open('Error al finalizar la orden', 'Cerrar', {
-          duration: 3000
+          duration: 50000
         });
       }
     },
       (error) => {
         console.error('Error al finalizar la orden: ', error);
         this.snackBar.open('Error al finalizar la orden', 'Cerrar', {
-          duration: 3000
+          duration: 50000
         });
       }
     );
@@ -101,20 +101,20 @@ export class AppEditOrderComponent {
   onPayOrder(data: orderAllData): void {
     this.orderService.payOrder(data.id).subscribe((success) => {
       if (success) {
-        this.snackBar.open('La marco como pagada', 'Cerrar', {
-          duration: 5000
+        this.snackBar.open('La orden se marco como pagada', 'Cerrar', {
+          duration: 50000
         });
         window.location.reload();
       } else {
         this.snackBar.open('Error marcar la orden como pagada', 'Cerrar', {
-          duration: 3000
+          duration: 50000
         });
       }
     },
       (error) => {
         console.error('Error marcar la orden como pagada: ', error);
         this.snackBar.open('Error marcar la orden como pagada', 'Cerrar', {
-          duration: 3000
+          duration: 50000
         });
       }
     );

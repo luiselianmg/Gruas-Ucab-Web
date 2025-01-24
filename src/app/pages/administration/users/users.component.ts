@@ -70,6 +70,11 @@ export class AppUsersComponent implements OnInit {
   // Formulario de creación de usuario
   users: userData[] = [];
 
+  getDepartmentName(departmentId: string): string {
+    const department = this.dept.find(dept => dept.id === departmentId);
+    return department ? department.name : 'Unknown';
+  }
+
   // Select
   role: Role[] = [
     {value: 'admin', viewValue: 'Administrador'},
@@ -142,6 +147,26 @@ export class AppUsersComponent implements OnInit {
       }
     );
   }
+
+  toggleUserStatus(user: userData): void {
+    const updatedStatus = !user.isActive;
+    this.apiUserService.patchUserStatus(user.id!, { isActive: updatedStatus }).subscribe(
+      (response) => {
+        user.isActive = updatedStatus;
+        this.snackBar.open('Estatus Actualizado Satisfactoriamente.', 'Close', {
+          duration: 50000,
+        });
+      },
+      (error) => {
+        console.error('Error Actualizando el Estatus', error);
+        this.snackBar.open('Error Actualizando el Estatus.', 'Close', {
+          duration: 50000,
+        });
+      }
+    );
+  }
+
+
 
   openEditDialog(user: userData): void {
     this.dialog.open(AppEditUserComponent, {

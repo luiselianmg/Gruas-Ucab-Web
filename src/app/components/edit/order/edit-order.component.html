@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>Editar Orden</h2>
 <mat-dialog-content>
-  <p>¿Qué acción desea realizar con la orden #{{ data.orderNumber }}?</p>
+  <p>¿Qué acción desea realizar con la orden <span style="color:tomato">#{{ data.orderNumber }}?</span></p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-stroked-button *ngIf="data.orderStatus == 'localizado' || data.orderStatus == 'en proceso'" (click)="onCancelOrder(data)" color="warn" class="m-r-4">Cancelar Orden</button>

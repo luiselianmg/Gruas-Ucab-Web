@@ -25,7 +25,7 @@
           <td mat-cell *matCellDef="let element" class="mat-body-1">
             <h6 class="mat-body-1 f-s-16 m-b-4">
               <span class="text-dark f-w-600">{{ element.phone }} </span>
-            </h6>          
+            </h6>
           </td>
         </ng-container>
 
@@ -33,8 +33,8 @@
           <th mat-header-cell *matHeaderCellDef class="f-w-600 mat-subtitle-1 f-s-14">Departamento</th>
           <td mat-cell *matCellDef="let element" class="mat-body-1">
             <h6 class="mat-body-1 f-s-16 m-b-4">
-              <span class="text-dark f-w-600">{{ element.department }} </span>
-            </h6>          
+              <span class="text-dark f-w-600">{{ getDepartmentName(element.department) }} </span>
+            </h6>
           </td>
         </ng-container>
 
@@ -43,7 +43,7 @@
           <td mat-cell *matCellDef="let element" class="mat-body-1">
             <h6 class="mat-body-1 f-s-16 m-b-4">
               <span class="text-dark f-w-600">{{ element.role }} </span>
-            </h6>          
+            </h6>
           </td>
         </ng-container>
 
@@ -58,15 +58,10 @@
         <ng-container matColumnDef="budget">
           <th mat-header-cell *matHeaderCellDef class="f-w-600 mat-subtitle-1 f-s-14"></th>
           <td mat-cell *matCellDef="let element" class="mat-body-1">
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="openEditDialog(element)">
-                <mat-icon>edit</mat-icon>
-                <span>Edit</span>
-              </button>
-            </mat-menu>
+            <mat-slide-toggle [checked]="element.isActive"
+                              (change)="toggleUserStatus(element)"
+                              color="primary">
+            </mat-slide-toggle>
           </td>
         </ng-container>
 
@@ -173,16 +168,6 @@
             </mat-error>
           </mat-form-field>
         </div>
-        <!-- <div class="col-lg-6">
-          <mat-label class="f-w-600 m-b-8 d-block">Estado</mat-label>
-          <mat-radio-group [(ngModel)]="newUser.isActive" name="isActive" required>
-            <mat-radio-button [value]="true">Activo</mat-radio-button>
-            <mat-radio-button [value]="false">Inactivo</mat-radio-button>
-          </mat-radio-group>
-          <mat-error *ngIf="userForm.submitted && newUser.isActive === null">
-            El estado es requerido.
-          </mat-error>
-        </div> -->
       </div>
       <div class="m-t-12">
         <button mat-flat-button color="primary" class="m-r-8" type="submit">

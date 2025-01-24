@@ -19,6 +19,18 @@ import { departmentData } from '../../domain/department.domain';
   templateUrl: './departments.component.html',
 })
 export class AppDepartmentsComponent implements OnInit {
+  
+  imagePaths: string[] = [
+    'assets/images/department/department-1.png',
+    'assets/images/department/department-2.png',
+    'assets/images/department/department-3.png',
+    'assets/images/department/department-4.png'
+  ];
+
+  getImagePath(index: number): string {
+    return this.imagePaths[index % this.imagePaths.length];
+  }
+
   displayedColumns: string[] = ['name'];
   dataSource: departmentData[] = [];
 

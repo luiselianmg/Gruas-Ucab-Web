@@ -3,6 +3,6 @@
 </mat-card-header>
 
 <mat-card-content>
-  <div> Quiere asignar a <span style="color:tomato">{{ closestConductorName }}</span> a esta orden?</div>
-  <button type="submit" (click)="patchOrder()">Aceptar Conductor</button>
+  <div class="m-t-10 m-b-20">¿Quiere asignar a <span style="color:tomato">{{ closestConductorName }}</span> a esta orden?</div>
+  <button mat-flat-button color="primary" class="m-r-8" type="submit" (click)="patchOrder()">Aceptar Conductor</button>
 </mat-card-content>

@@ -4,12 +4,11 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\add-cost",
-    "\\src\\app\\components\\edit",
-    "\\src\\app\\components\\edit\\order",
-    "\\src\\app\\components\\recent-orders",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\administration",
+    "\\src\\app\\pages\\administration\\users",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\components\\recent-orders\\recent-orders.component.html",
+  "SelectedNode": "\\src\\app\\services\\user.service.ts",
   "PreviewInSolutionExplorer": false
 }

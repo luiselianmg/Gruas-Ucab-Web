@@ -128,7 +128,7 @@ export class AppCraneComponent implements OnInit{
       }));
     });
   }
-// TODO: Error con la placa
+
   createCrane(): void {
     console.log('From', this.form.value);
     const newCrane: craneData = {

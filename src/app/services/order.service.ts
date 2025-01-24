@@ -47,7 +47,7 @@ export class ApiOrderService {
     const token = this.authService.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http
-      .patch(`${this.apiUrl}/orders-ms/order/assign-conductor/${orderId}`, patchData, { headers })
+      .patch(`${this.apiUrl}/orders-ms/order/assign-conductor/${orderId}`, patchData, { headers, responseType: 'text' })
       .pipe(
         catchError((error: any) => {
           console.error('Error al asignar conductor:', error);
@@ -136,7 +136,7 @@ export class ApiOrderService {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     
       return this.http
-        .patch(`${this.apiUrl}/orders-ms/order/cancel/${id}`, {}, { headers })
+        .patch(`${this.apiUrl}/orders-ms/order/cancel/${id}`, {}, { headers, responseType: 'text' })
         .pipe(
           catchError((error: any) => {
             console.error('Error en la actualizacion del estatus: ', error);
@@ -154,7 +154,7 @@ export class ApiOrderService {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     
       return this.http
-        .patch(`${this.apiUrl}/orders-ms/order/start/${id}`, {}, { headers })
+        .patch(`${this.apiUrl}/orders-ms/order/start/${id}`, {}, { headers, responseType: 'text' })
         .pipe(
           catchError((error: any) => {
             console.error('Error en la actualizacion del estatus: ', error);
@@ -171,7 +171,7 @@ export class ApiOrderService {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     
       return this.http
-        .patch(`${this.apiUrl}/orders-ms/order/finish/${id}`, {}, { headers })
+        .patch(`${this.apiUrl}/orders-ms/order/finish/${id}`, {}, { headers, responseType: 'text' })
         .pipe(
           catchError((error: any) => {
             console.error('Error en la actualizacion del estatus: ', error);
@@ -188,7 +188,7 @@ export class ApiOrderService {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     
       return this.http
-        .patch(`${this.apiUrl}/orders-ms/order/pay/${id}`, {}, { headers })
+        .patch(`${this.apiUrl}/orders-ms/order/pay/${id}`, {}, { headers, responseType: 'text' })
         .pipe(
           catchError((error: any) => {
             console.error('Error en la actualizacion del estatus: ', error);

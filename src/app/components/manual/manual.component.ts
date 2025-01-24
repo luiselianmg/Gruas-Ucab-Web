@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { GoogleMapsModule } from '@angular/google-maps';
 
@@ -36,7 +37,8 @@ import { activeConductorData } from 'src/app/domain/activeConductor.domain';
     MatListModule,
     GoogleMapsModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatRadioModule
   ],
   templateUrl: './manual.component.html',
 })
@@ -168,17 +170,17 @@ export class AppManualComponent implements OnInit {
         console.log('Asignación exitosa:', data);
         this.snackBar.open('Se asignó el conductor exitosamente', 'Cerrar', { duration: 3000 });
         window.location.reload();
-      },      (error) => {
+      },
+      (error) => {
         console.error('Error en la asignación:', error);
         if (error.error && error.error.errors) {
           console.error('Errores de validación:', error.error.errors);
-          this.snackBar.open('Error de Validacion: ', error.error.error, {
-            duration: 3000,
-          });
+          this.snackBar.open(`Error de Validacion: ${error.error.error}`, 'Cerrar', { duration: 5000 });
+        } else {
+          this.snackBar.open(`Error: ${error.message}`, 'Cerrar', { duration: 3000 });
         }
       }
     );
-  
     return { conductorAssignedId: conductorId, totalDistance };
   }
   

@@ -31,7 +31,7 @@
             <mat-icon>swap_horiz</mat-icon>
           </button>
           <mat-card-subtitle class="m-l-20 m-t-20" style="font-weight: bold; color: #ccc; font-size: .8rem;">
-            {{ element.orderDate | date: 'dd/MM HH:mm' }}
+            {{ element.orderDate | date: 'dd/MM' }}
           </mat-card-subtitle>
           <mat-card-content>
             <p class="m-t-20 m-b-0" style="font-weight: bolder; font-size: 1.2rem;">
@@ -43,9 +43,14 @@
             <p class="m-t-2" style="font-weight: bold; color: #ccc;">
               Conductor Asignado: {{ conductors[element.conductorAssignedId]?.name || 'Por Asignar' }}
             </p>
-            <button mat-raised-button style="font-weight: bold; color: #ff9d00; background-color: #fff4dd;" (click)="openExtraCostDialog(element)">
-              Ver costos extras
-            </button>
+            <button
+            mat-raised-button
+            style="font-weight: bold; color: #ff9d00; background-color: #fff4dd;"
+            (click)="openExtraCostDialog(element)"
+            *ngIf="element.orderStatus !== 'por asignar' && element.orderStatus !== 'por aceptar' && element.orderStatus !== 'aceptado' "
+          >
+            Ver costos extras
+          </button>
           </mat-card-content>
           <mat-card-actions *ngIf="element.orderStatus === 'por asignar'" style=" margin-top: auto;
           display: flex;

@@ -11,6 +11,8 @@ import { TablerIconsModule } from 'angular-tabler-icons';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatListModule } from '@angular/material/list';
 
 import { FormsModule } from '@angular/forms';
 import { FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
@@ -32,7 +34,9 @@ import { CostsService } from '../../services/cost.service';
     TablerIconsModule,
     MatButtonModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatListModule
   ],
   templateUrl: './add-cost.component.html',
 })

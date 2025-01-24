@@ -64,7 +64,7 @@ export class AppEditCostComponent implements OnInit {
     ).subscribe((success) => {
       if (success) {
         this.snackBar.open('Costo actualizado exitosamente', 'Cerrar', {
-          duration: 5000
+          duration: 100000
         });
         window.location.reload();
       } else {

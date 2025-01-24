@@ -60,19 +60,19 @@ export class AppEditPolicyComponent implements OnInit {
     ).subscribe((success) => {
         if (success) {
           this.snackBar.open('Poliza actualizada exitosamente', 'Cerrar', {
-            duration: 5000
+            duration: 50000
           });
           window.location.reload();
         } else {
           this.snackBar.open('Error al actualizar poliza', 'Cerrar', {
-            duration: 3000
+            duration: 50000
           });
         }
       },
       (error) => {
         console.error('Error al actualizar poliza:', error);
         this.snackBar.open('Error al actualizar poliza', 'Cerrar', {
-          duration: 3000
+          duration: 50000
         });
       }
     );

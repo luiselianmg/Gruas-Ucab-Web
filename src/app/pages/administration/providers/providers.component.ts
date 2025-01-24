@@ -38,7 +38,7 @@ interface isActive {
 })
 export class AppProvidersComponent implements OnInit {
     // Table
-    displayedColumns: string[] = ['imagePath', 'rif', 'name', 'budget'];
+    displayedColumns: string[] = ['imagePath', 'rif', 'name'];
     dataSource: providerData[] = [];
 
     user: userData[] = [];

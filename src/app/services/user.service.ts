@@ -47,4 +47,18 @@ export class ApiUserService {
         })
       );
   }
+
+  patchUserStatus(userId: string, patchData: Partial<userData>): Observable<userData> {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.patch<userData>(`${this.apiUrl}/users-ms/user/${userId}`, patchData, { headers })
+      .pipe(
+        catchError((error) => {
+          console.error('Error al actualizar el estado del usuario:', error);
+          return throwError(error);
+        })
+      );
+  }
+
 }

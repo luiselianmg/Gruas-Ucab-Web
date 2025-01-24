@@ -115,14 +115,14 @@ export class AppRecentOrdersComponent {
   openManualDialog(order: orderAllData): void {
     this.dialog.open(AppManualComponent, {
       width: '600px',
-      maxHeight: '500px',
+      maxHeight: '900px',
       data: order,
     });
   }
 
   openAutomaticDialog(order: orderAllData): void {
     this.dialog.open(AppAutomaticComponent, {
-      width: '600px',
+      width: '400px',
       maxHeight: '500px',
       data: order,
     });
@@ -138,7 +138,7 @@ export class AppRecentOrdersComponent {
 
   openEditDialog(order: orderAllData): void {
     this.dialog.open(AppEditOrderComponent, {
-      width: '600px',
+      width: '400px',
       maxHeight: '500px',
       data: order,
     });

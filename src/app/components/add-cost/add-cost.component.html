@@ -6,11 +6,17 @@
     <div class="row">
       <div class="col-lg-12">
         <mat-label class="f-w-600 m-b-8 d-block m-t-15">Seleccionar Costo</mat-label>
-          <mat-select [(value)]="selectedCost" formControlName="costs">
-            <mat-option *ngFor="let data of costOptions;" [value]="{id: data.value, description: data.viewValue, price: data.price}">
-              {{ data.viewValue }} {{ data.price }}
-            </mat-option>
-          </mat-select>
+          <mat-radio-group formControlName="costs">
+            <mat-list>
+              <ng-container *ngFor="let data of costOptions">
+                <mat-list-item>
+                  <mat-radio-button [value]="{id: data.value, description: data.viewValue, price: data.price}">
+                    <div> {{ data.viewValue }} {{ data.price }} </div>
+                  </mat-radio-button>
+                </mat-list-item>
+              </ng-container>
+            </mat-list>
+          </mat-radio-group>
       </div>
     </div>
     <div class="m-t-15">
@@ -18,4 +24,3 @@
     </div>
   </form>
 </mat-card-content>
-

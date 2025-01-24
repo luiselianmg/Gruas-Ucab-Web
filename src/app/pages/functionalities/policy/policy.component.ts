@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { MatDialogModule } from '@angular/material/dialog';
@@ -59,7 +60,8 @@ export class AppPolicyComponent implements OnInit {
 
   constructor(
     private apiPolicyService: ApiPolicyService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required]),
@@ -97,7 +99,6 @@ export class AppPolicyComponent implements OnInit {
     });
   }
 
-  // TODO: Falta mensaje de success
   createPolicy() {
     if (this.form.valid) {
       this.apiPolicyService
@@ -112,7 +113,14 @@ export class AppPolicyComponent implements OnInit {
             this.apiPolicyService.getPolicy().subscribe((data) => {
               this.dataSource = data;
             });
+            this.snackBar.open('La poliza se creo exitosamente', 'Cerrar', {
+              duration: 50000
+            });
             window.location.reload();
+          }else{
+            this.snackBar.open('Error al crear la poliza', 'Cerrar', {
+              duration: 50000
+            });
           }
         });
     }

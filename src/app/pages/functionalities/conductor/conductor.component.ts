@@ -21,7 +21,7 @@ import { ApiCraneService } from 'src/app/services/crane.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { craneData } from 'src/app/domain/crane.domain';
 
-interface  conductorAux {
+interface conductorAux {
   providerId: string;
   conductorId: string;
   dni: number;
@@ -71,10 +71,15 @@ export class AppConductorComponent implements OnInit {
   selectedUser: string | null = null;
 
   crane: allCraneData[] = [];
-  craneOptions: { value: string; viewValue: string; plate:string }[] = [];
+  craneOptions: { value: string; viewValue: string; plate: string }[] = [];
   selectedCrane: string | null = null;
 
   userId = this.apiAuthProvider.getUserId();
+
+  getCranePlate(craneId: string): string {
+    const crane = this.crane.find(crane => crane.id === craneId);
+    return crane ? crane.plate : 'Unknown';
+  }
 
   constructor(
     private apiOrderService: ApiOrderService,
@@ -129,15 +134,15 @@ export class AppConductorComponent implements OnInit {
 
   loadConductorAdmin(): void {
     this.apiOrderService.getConductors().subscribe((data) => {
-        this.conductor = data;
-        console.log('Conductores de administrador:', this.conductor);
-      },
+      this.conductor = data;
+      console.log('Conductores de administrador:', this.conductor);
+    },
       (error) => {
         console.error('Error al obtener los conductores:', error);
       }
     );
   }
-  
+
   loadProvider(): void {
     this.apiProviderService.getUser().subscribe((users) => {
       this.provider = users.filter(user => user.role === 'provider');
@@ -169,9 +174,9 @@ export class AppConductorComponent implements OnInit {
       }));
       console.log('Gruas de Proveedor:', this.crane);
     },
-    (error) => {
-      console.error('Error al obtener las gruas de proveedor:', error);
-    }
+      (error) => {
+        console.error('Error al obtener las gruas de proveedor:', error);
+      }
     );
   }
 
@@ -222,5 +227,9 @@ export class AppConductorComponent implements OnInit {
       this.form.patchValue({ image: file });
       console.log('File selected:', file);
     }
+  }
+
+  onProviderChange(providerId: string): void {
+    this.loadCrane(providerId);
   }
 }

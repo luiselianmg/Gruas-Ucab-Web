@@ -27,15 +27,15 @@
           <td mat-cell *matCellDef="let element">
             {{ element.name | titlecase }}
           </td>
-        </ng-container> 
+        </ng-container>
 
         <!-- Columna de la Grua -->
         <ng-container matColumnDef="assignedCrane">
           <th mat-header-cell *matHeaderCellDef> Grua </th>
           <td mat-cell *matCellDef="let element">
-            {{ element.assignedCrane }}
+            {{ getCranePlate(element.assignedCrane) }}
           </td>
-        </ng-container>   
+        </ng-container>
 
         <!-- Columna de estatus -->
         <ng-container matColumnDef="isActive">
@@ -87,7 +87,7 @@
         <div class="col-lg-6" *appHasRole="['admin']">
           <mat-label class="f-w-600 m-b-8 d-block">Nombre del Proveedor</mat-label>
           <mat-form-field appearance="outline" class="w-100">
-            <mat-select [(value)]="selectedProvider" formControlName="providerId">
+            <mat-select [(ngModel)]="selectedProvider" formControlName="providerId" (selectionChange)="onProviderChange($event.value)">
               <mat-option *ngFor="let data of provider;" [value]="data.id">{{ data.name }}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -96,7 +96,7 @@
         <div class="col-lg-6">
           <mat-label class="f-w-600 m-b-8 d-block">Grua a Asignar</mat-label>
           <mat-form-field appearance="outline" class="w-100">
-            <mat-select [(value)]="selectedCrane" formControlName="craneId">
+            <mat-select [(ngModel)]="selectedCrane" formControlName="craneId">
               <mat-option *ngFor="let data of craneOptions;" [value]="data.value">{{ data.viewValue }} {{ data.plate }}</mat-option>
             </mat-select>
           </mat-form-field>
