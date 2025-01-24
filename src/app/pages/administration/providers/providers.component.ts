@@ -46,18 +46,18 @@ export class AppProvidersComponent implements OnInit {
     selectedUser: string | null = null;
 
     form: FormGroup;
-    
+
     providerStatus: string[] = ['Activo', 'Inactivo'];
 
     constructor (
       private apiProviderService: ApiProviderService,
       private fb: FormBuilder,
-      private snackBar: MatSnackBar      
+      private snackBar: MatSnackBar
     ) {
         this.form = this.fb.group({
           provider: [null, Validators.required],
           rif: ['', Validators.required],
-          image: ['/assets/images/profile/user-3.jpg'],
+          image: ['assets/images/profile/user-3.jpg'],
         });
     }
 
@@ -88,7 +88,7 @@ export class AppProvidersComponent implements OnInit {
       const { id, name } = this.form.value.provider;
       const rif = this.form.value.rif;
       const image = this.form.value.image;
-  
+
       const newProvider: providerData = {
         id: id,
         name: name,

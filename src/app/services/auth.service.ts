@@ -11,24 +11,46 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
   private apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string): Observable<boolean> {
-    return this.http.post<any>(`${this.apiUrl}/users-ms/auth/login`, { email, password }).pipe(
-      map(response => {
-        console.log('Response from backend:', response);
-        if (response.token && response.user.name && response.user.role && response.user.userId) {
-          localStorage.setItem('token', response.token);
-          localStorage.setItem('name', response.user.name);
-          localStorage.setItem('role', response.user.role);
-          localStorage.setItem('id', response.user.userId);
-          console.log('Token stored in localStorage:', response.token);
-          return true;
-        }
-        return false;
-      }),
-      catchError(() => of(false))
-    );
+    return this.http
+      .post<any>(`${this.apiUrl}/users-ms/auth/login`, { email, password })
+      .pipe(
+        map((response) => {
+          console.log('Response from backend:', response);
+          if (
+            response.token &&
+            response.user.name &&
+            response.user.role &&
+            response.user.userId
+          ) {
+            localStorage.setItem('token', response.token);
+            localStorage.setItem('name', response.user.name);
+            localStorage.setItem('role', response.user.role);
+            localStorage.setItem('id', response.user.userId);
+            console.log('Token stored in localStorage:', response.token);
+            return true;
+          }
+          return false;
+        }),
+        catchError(() => of(false))
+      );
+  }
+
+  forgotPwd(email: string): Observable<boolean> {
+    return this.http
+      .patch<any>(`${this.apiUrl}/users-ms/auth/recover-password`, { email })
+      .pipe(
+        map((response) => {
+          console.log('Response from backend:', response);
+          if (response.success) {
+            return true;
+          }
+          return false;
+        }),
+        catchError(() => of(false))
+      );
   }
 
   logout() {
@@ -55,7 +77,7 @@ export class AuthService {
   getToken(): string | null {
     return localStorage.getItem('token');
   }
-  
+
   getUserId(): string | null {
     return localStorage.getItem('id');
   }
